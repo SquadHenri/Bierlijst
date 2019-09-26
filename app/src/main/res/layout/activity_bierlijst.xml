@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Bierlijst">
+
+    <TextView
+        android:id="@+id/titleBierlijst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="50dp"
+        android:text="Ha! Bier"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/IG_Rowin"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:longClickable="true"
+        android:onClick="rowinBier"
+        android:scaleType="fitStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
+        app:srcCompat="@mipmap/ic_rowin" />
+
+    <EditText
+        android:id="@+id/editTextRowin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
+        tools:text="50" />
+
+    <ImageButton
+        android:id="@+id/IG_Thijs"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="12dp"
+        android:longClickable="true"
+        android:onClick="thijsBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/IG_Rowin"
+        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
+        app:srcCompat="@mipmap/ic_thijs" />
+
+    <ImageButton
+        android:id="@+id/addRowin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:onClick="addRowin"
+        app:layout_constraintStart_toEndOf="@+id/editTextRowin"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/substractRowin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:onClick="substractRowin"
+        app:layout_constraintEnd_toStartOf="@+id/editTextRowin"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <ImageButton
+        android:id="@+id/addThijs"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:onClick="addThijs"
+        app:layout_constraintStart_toEndOf="@+id/editTextThijs"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Thijs"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/substractThijs"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="12dp"
+        android:onClick="substractThijs"
+        app:layout_constraintStart_toEndOf="@+id/addRowin"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Thijs"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <EditText
+        android:id="@+id/editTextThijs"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toEndOf="@+id/substractThijs"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Thijs"
+        tools:text="0" />
+
+    <ImageButton
+        android:id="@+id/IG_Willy"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="12dp"
+        android:longClickable="true"
+        android:onClick="willyBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/IG_Thijs"
+        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
+        app:srcCompat="@mipmap/ic_willy" />
+
+    <ImageButton
+        android:id="@+id/substractWilly"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="12dp"
+        android:onClick="substractWilly"
+        app:layout_constraintStart_toEndOf="@+id/addThijs"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Willy"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <ImageButton
+        android:id="@+id/addWilly"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:onClick="addWilly"
+        app:layout_constraintStart_toEndOf="@+id/editTextWilly"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Willy"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <EditText
+        android:id="@+id/editTextWilly"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toEndOf="@+id/substractWilly"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Willy" />
+
+    <ImageButton
+        android:id="@+id/IG_Sven"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="64dp"
+        android:longClickable="true"
+        android:onClick="svenBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRowin"
+        app:srcCompat="@mipmap/ic_sven" />
+
+    <ImageButton
+        android:id="@+id/substractSven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:onClick="substractSven"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Sven"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <ImageButton
+        android:id="@+id/addSven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:onClick="addSven"
+        app:layout_constraintStart_toEndOf="@+id/editTextSven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Sven"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <EditText
+        android:id="@+id/editTextSven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toEndOf="@+id/substractSven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Sven" />
+
+    <EditText
+        android:id="@+id/editTextEtienne"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toEndOf="@+id/substractEtienne"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Etienne" />
+
+    <ImageButton
+        android:id="@+id/IG_Etienne"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="64dp"
+        android:longClickable="true"
+        android:onClick="etienneBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/IG_Sven"
+        app:layout_constraintTop_toBottomOf="@+id/editTextThijs"
+        app:srcCompat="@android:drawable/ic_menu_manage"
+        tools:srcCompat="@mipmap/ic_etienne" />
+
+    <ImageButton
+        android:id="@+id/substractEtienne"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
+        android:onClick="substractEtienne"
+        app:layout_constraintStart_toEndOf="@+id/addSven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Etienne"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <ImageButton
+        android:id="@+id/addEtienne"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:onClick="addEtienne"
+        app:layout_constraintStart_toEndOf="@+id/editTextEtienne"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Etienne"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/Bier"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="64dp"
+        android:onClick="processBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/IG_Etienne"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWilly"
+        app:srcCompat="@drawable/ic_beer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
