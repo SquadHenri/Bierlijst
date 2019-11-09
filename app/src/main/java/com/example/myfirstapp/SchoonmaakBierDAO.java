@@ -16,8 +16,11 @@ public interface SchoonmaakBierDAO {
     @Query("SELECT * FROM SchoonmaakBier")
     List<SchoonmaakBier> getAllSchoonmaakBier();
 
-    @Query("SELECT * FROM SchoonmaakBier WHERE toReceive LIKE :bewonerReceive ORDER BY bier DESC")
+    @Query("SELECT * FROM SchoonmaakBier WHERE toReceive == :bewonerReceive ORDER BY bier DESC")
     List<SchoonmaakBier> getAllSchoonmaakBierBewonerReceives(String bewonerReceive);
+
+    @Query("SELECT * FROM SchoonmaakBier WHERE toGive == :bewonerToGive ORDER BY bier DESC")
+    List<SchoonmaakBier> getAllSchoonmaakBierBewonerOwesToOthers(String bewonerToGive);
 
     @Insert
     void insert(SchoonmaakBier... schoonmaakBier);
@@ -28,10 +31,33 @@ public interface SchoonmaakBierDAO {
     @Delete
     void delete(SchoonmaakBier schoonmaakBier);
 
-    @Query("UPDATE SchoonmaakBier SET bier = :beers WHERE toReceive LIKE :receiver AND toGive LIKE :giver")
-    public void setBeer(int beers, String receiver, String giver);
+    @Query("UPDATE SchoonmaakBier SET bier = :beers WHERE toReceive == :receiver AND toGive == :giver")
+    void setBeer(int beers, String receiver, String giver);
+
+    @Query("SELECT bier FROM SchoonmaakBier WHERE toReceive == :receiver AND toGive == :giver")
+    int getSBBetweenBewoners(String receiver, String giver);
 
 
-    @Query("SELECT SUM(bier) FROM SchoonmaakBier WHERE toReceive LIKE :receiver")
-    public int getSchoonmaakbierSum(String receiver);
+    @Query("SELECT SUM(bier) FROM SchoonmaakBier WHERE toReceive == :receiver")
+    int getSchoonmaakBiertoReceiveSum(String receiver);
+
+    @Query("SELECT SUM(bier) FROM SchoonmaakBier WHERE toGive == :giver")
+    int getSchoonmaakBiertoGiveSum(String giver);
+
+    @Query("UPDATE SchoonmaakBier SET bier = bier + 1 WHERE toReceive != :giver AND toGive == :giver")
+    void addSchoonmaakbier(String giver);
+
+    @Query("UPDATE SchoonmaakBier SET bier = bier + :value WHERE toReceive != :giver AND toGive == :giver")
+    void addSchoonmaakbier(String giver, int value);
 }
+
+/*
+*
+* BEER STATS WE KEEP TRACK OF:
+* - Currently open schoonmaakbier between all bewoners - This is done by the Schoonmaakbier class
+*
+* This is kept track of by the Bewoners class
+* - All time schoonmaakbier on a single bewoners
+* - All time gestreept bier on a single bewoner(this is when the bewoners has no schoonmaakbier it receives from others)
+* - All gedronken bier, this is all beer you have drank, but not necessarily have to pay for
+* */

@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import androidx.room.Database;
-import androidx.room.PrimaryKey;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
@@ -15,28 +14,32 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 // TODO: backup database
 
 @Database(entities =  {Bewoner.class, SchoonmaakBier.class},
-                        version = 1)
+                        version = 1,
+                        exportSchema = false)
 public abstract class MMDatabase extends RoomDatabase {
 
 
     // The only instance
     private static MMDatabase Database;
 
-    private boolean wasPopulated = false;
-
     public static synchronized MMDatabase getInstance(Context context) {
         if (Database == null) {
             // There is no database yet
             Database = Room.databaseBuilder(context.getApplicationContext(), MMDatabase.class, "db")
+                    .allowMainThreadQueries()
                     .build();
+                    // .allowMainThreadQueries() is a dirty way to be able to get data from my db.
+                    // TODO: switch from allowMainThreadQueries to rxJava. even if its an assload of work with weird syntax
 
-            Database.populateDatabase();
+            Database.populateDatabaseRandomData();
+            Database.printDB();
         }
         return Database;
     }
@@ -44,14 +47,13 @@ public abstract class MMDatabase extends RoomDatabase {
     public abstract BewonerDAO getBewonerDAO();
     public abstract SchoonmaakBierDAO getSchoonmaakBierDAO();
 
-    private synchronized void populateDatabase() {
-        if(wasPopulated == true) {
-            return;
-        } else {
-            wasPopulated = true;
-            AsyncTask.execute(new Runnable() {
-                @Override
-                public void run() {
+    protected synchronized void populateDatabase() {
+
+                    // Dirty way to check if this database already has data. I could not find a good way to do this
+                    List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
+                    if(!listBewoners.isEmpty()) {
+                        return;
+                    }
 
 
                     Log.d("IK BENEEN NIEUWE THREAD", "Ik Ga nu de database vullen met start data");
@@ -59,11 +61,11 @@ public abstract class MMDatabase extends RoomDatabase {
 
                     // Insert bewoners
 
-                    getBewonerDAO().insert(new Bewoner("Willy", "00-00-0000", true, true));
+                    getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
                     getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
                     getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
-                    getBewonerDAO().insert(new Bewoner("vG Tinder", "10-4-1998", true, true));
-                    getBewonerDAO().insert(new Bewoner("vG KVN", "20-11-1997", true, true));
+                    getBewonerDAO().insert(new Bewoner("vG Tinder", "10-4-1998", false, true));
+                    getBewonerDAO().insert(new Bewoner("vG KVN", "20-11-1997", false, true));
 
                     Log.d("Bewoners", "geinstert");
 
@@ -74,38 +76,142 @@ public abstract class MMDatabase extends RoomDatabase {
 
                     Log.d("SchoonmaakBier", "Inserting all relaties");
 
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Willy", "Thijs", 1));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Willy", "Sven", 2));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Willy", "vG Tinder", 3));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Willy", "vG KVN", 4));
 
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Willy", 5));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 6));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG Tinder", 7));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG KVN", 8));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG Tinder", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG KVN", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
 
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Willy", 9));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 10));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG Tinder", 11));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG KVN", 12));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG Tinder", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG KVN", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
 
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Willy", 13));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Thijs", 14));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Sven", 15));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "vG KVN", 16));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Thijs", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Sven", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "vG KVN", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Steven", 0));
 
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Willy", 17));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Thijs", 18));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Sven", 19));
-                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "vG Tinder", 20));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Thijs", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Sven", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "vG Tinder", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Steven", 0));
+
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG Tinder", 0));
+                    getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG KVN", 0));
 
                     Log.d("Schoonmaakbier", "All relaties inserted. ");
 
                     Log.d("Database", "Database populated");
 
-                }
-            });
+    }
+
+    protected synchronized void populateDatabaseRandomData() {
+
+        // Dirty way to check if this database already has data. I could not find a good way to do this
+        List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
+        if(!listBewoners.isEmpty()) {
+            return;
         }
+
+
+        Log.d("IK BENEEN NIEUWE THREAD", "Ik Ga nu de database vullen met start data");
+
+
+        // Insert bewoners
+
+        getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
+        getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
+        getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
+        getBewonerDAO().insert(new Bewoner("vG Tinder", "10-4-1998", false, true));
+        getBewonerDAO().insert(new Bewoner("vG KVN", "20-11-1997", false, true));
+
+        Log.d("Bewoners", "geinstert");
+
+        List<Bewoner> list = getBewonerDAO().getAllBewoners();
+        Log.d("we hebben: ", "" + list.size() + " bewoners");
+
+        // Insert schoonmaakbier relaties
+
+        Log.d("SchoonmaakBier", "Inserting all relaties");
+
+
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG Tinder", 6));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG KVN", 3));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 25));
+
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 12));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG Tinder", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG KVN", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 24));
+
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Thijs", 4));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Sven", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "vG KVN", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Steven", 1));
+
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Thijs", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Sven", 3));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "vG Tinder", 2));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Steven", 4));
+
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 3));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG Tinder", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG KVN", 9));
+
+        Log.d("Schoonmaakbier", "All relaties inserted. ");
+
+        Log.d("Database", "Database populated");
+
+    }
+
+    protected void printDB(){
+
+        Log.d("Printing database", "gl");
+
+        List<Bewoner> bewoners = getBewonerDAO().getAllBewoners();
+
+        // Total beers owed to others
+        Map<String, Integer> sbBeerOwed = new HashMap<>();
+
+        // Total beers to be received
+        Map<String, Integer> sbBeerReceives = new HashMap<>();
+
+        for(Bewoner bewoner : bewoners) {
+            Log.d("Printing sbbier for", bewoner.getNaam());
+            List<SchoonmaakBier> sblist = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(bewoner.getNaam());
+            for(SchoonmaakBier sb : sblist) {
+                Log.d("From" + sb.getToGive(), Integer.toString(sb.getBeer()));
+
+                if(sbBeerReceives.containsKey(bewoner.getNaam())){
+                    sbBeerReceives.put(bewoner.getNaam(), sbBeerReceives.get(bewoner.getNaam())+sb.getBeer());
+                } else {
+                    sbBeerReceives.put(bewoner.getNaam(), sb.getBeer());
+                }
+
+                if(sbBeerOwed.containsKey(sb.getToGive())){
+                    sbBeerOwed.put(sb.getToGive(), sbBeerOwed.get(sb.getToGive())+sb.getBeer());
+                } else {
+                   sbBeerOwed.put(sb.getToGive(), sb.getBeer());
+                }
+
+            }
+        }
+
+
+
+        for(String naam : sbBeerReceives.keySet()){
+            Log.d("RECEIVE AND OWE FOR", naam);
+            Log.d("receive", "ex:" + Integer.toString(sbBeerReceives.get(naam)) +
+                    "ac:" + Integer.toString(getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(naam)));
+            Log.d("owe", "ex:"+ Integer.toString(sbBeerOwed.get(naam)) +
+                    "ac:" + Integer.toString(getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(naam)));
+        }
+
     }
 
     // TODO: Finish export to JSON
@@ -137,7 +243,7 @@ public abstract class MMDatabase extends RoomDatabase {
                 OutputStreamWriter output = null;
                 try {
                     Log.d("trying to write to file","");
-                    output = new OutputStreamWriter(context.openFileOutput(Calendar.getInstance().getInstance().getTime() + "", context.MODE_PRIVATE));
+                    output = new OutputStreamWriter(context.openFileOutput(Calendar.getInstance().getInstance().getTime() + "", Context.MODE_PRIVATE));
                     output.write(gson.toJson(bewoners) + gson.toJson(sb));
                     output.close();
                 } catch (FileNotFoundException e) {
@@ -169,127 +275,142 @@ public abstract class MMDatabase extends RoomDatabase {
     }
 
     // Process requested beers function
-    public synchronized void processBeer(final Map<String, Integer> requestBeer) {
+    public synchronized void processBeer(Map<String, Integer> orders) {
+        Log.d("Processing beer for","multiple people");
 
-        AsyncTask.execute((new Runnable(){
-            @Override
-            public void run() {
-
-                Map<String, Integer> orders = requestBeer;
-                // For each person that want a beer, check where to deduct or add the beer to
-                // The key here is a string of the name of the person requesting, the value is the amount of beers requested
-                for (String key : orders.keySet()) {
-                    int beers = orders.get(key);
-
-                    if(beers == 0) {
-                        Log.d("no beers ordered by", key);
-                        Log.d("=======================", "=========");
-                        continue;
-                    }
-
-                    Log.d("processing beers for", key);
-                    Log.d("Beers requested", "" + beers);
-
-                    assert (beers > 0);
-
-                    // First check if this person still has to receive beer from other people
-
-                    // A list of all relations with other bewoners. So any beer the key should receive is in this list
-                    List<SchoonmaakBier> schoonmaakbier = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(key);
-
-                    for (SchoonmaakBier sb : schoonmaakbier) {
-                        Log.d("from " + sb.getToGive() + " to " + sb.getToReceive() + " beers", "" + sb.getBeer());
-                        if (sb.getBeer() == 0) {
-                            // The key gets no beer from this person
-                            continue;
-                        } else if (sb.getBeer() >= beers) {
-                            // All the requested beers can be substracted from this person
-                            getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, key, sb.getToGive());
-                            Log.d("beer set to " + (sb.getBeer() - beers),sb.getToGive() + " -> " + key);
-                            beers = 0;
-                        } else if (sb.getBeer() < beers) {
-                            // some can be substracted from this person
-                            beers = beers - sb.getBeer();
-                            Log.d("beers substracted: ", "" + sb.getBeer());
-
-                            getSchoonmaakBierDAO().setBeer(beers - sb.getBeer(), key, sb.getToGive());
-                        }
-
-                        Log.d("beers to be accounted", "" + beers);
-
-                        if (beers == 0) {
-                            break;
-                        }
-
-                    }
-                    if (beers == 0) {
-                        Log.d("beers are accounted as", "schoonmaakbier");
-                        Log.d("=======================", "=========");
-                        continue;
-                    } else {
-                        getBewonerDAO().addBier(beers, key);
-                        Log.d(beers+ " beers added as streept", "to " + key);
-                        Log.d("=======================", "=========");
-                    }
-                    Log.d("gestreept bier voor " + key, "" + getBewonerDAO().getGestreeptBier(key));
-                }
+        // For each person that want a beer, check where to deduct or add the beer to
+        // The key here is a string of the name of the person requesting, the value is the amount of beers requested
+        for (String key : orders.keySet()) {
+            int beers = orders.get(key);
+            Log.d(beers + " beers ordered by", key);
+            if(beers == 0) {
+                continue;
             }
-        }));
+
+            processBeer(key, beers);
+        }
 
     }
 
-    public synchronized void processBeer(final String bewonerf, final int beerf) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                String bewoner = bewonerf;
-                int beers = beerf;
-                Log.d("processing " + beers + " beer for", " "+ bewoner);
+    public synchronized void processBeer(String bewoner, int beers) {
+        Log.d("processing " + beers + " beer for", " "+ bewoner);
+        Log.d("BEFORE PROCESS BEER",bewoner);
+        printDB();
 
-                if(beers == 0) {
-                    Log.d("No beers requested", "loser");
-                    return;
-                }
+        if(beers == 0) {
+            Log.d("No beers requested", "loser");
+            return;
+        }
 
-                List<SchoonmaakBier> schoonmaakbier = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(bewoner);
+        List<SchoonmaakBier> schoonmaakbier = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(bewoner);
 
+        // Add gedronken bier
+        getBewonerDAO().addGedronkenBier(beers, bewoner);
 
-                for (SchoonmaakBier sb : schoonmaakbier) {
-                    Log.d("from " + sb.getToGive() + " to " + sb.getToReceive() + " beers", "" + sb.getBeer());
-                    if (sb.getBeer() == 0) {
-                        // The key gets no beer from this person
-                        continue;
-                    } else if (sb.getBeer() >= beers) {
-                        // All the requested beers can be substracted from this person
-                        getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, bewoner, sb.getToGive());
-                        Log.d("beer set to " + (sb.getBeer() - beers),sb.getToGive() + " -> " + bewoner);
-                        beers = 0;
-                    } else if (sb.getBeer() < beers) {
-                        // some can be substracted from this person
-                        beers = beers - sb.getBeer();
-                        Log.d("beers substracted: ", "" + sb.getBeer());
+        for (SchoonmaakBier sb : schoonmaakbier) {
+            Log.d("from " + sb.getToGive() + " to " + sb.getToReceive() + " beers", "" + sb.getBeer());
+            if (sb.getBeer() == 0) {
+                // The key gets no beer from this person
+                continue;
+            } else if (sb.getBeer() >= beers) {
+                // All the requested beers can be substracted from this person
+                getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, bewoner, sb.getToGive());
+                getBewonerDAO().addschoonmaakbierOpJou(beers, bewoner);
+                Log.d("beer set to " + (sb.getBeer() - beers),sb.getToGive() + " -> " + bewoner);
+                beers = 0;
+            } else if (sb.getBeer() < beers) {
+                // some can be substracted from this person
+                beers = beers - sb.getBeer();
+                Log.d("beers substracted: ", "" + sb.getBeer());
 
-                        getSchoonmaakBierDAO().setBeer(beers - sb.getBeer(), bewoner, sb.getToGive());
-                    }
-
-                    Log.d("beers to be accounted", "" + beers);
-
-                    if (beers == 0) {
-                        break;
-                    }
-
-                }
-                if (beers == 0) {
-                    Log.d("beers are accounted as", "schoonmaakbier");
-                    Log.d("=======================", "=========");
-                    return;
-                } else {
-                    getBewonerDAO().addBier(beers, bewoner);
-                    Log.d(beers+ " beers added as streept", "to " + bewoner);
-                    Log.d("=======================", "=========");
-                }
-                Log.d("gestreept bier voor " + bewoner, "" + getBewonerDAO().getGestreeptBier(bewoner));
+                getSchoonmaakBierDAO().setBeer(beers - sb.getBeer(), bewoner, sb.getToGive());
+                getBewonerDAO().addschoonmaakbierOpJou(beers - sb.getBeer(), bewoner);
             }
-        });
+
+            Log.d("beers to be accounted", "" + beers);
+
+            if (beers == 0) {
+                break;
+            }
+
+        }
+        if (beers == 0) {
+            Log.d("beers are accounted as", "schoonmaakbier");
+            Log.d("=======================", "=========");
+            return;
+        } else {
+            getBewonerDAO().addGestreeptBier(beers, bewoner);
+            Log.d(beers+ " beers added as streept", "to " + bewoner);
+            Log.d("=======================", "=========");
+        }
+        Log.d("gestreept bier voor " + bewoner, "" + getBewonerDAO().getGestreeptBier(bewoner));
+
+        Log.d("AFTER PROCESS BEER",bewoner);
+        printDB();
     }
+
+
 }
+
+/*
+* // Process requested beers function
+    public synchronized void processBeer(Map<String, Integer> orders) {
+
+        // For each person that want a beer, check where to deduct or add the beer to
+        // The key here is a string of the name of the person requesting, the value is the amount of beers requested
+        for (String key : orders.keySet()) {
+            int beers = orders.get(key);
+
+            if(beers == 0) {
+                Log.d("no beers ordered by", key);
+                Log.d("=======================", "=========");
+                continue;
+            }
+
+            Log.d("processing beers for", key);
+            Log.d("Beers requested", "" + beers);
+
+            assert (beers > 0);
+
+            // First check if this person still has to receive beer from other people
+
+            // A list of all relations with other bewoners. So any beer the key should receive is in this list
+            List<SchoonmaakBier> schoonmaakbier = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(key);
+
+            for (SchoonmaakBier sb : schoonmaakbier) {
+                Log.d("from " + sb.getToGive() + " to " + sb.getToReceive() + " beers", "" + sb.getBeer());
+                if (sb.getBeer() == 0) {
+                    // The key gets no beer from this person
+                    continue;
+                } else if (sb.getBeer() >= beers) {
+                    // All the requested beers can be substracted from this person
+                    getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, key, sb.getToGive());
+                    Log.d("beer set to " + (sb.getBeer() - beers),sb.getToGive() + " -> " + key);
+                    beers = 0;
+                } else if (sb.getBeer() < beers) {
+                    // some can be substracted from this person
+                    beers = beers - sb.getBeer();
+                    Log.d("beers substracted: ", "" + sb.getBeer());
+
+                    getSchoonmaakBierDAO().setBeer(beers - sb.getBeer(), key, sb.getToGive());
+                }
+
+                Log.d("beers to be accounted", "" + beers);
+
+                if (beers == 0) {
+                    break;
+                }
+
+            }
+            if (beers == 0) {
+                Log.d("beers are accounted as", "schoonmaakbier");
+                Log.d("=======================", "=========");
+                continue;
+            } else {
+                getBewonerDAO().addGestreeptBier(beers, key);
+                Log.d(beers+ " beers added as streept", "to " + key);
+                Log.d("=======================", "=========");
+            }
+            Log.d("gestreept bier voor " + key, "" + getBewonerDAO().getGestreeptBier(key));
+        }
+* */

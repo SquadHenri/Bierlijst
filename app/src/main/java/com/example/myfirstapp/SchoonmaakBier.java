@@ -13,6 +13,8 @@ import androidx.room.Query;
 // Entity to keep track of schoonmaakbier between each bewoner
 // toReceive is the person that has the free beer
 // ToGive is the person who fucked up and has to give free beer
+// This schoonmaakbier represents the beer everyone currently has stading with each other
+// Total schoonmaakbier consumptions is kept track of per bewoner
 @Entity(tableName = "SchoonmaakBier",
         foreignKeys = {
                 @ForeignKey(
@@ -76,6 +78,18 @@ public class SchoonmaakBier {
     @NonNull
     @ColumnInfo(name = "bier")
     private int beer;
+
+    public int getBeertotal() {
+        return beertotal;
+    }
+
+    public void setBeertotal(int beertotal) {
+        this.beertotal = beertotal;
+    }
+
+    @NonNull
+    @ColumnInfo(name = "biertotaal")
+    private int beertotal;
 
 
 

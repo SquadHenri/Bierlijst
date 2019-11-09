@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.annotation.NonNull;
 
@@ -12,54 +13,12 @@ import androidx.annotation.NonNull;
 @Entity(tableName = "Bewoner")
 public class Bewoner {
 
-    @NonNull
-    public String getNaam() {
-        return naam;
-    }
-
-    @NonNull
-    public String getGeboortedatum() {
-        return geboortedatum;
-    }
-
-    public boolean isIsvG() {
-        return isvG;
-    }
-
-    public boolean isHuidigeBewoner() {
-        return isHuidigeBewoner;
-    }
-
-    public int getGestreeptBier() {
-        return gestreeptBier;
-    }
-
-    public void setGestreeptBier(int gestreeptBier) {
-        this.gestreeptBier = gestreeptBier;
-    }
-
-    public int getRaakGegooid() {
-        return raakGegooid;
-    }
-
-    public void setRaakGegooid(int raakGegooid) {
-        this.raakGegooid = raakGegooid;
-    }
-
-    // PUBLIC CONSTRUCTOR
-    public Bewoner(String naam, String geboortedatum, boolean isvG, boolean isHuidigeBewoner) {
-        this.naam = naam;
-        this.geboortedatum = geboortedatum;
-        this.isvG = isvG;
-        this.isHuidigeBewoner = isHuidigeBewoner;
-    }
-
-
     // Immutable
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "naam")
     private String naam;
+
 
     // Immutable
     // Save this as a string because DateTime is a bitch here
@@ -78,13 +37,134 @@ public class Bewoner {
     @ColumnInfo(name = "isHuidigeBewoner")
     private boolean isHuidigeBewoner;
 
+    public void setNaam(@NonNull String naam) {
+        this.naam = naam;
+    }
+
+    // There is a single person that can remove, edit and add users to the database
+    // The first person to be created should become the admin
+    @NonNull
+    @ColumnInfo(name = "isAdmin")
+    private boolean isAdmin = false;
+
+    @NonNull
+    @ColumnInfo(name = "isCorfeut")
+    private boolean isCorfeut = false;
+
     // Mutable
-    // Hier moet voor betaald worden
+    // Dit wordt gebruikt als je geen schoonmaakbier open hebt bij andere
     @NonNull
     @ColumnInfo(name = "gestreeptBier")
     private int gestreeptBier = 0;
 
+    // All schoonmaakbier you have to pay for, this does not include beer that is still owed
+    @NonNull
+    @ColumnInfo(name = "schoonmaakbierOpJou")
+    private int schoonmaakbierOpJou = 0;
+
+    @NonNull
+    @ColumnInfo(name = "gedronkenBier")
+    private int gedronkenBier = 0;
+
     @NonNull
     @ColumnInfo(name = "raakGegooid")
     private int raakGegooid = 0;
+
+    // PUBLIC CONSTRUCTOR
+    public Bewoner(String naam, String geboortedatum, boolean isvG, boolean isHuidigeBewoner) {
+        this.naam = naam;
+        this.geboortedatum = geboortedatum;
+        this.isvG = isvG;
+        this.isHuidigeBewoner = isHuidigeBewoner;
+        this.isCorfeut = false;
+        this.isAdmin = false;
+    }
+
+    // PUBLIC CONSTRUCTOR FOR ADMIN AND CORFEUT
+    @Ignore
+    public Bewoner(String naam, String geboortedatum, boolean isvG, boolean isHuidigeBewoner, boolean isAdmin, boolean isCorfeut) {
+        this.naam = naam;
+        this.geboortedatum = geboortedatum;
+        this.isvG = isvG;
+        this.isHuidigeBewoner = isHuidigeBewoner;
+        this.isAdmin = isAdmin;
+        this.isCorfeut = isCorfeut;
+    }
+
+    @NonNull
+    public String getNaam() {
+        return naam;
+    }
+
+    @NonNull
+    public String getGeboortedatum() {
+        return geboortedatum;
+    }
+
+    @NonNull
+    public boolean isIsvG() {
+        return isvG;
+    }
+
+    @NonNull
+    public boolean isHuidigeBewoner() {
+        return isHuidigeBewoner;
+    }
+
+    public int getGestreeptBier() {
+        return gestreeptBier;
+    }
+
+    public void setGestreeptBier(int gestreeptBier) {
+        this.gestreeptBier = gestreeptBier;
+    }
+
+    public int getSchoonmaakbierOpJou() {
+        return schoonmaakbierOpJou;
+    }
+
+    public void setSchoonmaakbierOpJou(int schoonmaakbierOpJou) {
+        this.schoonmaakbierOpJou = schoonmaakbierOpJou;
+    }
+
+    public int getRaakGegooid() {
+        return raakGegooid;
+    }
+
+    public void setRaakGegooid(int raakGegooid) {
+        this.raakGegooid = raakGegooid;
+    }
+
+    public boolean getisAdmin() {return isAdmin; }
+
+    public void setAdmin(boolean admin) {isAdmin = admin;}
+
+    public boolean getisCorfeut() {return isCorfeut;}
+
+    public void setCorfeut(boolean corfeut) {isCorfeut = corfeut; }
+
+    public void setGeboortedatum(@NonNull String geboortedatum) {
+        this.geboortedatum = geboortedatum;
+    }
+
+    public void setIsvG(boolean isvG) {
+        this.isvG = isvG;
+    }
+
+    public void setHuidigeBewoner(boolean huidigeBewoner) {
+        isHuidigeBewoner = huidigeBewoner;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public boolean isCorfeut() {
+        return isCorfeut;
+    }
+
+    public int getGedronkenBier() { return gedronkenBier; }
+
+    public void setGedronkenBier(int gedronkenBier) { this.gedronkenBier = gedronkenBier; }
+
 }

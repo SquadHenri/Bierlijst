@@ -32,4 +32,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Statistieken.class);
         startActivity(intent);
     }
+
+    public void startEditBewoners(View view) {
+        Log.d("HEPL", "STARTBEWONERS CALLED");
+        Intent intent = new Intent(this, EditBewoners.class);
+        startActivity(intent);
+    }
 }

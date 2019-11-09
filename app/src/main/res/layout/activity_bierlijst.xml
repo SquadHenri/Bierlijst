@@ -110,48 +110,48 @@
         tools:text="0" />
 
     <ImageButton
-        android:id="@+id/IG_Willy"
+        android:id="@+id/IG_steven"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="12dp"
         android:longClickable="true"
-        android:onClick="willyBier"
+        android:onClick="stevenBier"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/IG_Thijs"
         app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
         app:srcCompat="@mipmap/ic_willy" />
 
     <ImageButton
-        android:id="@+id/substractWilly"
+        android:id="@+id/substractsteven"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="12dp"
-        android:onClick="substractWilly"
+        android:onClick="substractsteven"
         app:layout_constraintStart_toEndOf="@+id/addThijs"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Willy"
+        app:layout_constraintTop_toBottomOf="@+id/IG_steven"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
     <ImageButton
-        android:id="@+id/addWilly"
+        android:id="@+id/addsteven"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
-        android:onClick="addWilly"
-        app:layout_constraintStart_toEndOf="@+id/editTextWilly"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Willy"
+        android:onClick="addsteven"
+        app:layout_constraintStart_toEndOf="@+id/editTextsteven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_steven"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <EditText
-        android:id="@+id/editTextWilly"
+        android:id="@+id/editTextsteven"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="numberSigned"
-        app:layout_constraintStart_toEndOf="@+id/substractWilly"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Willy" />
+        app:layout_constraintStart_toEndOf="@+id/substractsteven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_steven" />
 
     <ImageButton
         android:id="@+id/IG_Sven"
@@ -218,8 +218,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/IG_Sven"
         app:layout_constraintTop_toBottomOf="@+id/editTextThijs"
-        app:srcCompat="@android:drawable/ic_menu_manage"
-        tools:srcCompat="@mipmap/ic_etienne" />
+        app:srcCompat="@mipmap/ic_etienne" />
 
     <ImageButton
         android:id="@+id/substractEtienne"
@@ -243,15 +242,128 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageButton
-        android:id="@+id/Bier"
+        android:id="@+id/IG_nonMM"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="64dp"
-        android:onClick="processBier"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/IG_Etienne"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWilly"
+        app:layout_constraintTop_toBottomOf="@+id/editTextsteven"
         app:srcCompat="@drawable/ic_beer" />
+
+    <TextView
+        android:id="@+id/stevensbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/substractsteven"
+        app:layout_constraintTop_toBottomOf="@+id/editTextsteven" />
+
+    <TextView
+        android:id="@+id/stevensbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/stevensbkrijgen"
+        app:layout_constraintTop_toTopOf="@+id/stevensbkrijgen" />
+
+    <TextView
+        android:id="@+id/kvnsbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/substractRowin"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRowin" />
+
+    <TextView
+        android:id="@+id/kvnsbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/kvnsbkrijgen"
+        app:layout_constraintTop_toTopOf="@+id/kvnsbkrijgen" />
+
+    <TextView
+        android:id="@+id/thijssbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/substractThijs"
+        app:layout_constraintTop_toBottomOf="@+id/editTextThijs" />
+
+    <TextView
+        android:id="@+id/thijssbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/thijssbkrijgen"
+        app:layout_constraintTop_toTopOf="@+id/thijssbkrijgen" />
+
+    <TextView
+        android:id="@+id/svensbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/substractSven"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSven" />
+
+    <TextView
+        android:id="@+id/svensbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/svensbkrijgen"
+        app:layout_constraintTop_toTopOf="@+id/svensbkrijgen" />
+
+    <TextView
+        android:id="@+id/tindersbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/substractEtienne"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEtienne" />
+
+    <TextView
+        android:id="@+id/tindersbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="16dp"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tindersbkrijgen"
+        app:layout_constraintTop_toTopOf="@+id/tindersbkrijgen"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/NietMMers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Voor niet MMers"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/IG_nonMM"
+        app:layout_constraintTop_toBottomOf="@+id/IG_nonMM" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
