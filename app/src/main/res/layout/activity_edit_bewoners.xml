@@ -2,20 +2,257 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/editBewonersCL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditBewoners">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titleSBBierlijst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="WIP"
-        android:textSize="30sp"
+        android:layout_marginTop="24dp"
+        android:text="Hier Kan je schoonmaak bier toevoegen aan mensen"
+        android:textAlignment="center"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst">
+
+        <ImageButton
+            android:id="@+id/substractSven"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="substractSBSven"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBSven"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBSven"
+            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+        <ImageButton
+            android:id="@+id/addSBsteven"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="addSBSteven"
+            app:layout_constraintEnd_toEndOf="@+id/IG_SBSteven"
+            app:layout_constraintStart_toEndOf="@+id/editTextSBSteven"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBSteven"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <EditText
+            android:id="@+id/editTextSBEtienne"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintStart_toEndOf="@+id/substractSBEtienne"
+            app:layout_constraintTop_toTopOf="@+id/substractSBEtienne" />
+
+        <EditText
+            android:id="@+id/editTextSBSteven"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintStart_toEndOf="@+id/substractSBSteven"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBSteven" />
+
+        <EditText
+            android:id="@+id/editTextSBSven"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintStart_toEndOf="@+id/substractSven"
+            app:layout_constraintTop_toTopOf="@+id/substractSven" />
+
+        <ImageButton
+            android:id="@+id/IG_SBEtienne"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:longClickable="true"
+            android:onClick="addSBEtienne"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/IG_SBSven"
+            app:layout_constraintTop_toTopOf="@+id/IG_SBSven"
+            app:srcCompat="@mipmap/ic_etienne" />
+
+        <ImageButton
+            android:id="@+id/addSBSven"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="addSBSven"
+            app:layout_constraintEnd_toEndOf="@+id/IG_SBSven"
+            app:layout_constraintStart_toEndOf="@+id/editTextSBSven"
+            app:layout_constraintTop_toTopOf="@+id/editTextSBSven"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <ImageButton
+            android:id="@+id/IG_SBSven"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:longClickable="true"
+            android:onClick="addSBSven"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/IG_SBRowin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@mipmap/ic_sven" />
+
+        <ImageButton
+            android:id="@+id/substractSBSteven"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="substractSBSteven"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBSteven"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBSteven"
+            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+        <ImageButton
+            android:id="@+id/addSBRowin"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="addSBRowin"
+            app:layout_constraintEnd_toEndOf="@+id/IG_SBRowin"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBRowin"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <EditText
+            android:id="@+id/editTextSBRowin"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toStartOf="@+id/addSBRowin"
+            app:layout_constraintStart_toEndOf="@+id/substractSBRowin"
+            app:layout_constraintTop_toTopOf="@+id/substractSBRowin"
+            tools:text="50" />
+
+        <ImageButton
+            android:id="@+id/IG_SBThijs"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:longClickable="true"
+            android:onClick="addSBThijs"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/IG_SBSven"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/IG_SBSven"
+            app:srcCompat="@mipmap/ic_thijs" />
+
+        <EditText
+            android:id="@+id/editTextSBThijs"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toStartOf="@+id/addSBThijs"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/substractSBThijs"
+            app:layout_constraintTop_toTopOf="@+id/substractSBThijs"
+            tools:text="0" />
+
+        <ImageButton
+            android:id="@+id/IG_SBSteven"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:longClickable="true"
+            android:onClick="addSBSteven"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="@+id/IG_SBSven"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBSven"
+            app:layout_constraintTop_toTopOf="@+id/IG_SBRowin"
+            app:srcCompat="@mipmap/ic_willy" />
+
+        <ImageButton
+            android:id="@+id/substractSBRowin"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="substractSBRowin"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBRowin"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBRowin"
+            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+        <ImageButton
+            android:id="@+id/substractSBThijs"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="substractSBThijs"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBThijs"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBThijs"
+            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+        <ImageButton
+            android:id="@+id/IG_SBRowin"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="100dp"
+            android:longClickable="true"
+            android:onClick="addSBRowin"
+            android:scaleType="fitStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/IG_SBSteven"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/ic_rowin" />
+
+        <ImageButton
+            android:id="@+id/substractSBEtienne"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="substractSBEtienne"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBEtienne"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SBEtienne"
+            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+        <ImageButton
+            android:id="@+id/addSBEtienne"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="addSBEtienne"
+            app:layout_constraintStart_toEndOf="@+id/editTextSBEtienne"
+            app:layout_constraintTop_toTopOf="@+id/editTextSBEtienne"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <ImageButton
+            android:id="@+id/processSB"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:onClick="processSB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/IG_SBSteven"
+            app:layout_constraintTop_toTopOf="@+id/IG_SBRowin"
+            app:srcCompat="@drawable/ic_beer" />
+
+        <TextView
+            android:id="@+id/kvnsbgeven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/IG_SBRowin"
+            app:layout_constraintTop_toBottomOf="@+id/substractSBRowin" />
+
+        <ImageButton
+            android:id="@+id/addSBThijs"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:onClick="addSBThijs"
+            app:layout_constraintEnd_toEndOf="@+id/IG_SBThijs"
+            app:layout_constraintTop_toTopOf="@+id/substractSBThijs"
+            app:srcCompat="@android:drawable/ic_input_add" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
