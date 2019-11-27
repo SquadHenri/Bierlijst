@@ -168,9 +168,11 @@
             android:longClickable="true"
             android:onClick="stevenBier"
             android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="@+id/IG_Sven"
             app:layout_constraintTop_toTopOf="@+id/IG_Rowin"
-            app:srcCompat="@mipmap/ic_willy"
-            tools:layout_editor_absoluteX="393dp" />
+            app:srcCompat="@mipmap/ic_willy" />
 
         <ImageButton
             android:id="@+id/substractRowin"
