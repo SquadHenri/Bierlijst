@@ -14,334 +14,327 @@
         android:text="Ha! Bier"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+    <TextView
+        android:id="@+id/kvnsbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Rowin"
+        app:layout_constraintTop_toBottomOf="@+id/addRowin" />
+
+    <TextView
+        android:id="@+id/svensbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/IG_Sven"
+        app:layout_constraintTop_toBottomOf="@+id/substractSven" />
+
+    <ImageButton
+        android:id="@+id/substractsteven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="substractsteven"
+        app:layout_constraintStart_toStartOf="@+id/IG_steven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_steven"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <ImageButton
+        android:id="@+id/substractSven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="substractSven"
+        app:layout_constraintEnd_toStartOf="@+id/editTextSven"
+        app:layout_constraintStart_toStartOf="@+id/IG_Sven"
+        app:layout_constraintTop_toTopOf="@+id/editTextSven"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+
+    <ImageButton
+        android:id="@+id/IG_steven"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:longClickable="true"
+        android:onClick="stevenBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/IG_Sven"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSven"
+        app:layout_constraintVertical_bias="0.208"
+        app:srcCompat="@mipmap/ic_willy" />
+
+    <TextView
+        android:id="@+id/stevensbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/IG_steven"
+        app:layout_constraintTop_toBottomOf="@+id/substractsteven" />
+
+    <TextView
+        android:id="@+id/tindersbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
+        app:layout_constraintTop_toBottomOf="@+id/addEtienne" />
+
+    <TextView
+        android:id="@+id/stevensbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IG_steven"
+        app:layout_constraintTop_toBottomOf="@+id/addsteven" />
+
+    <ImageButton
+        android:id="@+id/addThijs"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="addThijs"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <ImageButton
+        android:id="@+id/addSven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="addSven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
+        app:layout_constraintStart_toEndOf="@+id/editTextSven"
+        app:layout_constraintTop_toTopOf="@+id/editTextSven"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/IG_Thijs"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:longClickable="true"
+        android:onClick="thijsBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/IG_Sven"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst">
+        app:layout_constraintTop_toTopOf="@+id/IG_Sven"
+        app:srcCompat="@mipmap/ic_thijs" />
 
-        <ImageButton
-            android:id="@+id/substractSven"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="substractSven"
-            app:layout_constraintStart_toStartOf="@+id/IG_Sven"
-            app:layout_constraintTop_toBottomOf="@+id/IG_Sven"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+    <TextView
+        android:id="@+id/kvnsbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/IG_Rowin"
+        app:layout_constraintTop_toBottomOf="@+id/substractRowin" />
 
-        <ImageButton
-            android:id="@+id/addsteven"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="addsteven"
-            app:layout_constraintEnd_toEndOf="@+id/IG_steven"
-            app:layout_constraintStart_toEndOf="@+id/editTextsteven"
-            app:layout_constraintTop_toBottomOf="@+id/IG_steven"
-            app:srcCompat="@android:drawable/ic_input_add" />
+    <ImageButton
+        android:id="@+id/addRowin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="addRowin"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Rowin"
+        app:layout_constraintTop_toTopOf="@+id/editTextRowin"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-        <EditText
-            android:id="@+id/editTextEtienne"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:inputType="numberSigned"
-            app:layout_constraintStart_toEndOf="@+id/substractEtienne"
-            app:layout_constraintTop_toTopOf="@+id/substractEtienne" />
+    <EditText
+        android:id="@+id/editTextEtienne"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toEndOf="@+id/substractEtienne"
+        tools:layout_editor_absoluteY="250dp" />
 
-        <EditText
-            android:id="@+id/editTextsteven"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:inputType="numberSigned"
-            app:layout_constraintStart_toEndOf="@+id/substractsteven"
-            app:layout_constraintTop_toBottomOf="@+id/IG_steven" />
+    <ImageButton
+        android:id="@+id/substractEtienne"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="substractEtienne"
+        app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on"
+        tools:layout_editor_absoluteY="250dp" />
 
-        <EditText
-            android:id="@+id/editTextSven"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:inputType="numberSigned"
-            app:layout_constraintStart_toEndOf="@+id/substractSven"
-            app:layout_constraintTop_toTopOf="@+id/substractSven" />
+    <TextView
+        android:id="@+id/tindersbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
+        app:layout_constraintTop_toBottomOf="@+id/substractEtienne" />
 
-        <ImageButton
-            android:id="@+id/IG_Etienne"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:longClickable="true"
-            android:onClick="etienneBier"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/IG_Sven"
-            app:layout_constraintTop_toTopOf="@+id/IG_Sven"
-            app:srcCompat="@mipmap/ic_etienne" />
+    <ImageButton
+        android:id="@+id/addEtienne"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="addEtienne"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
+        app:layout_constraintStart_toEndOf="@+id/editTextEtienne"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteY="250dp" />
 
-        <ImageButton
-            android:id="@+id/addSven"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="addSven"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
-            app:layout_constraintStart_toEndOf="@+id/editTextSven"
-            app:layout_constraintTop_toTopOf="@+id/editTextSven"
-            app:srcCompat="@android:drawable/ic_input_add" />
+    <ImageButton
+        android:id="@+id/IG_Sven"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        android:longClickable="true"
+        android:onClick="svenBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
+        app:srcCompat="@mipmap/ic_sven" />
 
-        <ImageButton
-            android:id="@+id/IG_Sven"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="30dp"
-            android:longClickable="true"
-            android:onClick="svenBier"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/IG_Rowin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.482"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/ic_sven" />
+    <EditText
+        android:id="@+id/editTextsteven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toStartOf="@+id/addsteven"
+        app:layout_constraintStart_toEndOf="@+id/substractsteven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_steven" />
 
-        <ImageButton
-            android:id="@+id/substractsteven"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="substractsteven"
-            app:layout_constraintStart_toStartOf="@+id/IG_steven"
-            app:layout_constraintTop_toBottomOf="@+id/IG_steven"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+    <TextView
+        android:id="@+id/thijssbgeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
+        app:layout_constraintTop_toBottomOf="@+id/substractThijs" />
 
-        <ImageButton
-            android:id="@+id/addRowin"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="addRowin"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Rowin"
-            app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
-            app:srcCompat="@android:drawable/ic_input_add" />
+    <TextView
+        android:id="@+id/svensbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
+        app:layout_constraintTop_toBottomOf="@+id/addSven" />
 
-        <EditText
-            android:id="@+id/editTextRowin"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:inputType="numberSigned"
-            app:layout_constraintEnd_toStartOf="@+id/addRowin"
-            app:layout_constraintStart_toEndOf="@+id/substractRowin"
-            app:layout_constraintTop_toTopOf="@+id/substractRowin"
-            tools:text="50" />
+    <EditText
+        android:id="@+id/editTextSven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Sven"
+        tools:layout_editor_absoluteX="441dp" />
 
-        <ImageButton
-            android:id="@+id/IG_Thijs"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:longClickable="true"
-            android:onClick="thijsBier"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toStartOf="@+id/IG_Sven"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/IG_Sven"
-            app:srcCompat="@mipmap/ic_thijs" />
+    <EditText
+        android:id="@+id/editTextThijs"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toStartOf="@+id/addThijs"
+        app:layout_constraintStart_toEndOf="@+id/substractThijs"
+        tools:layout_editor_absoluteY="250dp"
+        tools:text="0" />
 
-        <EditText
-            android:id="@+id/editTextThijs"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:inputType="numberSigned"
-            app:layout_constraintEnd_toStartOf="@+id/addThijs"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/substractThijs"
-            app:layout_constraintTop_toTopOf="@+id/substractThijs"
-            tools:text="0" />
+    <ImageButton
+        android:id="@+id/addsteven"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="addsteven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_steven"
+        app:layout_constraintTop_toBottomOf="@+id/IG_steven"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-        <ImageButton
-            android:id="@+id/IG_steven"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:longClickable="true"
-            android:onClick="stevenBier"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/IG_Sven"
-            app:layout_constraintTop_toTopOf="@+id/IG_Rowin"
-            app:srcCompat="@mipmap/ic_willy" />
+    <EditText
+        android:id="@+id/editTextRowin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toStartOf="@+id/addRowin"
+        app:layout_constraintStart_toEndOf="@+id/substractRowin"
+        app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
+        tools:text="50" />
 
-        <ImageButton
-            android:id="@+id/substractRowin"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="substractRowin"
-            app:layout_constraintStart_toStartOf="@+id/IG_Rowin"
-            app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+    <ImageButton
+        android:id="@+id/IG_Rowin"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:longClickable="true"
+        android:onClick="rowinBier"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
+        app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
+        app:layout_constraintTop_toTopOf="@+id/IG_steven"
+        app:srcCompat="@mipmap/ic_rowin" />
 
-        <ImageButton
-            android:id="@+id/substractThijs"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="substractThijs"
-            app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
-            app:layout_constraintTop_toBottomOf="@+id/IG_Thijs"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+    <TextView
+        android:id="@+id/thijssbkrijgen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
+        app:layout_constraintTop_toBottomOf="@+id/addThijs" />
 
-        <ImageButton
-            android:id="@+id/IG_Rowin"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginBottom="100dp"
-            android:longClickable="true"
-            android:onClick="rowinBier"
-            android:scaleType="fitStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
-            app:srcCompat="@mipmap/ic_rowin" />
+    <ImageButton
+        android:id="@+id/substractRowin"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="substractRowin"
+        app:layout_constraintStart_toStartOf="@+id/IG_Rowin"
+        app:layout_constraintTop_toTopOf="@+id/editTextRowin"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
-        <ImageButton
-            android:id="@+id/substractEtienne"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="substractEtienne"
-            app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
-            app:layout_constraintTop_toBottomOf="@+id/IG_Etienne"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+    <ImageButton
+        android:id="@+id/substractThijs"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:onClick="substractThijs"
+        app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
+        app:srcCompat="@android:drawable/button_onoff_indicator_on"
+        tools:layout_editor_absoluteY="250dp" />
 
-        <ImageButton
-            android:id="@+id/addEtienne"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="addEtienne"
-            app:layout_constraintStart_toEndOf="@+id/editTextEtienne"
-            app:layout_constraintTop_toTopOf="@+id/editTextEtienne"
-            app:srcCompat="@android:drawable/ic_input_add" />
+    <ImageButton
+        android:id="@+id/IG_nonMM"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
+        app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
+        app:layout_constraintTop_toTopOf="@+id/IG_steven"
+        app:srcCompat="@drawable/ic_beer" />
 
-        <ImageButton
-            android:id="@+id/IG_nonMM"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
-            app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
-            app:layout_constraintTop_toTopOf="@+id/IG_Rowin"
-            app:srcCompat="@drawable/ic_beer" />
+    <TextView
+        android:id="@+id/NietMMers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voor niet MMers"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/IG_nonMM"
+        app:layout_constraintStart_toStartOf="@+id/IG_nonMM"
+        app:layout_constraintTop_toBottomOf="@+id/IG_nonMM" />
 
-        <TextView
-            android:id="@+id/kvnsbgeven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/IG_Rowin"
-            app:layout_constraintTop_toBottomOf="@+id/substractRowin" />
-
-        <TextView
-            android:id="@+id/stevensbgeven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/IG_steven"
-            app:layout_constraintTop_toBottomOf="@+id/substractsteven" />
-
-        <TextView
-            android:id="@+id/stevensbkrijgen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/IG_steven"
-            app:layout_constraintTop_toBottomOf="@+id/addsteven" />
-
-        <TextView
-            android:id="@+id/tindersbgeven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
-            app:layout_constraintTop_toBottomOf="@+id/substractEtienne" />
-
-        <TextView
-            android:id="@+id/svensbkrijgen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
-            app:layout_constraintTop_toBottomOf="@+id/addSven" />
-
-        <TextView
-            android:id="@+id/svensbgeven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/IG_Sven"
-            app:layout_constraintTop_toBottomOf="@+id/substractSven" />
-
-        <TextView
-            android:id="@+id/kvnsbkrijgen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Rowin"
-            app:layout_constraintTop_toBottomOf="@+id/addRowin" />
-
-        <TextView
-            android:id="@+id/tindersbkrijgen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
-            app:layout_constraintTop_toBottomOf="@+id/addEtienne" />
-
-        <TextView
-            android:id="@+id/thijssbkrijgen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
-            app:layout_constraintTop_toBottomOf="@+id/addThijs" />
-
-        <TextView
-            android:id="@+id/NietMMers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Voor niet MMers"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@+id/IG_nonMM"
-            app:layout_constraintStart_toStartOf="@+id/IG_nonMM"
-            app:layout_constraintTop_toBottomOf="@+id/IG_nonMM" />
-
-        <TextView
-            android:id="@+id/thijssbgeven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
-            app:layout_constraintTop_toBottomOf="@+id/substractThijs" />
-
-        <ImageButton
-            android:id="@+id/addThijs"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:onClick="addThijs"
-            app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
-            app:layout_constraintTop_toTopOf="@+id/substractThijs"
-            app:srcCompat="@android:drawable/ic_input_add" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/IG_Etienne"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:longClickable="true"
+        android:onClick="etienneBier"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IG_Sven"
+        app:layout_constraintTop_toTopOf="@+id/IG_Sven"
+        app:srcCompat="@mipmap/ic_etienne" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

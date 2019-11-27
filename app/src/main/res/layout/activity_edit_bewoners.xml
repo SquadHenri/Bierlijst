@@ -236,15 +236,6 @@
             app:layout_constraintTop_toTopOf="@+id/IG_SBRowin"
             app:srcCompat="@drawable/ic_beer" />
 
-        <TextView
-            android:id="@+id/kvnsbgeven"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/IG_SBRowin"
-            app:layout_constraintTop_toBottomOf="@+id/substractSBRowin" />
-
         <ImageButton
             android:id="@+id/addSBThijs"
             android:layout_width="50dp"
