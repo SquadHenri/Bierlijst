@@ -54,7 +54,6 @@ public abstract class BewonerDAO {
     public abstract int getGestreeptBier(String naam);
 
 
-
     @Query("UPDATE Bewoner SET isAdmin = 0 WHERE naam == :oldAdmin")
     public abstract void removeOldAdminStatus(String oldAdmin);
 

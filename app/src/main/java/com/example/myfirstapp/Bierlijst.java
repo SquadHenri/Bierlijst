@@ -73,7 +73,7 @@ public class Bierlijst extends AppCompatActivity {
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
                     intent.putExtra("thrower", "Steven");
-                    processBier();
+                    sendBeerToDB();
                     startActivity(intent);
 
 
@@ -92,7 +92,7 @@ public class Bierlijst extends AppCompatActivity {
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
                     intent.putExtra("thrower", "Sven");
-                    processBier();
+                    sendBeerToDB();
                     startActivity(intent);
 
                 }
@@ -110,7 +110,7 @@ public class Bierlijst extends AppCompatActivity {
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
                     intent.putExtra("thrower", "Thijs");
-                    processBier();
+                    sendBeerToDB();
                     startActivity(intent);
 
 
@@ -128,7 +128,7 @@ public class Bierlijst extends AppCompatActivity {
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
                     intent.putExtra("thrower", "vG KVN");
-                    processBier();
+                    sendBeerToDB();
                     startActivity(intent);
 
 
@@ -147,7 +147,7 @@ public class Bierlijst extends AppCompatActivity {
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
                     intent.putExtra("thrower", "vG Tinder");
-                    processBier();
+                    sendBeerToDB();
                     startActivity(intent);
                 }
 
@@ -161,7 +161,7 @@ public class Bierlijst extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
                 if(getTotalRequestedBeer() > 0) {
-                    processBier();
+                    sendBeerToDB();
                     updateSBText();
                     Context context = getApplicationContext();
                     CharSequence text = "Je hebt bier besteld! Lekker hoor";
@@ -248,7 +248,7 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     // Process requested bier
-    public void processBier() {
+    public void sendBeerToDB() {
 
         EditText editTextRowin = findViewById(R.id.editTextRowin);
         EditText editTextThijs = findViewById(R.id.editTextThijs);
@@ -260,17 +260,17 @@ public class Bierlijst extends AppCompatActivity {
 
 
         // Get all orders that are more than 0
-                Map<String, Integer> orders = new HashMap<String, Integer>();
+        Map<String, Integer> orders = new HashMap<String, Integer>();
 
-                orders.put("vG KVN", Integer.valueOf(editTextRowin.getText().toString()));
-                orders.put("Thijs", Integer.valueOf(editTextThijs.getText().toString()));
-                orders.put("Steven", Integer.valueOf(editTextsteven.getText().toString()));
-                orders.put("Sven", Integer.valueOf(editTextSven.getText().toString()));
-                orders.put("vG Tinder", Integer.valueOf(editTextEtienne.getText().toString()));
+        orders.put("vG KVN", Integer.valueOf(editTextRowin.getText().toString()));
+        orders.put("Thijs", Integer.valueOf(editTextThijs.getText().toString()));
+        orders.put("Steven", Integer.valueOf(editTextsteven.getText().toString()));
+        orders.put("Sven", Integer.valueOf(editTextSven.getText().toString()));
+        orders.put("vG Tinder", Integer.valueOf(editTextEtienne.getText().toString()));
 
                 // db.exportToJSON("hello", getApplicationContext());
 
-                Log.d("orders:", "" + orders.keySet().size());
+        Log.d("orders:", "" + orders.keySet().size());
 
 
         editTextEtienne.setText("0");
@@ -280,7 +280,7 @@ public class Bierlijst extends AppCompatActivity {
         editTextsteven.setText("0");
 
 
-                MMDatabase.getInstance(getApplicationContext()).processBeer(orders);
+        MMDatabase.getInstance(getApplicationContext()).processBeer(orders);
         //TODO: make sure sb also keeps track of total beer
 
 

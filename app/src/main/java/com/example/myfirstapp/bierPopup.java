@@ -21,6 +21,8 @@ public class bierPopup extends AppCompatActivity {
     public int hits = 0;
     public int uitHetRaam = 0;
     public String Thrower;
+    protected CountDownTimer timer = null;
+    protected long secsLeft = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class bierPopup extends AppCompatActivity {
         Intent intent = getIntent();
         Thrower = intent.getStringExtra("thrower");
         beerToThrow = intent.getIntExtra("beer",0);
+
         if(beerToThrow == 0) {
             Log.e("Error", "bierPopup created with no beer");
             finish();
@@ -37,19 +40,9 @@ public class bierPopup extends AppCompatActivity {
 
         setBeerToThrowText();
 
-        new CountDownTimer(120000, 1000) {
-            public void onTick(long millisecsleft) {
+        timer = newTimer(120);
+        timer.start();
 
-            }
-
-            public void onFinish() {
-                // Finish this activity
-                if(hits > 0) {
-                    handleExtraBeers();
-                }
-                finish();
-            }
-        }.start();
     }
 
     @Override
@@ -60,24 +53,18 @@ public class bierPopup extends AppCompatActivity {
     }
 
     public void hit(View view) {
-        Context context = getApplicationContext();
-        CharSequence text = "Lekker!";
-        int duration = Toast.LENGTH_SHORT;
+        showToast("Lekker!");
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+
         if(beerToThrow > 0) {
+            addToTimer(15);
             hits++;
         }
     }
 
     public void mis(View view){
-        Context context = getApplicationContext();
-        CharSequence text = "Lekker man";
-        int duration = Toast.LENGTH_SHORT;
+        showToast("Lekker man");
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
         if(beerToThrow > 0) {
             beerToThrow--;
             setBeerToThrowText();
@@ -89,14 +76,13 @@ public class bierPopup extends AppCompatActivity {
     }
 
     public void uithetRaam(View view){
-        Context context = getApplicationContext();
-        CharSequence text = "Haha drinken sukkel";
-        int duration = Toast.LENGTH_SHORT;
+        showToast("Haha drinken sukkel");
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
         if(beerToThrow > 0) {
             uitHetRaam++;
+
+            addToTimer(15);
+
             setBeerToThrowText();
         }
         if(beerToThrow == 0){
@@ -105,24 +91,12 @@ public class bierPopup extends AppCompatActivity {
     }
 
     public void allesMis(View view) {
-        Context context = getApplicationContext();
-        CharSequence text = "Sukkel";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+        showToast("Sukkel");
 
         finish();
     }
 
     public void handleExtraBeers() {
-
-        /*
-
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-         */
 
         if(hits + uitHetRaam > 0) {
             MMDatabase db = MMDatabase.getInstance(getApplicationContext());
@@ -132,6 +106,7 @@ public class bierPopup extends AppCompatActivity {
         }
         // Just to make sure it does not happen twice
         hits = 0;
+        uitHetRaam = 0;
 
     }
 
@@ -139,5 +114,43 @@ public class bierPopup extends AppCompatActivity {
     public void setBeerToThrowText() {
         TextView bierTeGooienText = findViewById(R.id.bierTeGooienText);
         bierTeGooienText.setText("Je hebt nog "+ beerToThrow + " bier te gooien");
+    }
+
+    public void showToast(String text){
+        Context context = getApplicationContext();
+        CharSequence toast_text = text;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, toast_text, duration);
+        toast.show();
+    }
+
+    public void addToTimer(int seconds) {
+        if(timer == null) {
+            Log.e("ERROR", "There is no timer");
+        }
+
+        timer.cancel();
+        timer = newTimer(15 + secsLeft);
+        timer.start();
+    }
+
+    public CountDownTimer newTimer(long seconds){
+        return new CountDownTimer(seconds * 1000, 1000) {
+            public void onTick(long millisecsleft) {
+                secsLeft = millisecsleft / 1000;
+
+                TextView bierTeGooienTijd = findViewById(R.id.bierTeGooienTijd);
+                bierTeGooienTijd.setText("Je hebt nog "+ millisecsleft / 1000 + "s om te gooien");
+            }
+
+            public void onFinish() {
+                // Finish this activity
+                if(hits > 0 || uitHetRaam > 0) {
+                    handleExtraBeers();
+                }
+                finish();
+            }
+        };
     }
 }

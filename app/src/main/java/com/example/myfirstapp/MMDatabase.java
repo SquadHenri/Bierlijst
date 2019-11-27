@@ -170,7 +170,7 @@ public abstract class MMDatabase extends RoomDatabase {
     }
 
     protected void printDB(){
-
+        Log.d("=================","=============");
         Log.d("Printing database", "gl");
 
         List<Bewoner> bewoners = getBewonerDAO().getAllBewoners();
@@ -211,7 +211,8 @@ public abstract class MMDatabase extends RoomDatabase {
             Log.d("owe", "ex:"+ Integer.toString(sbBeerOwed.get(naam)) +
                     "ac:" + Integer.toString(getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(naam)));
         }
-
+        Log.d("-------------","------------");
+        Log.d("=================","=============");
     }
 
     // TODO: Finish export to JSON
@@ -276,9 +277,10 @@ public abstract class MMDatabase extends RoomDatabase {
 
     // Process requested beers function
     public synchronized void processBeer(Map<String, Integer> orders) {
+        Log.d("5555555555555", "55555555555");
         Log.d("Processing beer for","multiple people");
 
-        // For each person that want a beer, check where to deduct or add the beer to
+        // For each person that wants a beer, check where to deduct or add the beer to
         // The key here is a string of the name of the person requesting, the value is the amount of beers requested
         for (String key : orders.keySet()) {
             int beers = orders.get(key);
@@ -292,7 +294,57 @@ public abstract class MMDatabase extends RoomDatabase {
 
     }
 
-    public synchronized void processBeer(String bewoner, int beers) {
+    public synchronized void processBeer(String bewoner, int beersToBeAccounted){
+        int beers = beersToBeAccounted;
+
+        Log.d("0000000000000","0000000");
+        Log.d("PROCESSING " + Integer.toString(beers),"beer for" + bewoner);
+
+        getBewonerDAO().addGedronkenBier(beers, bewoner);
+
+
+        List<SchoonmaakBier> sbList = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(bewoner);
+
+        for(SchoonmaakBier sb : sbList) {
+            Log.d("beers left", Integer.toString(beers));
+            if(sb.getBeer() < 0){
+                Log.e(bewoner + Integer.toString(sb.getBeer()) + " from", sb.getToGive());
+                continue;
+            }
+            if(sb.getBeer() == 0){
+                Log.d(bewoner + " no sb from", sb.getToGive());
+                continue;
+            }
+
+            // Bewoners receives some sb from sb.getToGive()
+
+            if(beers <= sb.getBeer()) {
+                // all beers can be substracted from sb beer
+                Log.d("Subbing rest " + Integer.toString(beers) + " sb from ", sb.getToGive());
+                getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, sb.getToReceive(), sb.getToGive());
+                Log.d("sb.getbeer()-beers", Integer.toString(sb.getBeer()-beers));
+
+                //there are no more beers left
+                return;
+            }
+            else if(beers > sb.getBeer()){
+                //Some can be substracted here
+                Log.d("Some sb subbed", Integer.toString(sb.getBeer()) + " from " + sb.getToGive());
+
+                getSchoonmaakBierDAO().setBeer(0, sb.getToReceive(), sb.getToGive());
+                Log.d("beers-sb.getBeer", Integer.toString(beers-sb.getBeer()));
+                beers -= sb.getBeer();
+            }
+
+        }
+
+        Log.d("No sb left", "adding gestreept");
+
+        getBewonerDAO().addGestreeptBier(beers, bewoner);
+
+    }
+
+    public synchronized void processBeer_deprecated(String bewoner, int beers) {
         Log.d("processing " + beers + " beer for", " "+ bewoner);
         Log.d("BEFORE PROCESS BEER",bewoner);
         printDB();
