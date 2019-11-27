@@ -2,10 +2,13 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,21 @@ public class MainActivity extends AppCompatActivity {
         // Init Database by fetching an instance and not doing anything
         Log.d("Database", "Fetching database to init it");
         MMDatabase.getInstance(getApplicationContext());
+
+
+        ImageButton editBewonersBtn = findViewById(R.id.editBewonersBtn);
+        editBewonersBtn.setOnLongClickListener(new View.OnLongClickListener(){
+
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("HEPL", "EDITBEWONERS CALLED!");
+                Intent intent = new Intent(v.getContext(), EditBewoners.class);
+                startActivity(intent);
+
+                return true;
+
+            }
+        });
     }
 
     // called by bierlijstBtn
@@ -33,9 +51,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startEditBewoners(View view) {
-        Log.d("HEPL", "STARTBEWONERS CALLED");
-        Intent intent = new Intent(this, EditBewoners.class);
-        startActivity(intent);
-    }
+
 }
