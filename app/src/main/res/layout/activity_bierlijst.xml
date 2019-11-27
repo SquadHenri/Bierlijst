@@ -169,7 +169,7 @@
             android:onClick="stevenBier"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
-            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/IG_Sven"
             app:layout_constraintTop_toTopOf="@+id/IG_Rowin"
             app:srcCompat="@mipmap/ic_willy" />
@@ -201,9 +201,9 @@
             android:onClick="rowinBier"
             android:scaleType="fitStart"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/IG_steven"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
             app:srcCompat="@mipmap/ic_rowin" />
 
         <ImageButton
@@ -229,8 +229,8 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/IG_steven"
+            app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
+            app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
             app:layout_constraintTop_toTopOf="@+id/IG_Rowin"
             app:srcCompat="@drawable/ic_beer" />
 

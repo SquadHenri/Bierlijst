@@ -49,6 +49,7 @@ public class EditBewoners extends AppCompatActivity {
     }
 
     public void processSB(View view){
+
         EditText editTextThijs = findViewById(R.id.editTextSBThijs);
         int valueThijs = Integer.valueOf(editTextThijs.getText().toString());
 
@@ -88,6 +89,13 @@ public class EditBewoners extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+
+        editTextThijs.setText("0");
+        editTextSven.setText("0");
+        editTextEtienne.setText("0");
+        editTextRowin.setText("0");
+        editTextSteven.setText("0");
+
     }
 
     /*

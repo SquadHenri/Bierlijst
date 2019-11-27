@@ -23,13 +23,15 @@
         android:id="@+id/bierlijstBtn"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#00FFFFFF"
         android:onClick="startBierlijst"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_beer"
         android:tint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBierlijst" />
 
@@ -37,36 +39,33 @@
         android:id="@+id/bierText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="24dp"
         android:text="Bier strepen"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statistiekenBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/bierlijstBtn"
+        app:layout_constraintStart_toStartOf="@+id/bierlijstBtn"
+        app:layout_constraintTop_toBottomOf="@+id/bierlijstBtn" />
 
     <ImageButton
         android:id="@+id/statistiekenBtn"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="20dp"
         android:backgroundTint="#00FFFFFF"
         android:onClick="startStatistieken"
         android:scaleType="centerCrop"
         android:tint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bierlijstBtn"
-        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
+        app:layout_constraintTop_toTopOf="@+id/bierlijstBtn"
         app:srcCompat="@mipmap/ic_graph" />
 
     <TextView
         android:id="@+id/statistiekenText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="24dp"
         android:text="Statistieken"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/bierText"
+        app:layout_constraintEnd_toEndOf="@+id/statistiekenBtn"
+        app:layout_constraintStart_toStartOf="@+id/statistiekenBtn"
         app:layout_constraintTop_toBottomOf="@+id/statistiekenBtn" />
 
     <ImageButton
