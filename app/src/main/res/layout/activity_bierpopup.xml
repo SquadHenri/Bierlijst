@@ -11,10 +11,11 @@
         android:id="@+id/hitButton"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:onClick="hit"
         android:text="Raak!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -22,8 +23,9 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:text="Tik hier hoe vaak je raak hebt gegooid. Na 2 minuten worden de niet gegooide dopjes als gemist beschouwd. "
+        android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -34,24 +36,23 @@
         android:id="@+id/missButton"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="44dp"
         android:onClick="mis"
         android:text="Mis!"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toEndOf="@+id/hitButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hitButton" />
 
     <Button
         android:id="@+id/raamButton"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="44dp"
         android:onClick="uithetRaam"
         android:text="Uit het raam!"
-        app:layout_constraintStart_toEndOf="@+id/missButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/missButton" />
 
     <TextView
         android:id="@+id/bierTeGooienText"
@@ -68,12 +69,12 @@
         android:id="@+id/deRestMis"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="44dp"
         android:onClick="allesMis"
         android:text="De rest mis"
-        app:layout_constraintStart_toEndOf="@+id/raamButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/raamButton" />
 
     <TextView
         android:id="@+id/bierTeGooienTijd"
