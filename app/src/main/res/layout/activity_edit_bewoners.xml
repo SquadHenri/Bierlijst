@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/IG_SBSven"
             app:layout_constraintTop_toTopOf="@+id/IG_SBSven"
-            app:srcCompat="@mipmap/ic_etienne" />
+            app:srcCompat="@drawable/ic_etienne" />
 
         <ImageButton
             android:id="@+id/addSBSven"
@@ -108,7 +108,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/ic_sven" />
+            app:srcCompat="@drawable/ic_sven" />
 
         <ImageButton
             android:id="@+id/substractSBSteven"
@@ -149,7 +149,7 @@
             app:layout_constraintEnd_toStartOf="@+id/IG_SBSven"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/IG_SBSven"
-            app:srcCompat="@mipmap/ic_thijs" />
+            app:srcCompat="@drawable/ic_thijs" />
 
         <EditText
             android:id="@+id/editTextSBThijs"
@@ -173,7 +173,7 @@
             app:layout_constraintEnd_toEndOf="@+id/IG_SBSven"
             app:layout_constraintStart_toStartOf="@+id/IG_SBSven"
             app:layout_constraintTop_toTopOf="@+id/IG_SBRowin"
-            app:srcCompat="@mipmap/ic_willy" />
+            app:srcCompat="@drawable/ic_vg" />
 
         <ImageButton
             android:id="@+id/substractSBRowin"
@@ -205,7 +205,7 @@
             app:layout_constraintEnd_toStartOf="@+id/IG_SBSteven"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/ic_rowin" />
+            app:srcCompat="@drawable/ic_rowin" />
 
         <ImageButton
             android:id="@+id/substractSBEtienne"
@@ -234,7 +234,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/IG_SBSteven"
             app:layout_constraintTop_toTopOf="@+id/IG_SBRowin"
-            app:srcCompat="@drawable/ic_beer" />
+            app:srcCompat="@drawable/beer512" />
 
         <ImageButton
             android:id="@+id/addSBThijs"

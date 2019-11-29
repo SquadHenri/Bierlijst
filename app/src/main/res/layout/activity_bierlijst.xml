@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="@+id/IG_Sven"
         app:layout_constraintTop_toBottomOf="@+id/editTextSven"
         app:layout_constraintVertical_bias="0.208"
-        app:srcCompat="@mipmap/ic_willy" />
+        app:srcCompat="@drawable/ic_vg" />
 
     <TextView
         android:id="@+id/stevensbgeven"
@@ -125,12 +125,12 @@
         android:layout_height="150dp"
         android:longClickable="true"
         android:onClick="thijsBier"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toStartOf="@+id/IG_Sven"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/IG_Sven"
-        app:srcCompat="@mipmap/ic_thijs" />
+        app:srcCompat="@drawable/ic_thijs" />
 
     <TextView
         android:id="@+id/kvnsbgeven"
@@ -198,7 +198,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
-        app:srcCompat="@mipmap/ic_sven" />
+        app:srcCompat="@drawable/ic_sven" />
 
     <EditText
         android:id="@+id/editTextsteven"
@@ -275,11 +275,11 @@
         android:layout_height="150dp"
         android:longClickable="true"
         android:onClick="rowinBier"
-        android:scaleType="fitStart"
+        android:scaleType="center"
         app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
         app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
         app:layout_constraintTop_toTopOf="@+id/IG_steven"
-        app:srcCompat="@mipmap/ic_rowin" />
+        app:srcCompat="@drawable/ic_rowin" />
 
     <TextView
         android:id="@+id/thijssbkrijgen"
@@ -316,7 +316,7 @@
         app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
         app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
         app:layout_constraintTop_toTopOf="@+id/IG_steven"
-        app:srcCompat="@drawable/ic_beer" />
+        app:srcCompat="@drawable/beer512" />
 
     <TextView
         android:id="@+id/NietMMers"
@@ -324,6 +324,7 @@
         android:layout_height="wrap_content"
         android:text="Voor niet MMers"
         android:textAlignment="center"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="@+id/IG_nonMM"
         app:layout_constraintStart_toStartOf="@+id/IG_nonMM"
         app:layout_constraintTop_toBottomOf="@+id/IG_nonMM" />
@@ -339,6 +340,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/IG_Sven"
         app:layout_constraintTop_toTopOf="@+id/IG_Sven"
-        app:srcCompat="@mipmap/ic_etienne" />
+        app:srcCompat="@drawable/ic_etienne" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
