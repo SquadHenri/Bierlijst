@@ -29,6 +29,8 @@ public class bierPopup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bierpopup);
 
+
+        // TODO: make sure the person throwing actually opens a beer, possible discussion
         Intent intent = getIntent();
         Thrower = intent.getStringExtra("thrower");
         beerToThrow = intent.getIntExtra("beer",0);
@@ -102,7 +104,7 @@ public class bierPopup extends AppCompatActivity {
             MMDatabase db = MMDatabase.getInstance(getApplicationContext());
 
             db.getBewonerDAO().addRaakGegooid(hits + uitHetRaam, Thrower);
-            db.processBeer(Thrower, hits + uitHetRaam);
+            db.processBeer(Thrower, hits + uitHetRaam, true);
         }
         // Just to make sure it does not happen twice
         hits = 0;

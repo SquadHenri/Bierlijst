@@ -240,7 +240,7 @@ public abstract class MMDatabase extends RoomDatabase {
                 continue;
             }
 
-            processBeer(key, beers);
+            processBeer(key, beers, false);
         }
 
         // Write orders to file
@@ -248,8 +248,10 @@ public abstract class MMDatabase extends RoomDatabase {
 
     }
 
-    public synchronized void processBeer(String bewoner, int beersToBeAccounted) {
-        beerDataToFile(bewoner, beersToBeAccounted);
+    public synchronized void processBeer(String bewoner, int beersToBeAccounted, boolean writeToFile) {
+        if(writeToFile) {
+            beerDataToFile(bewoner, beersToBeAccounted);
+        }
 
         int beers = beersToBeAccounted;
 
