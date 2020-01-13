@@ -127,7 +127,7 @@ public class Bierlijst extends AppCompatActivity {
 
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "vG KVN");
+                    intent.putExtra("thrower", "Rowin");
                     sendBeerToDB();
                     startActivity(intent);
 
@@ -146,7 +146,7 @@ public class Bierlijst extends AppCompatActivity {
 
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "vG Tinder");
+                    intent.putExtra("thrower", "Etienne");
                     sendBeerToDB();
                     startActivity(intent);
                 }
@@ -201,11 +201,11 @@ public class Bierlijst extends AppCompatActivity {
         TextView svengive  = findViewById(R.id.svensbgeven);
         TextView svenreceive = findViewById(R.id.svensbkrijgen);
 
-        TextView tindergive = findViewById(R.id.tindersbgeven);
-        TextView tinderreceive = findViewById(R.id.tindersbkrijgen);
+        TextView etiennegive = findViewById(R.id.etiennesbgeven);
+        TextView etiennereceive = findViewById(R.id.etiennesbkrijgen);
 
-        TextView kvngive = findViewById(R.id.kvnsbgeven);
-        TextView kvnreceive = findViewById(R.id.kvnsbkrijgen);
+        TextView rowingive = findViewById(R.id.rowinsbgeven);
+        TextView rowinreceive = findViewById(R.id.rowinsbkrijgen);
 
         TextView stevengive = findViewById(R.id.stevensbgeven);
         TextView stevenreceive = findViewById(R.id.stevensbkrijgen);
@@ -224,17 +224,17 @@ public class Bierlijst extends AppCompatActivity {
         svenreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Sven")));
         svengive.setTextColor(sventextcolour);
 
-        int tindergiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("vG Tinder");
-        int tindertextcolour = (0xff) << 24 | (min(tindergiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * tindergiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        tindergive.setText(Integer.toString(tindergiveamount));
-        tinderreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("vG Tinder")));
-        tindergive.setTextColor(tindertextcolour);
+        int etiennegiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Etienne");
+        int etiennetextcolour = (0xff) << 24 | (min(etiennegiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * etiennegiveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        etiennegive.setText(Integer.toString(etiennegiveamount));
+        etiennereceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Etienne")));
+        etiennegive.setTextColor(etiennetextcolour);
 
-        int kvngiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("vG KVN");
-        int kvntextcolour = (0xff) << 24 | (min(kvngiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * kvngiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        kvngive.setText(Integer.toString(kvngiveamount));
-        kvnreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("vG KVN")));
-        kvngive.setTextColor(kvntextcolour);
+        int rowingiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Rowin");
+        int rowintextcolour = (0xff) << 24 | (min(rowingiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * rowingiveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        rowingive.setText(Integer.toString(rowingiveamount));
+        rowinreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Rowin")));
+        rowingive.setTextColor(rowintextcolour);
 
         int stevengiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Steven");
         int steventextcolour = (0xff) << 24 | (min(stevengiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * stevengiveamount, 0) & 0xff) << 8 | (0 & 0xff));
@@ -262,11 +262,11 @@ public class Bierlijst extends AppCompatActivity {
         // Get all orders that are more than 0
         Map<String, Integer> orders = new HashMap<String, Integer>();
 
-        orders.put("vG KVN", Integer.valueOf(editTextRowin.getText().toString()));
+        orders.put("Rowin", Integer.valueOf(editTextRowin.getText().toString()));
         orders.put("Thijs", Integer.valueOf(editTextThijs.getText().toString()));
         orders.put("Steven", Integer.valueOf(editTextsteven.getText().toString()));
         orders.put("Sven", Integer.valueOf(editTextSven.getText().toString()));
-        orders.put("vG Tinder", Integer.valueOf(editTextEtienne.getText().toString()));
+        orders.put("Etienne", Integer.valueOf(editTextEtienne.getText().toString()));
 
                 // db.exportToJSON("hello", getApplicationContext());
 
@@ -478,11 +478,11 @@ public class Bierlijst extends AppCompatActivity {
                 EditText editTextSven = findViewById(R.id.editTextSven);
                 EditText editTextEtienne = findViewById(R.id.editTextEtienne);
 
-                orders.put("vG KVN", Integer.valueOf(editTextRowin.getText().toString()));
+                orders.put("Rowin", Integer.valueOf(editTextRowin.getText().toString()));
                 orders.put("Thijs", Integer.valueOf(editTextThijs.getText().toString()));
                 orders.put("Steven", Integer.valueOf(editTextsteven.getText().toString()));
                 orders.put("Sven", Integer.valueOf(editTextSven.getText().toString()));
-                orders.put("vG Tinder", Integer.valueOf(editTextEtienne.getText().toString()));
+                orders.put("Etienne", Integer.valueOf(editTextEtienne.getText().toString()));
 
                 MMDatabase db = MMDatabase.getInstance(getApplicationContext());
 

@@ -67,8 +67,8 @@ public abstract class MMDatabase extends RoomDatabase {
         getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
         getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
         getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
-        getBewonerDAO().insert(new Bewoner("vG Tinder", "10-4-1998", false, true));
-        getBewonerDAO().insert(new Bewoner("vG KVN", "20-11-1997", false, true));
+        getBewonerDAO().insert(new Bewoner("Etienne", "10-4-1998", false, true));
+        getBewonerDAO().insert(new Bewoner("Rowin", "20-11-1997", false, true));
 
         Log.d("Bewoners", "geinstert");
 
@@ -81,29 +81,29 @@ public abstract class MMDatabase extends RoomDatabase {
 
 
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG Tinder", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG KVN", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
 
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG Tinder", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG KVN", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 0));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "vG KVN", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Steven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "vG Tinder", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Steven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 0));
 
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG Tinder", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG KVN", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 0));
 
         Log.d("Schoonmaakbier", "All relaties inserted. ");
 
@@ -128,8 +128,8 @@ public abstract class MMDatabase extends RoomDatabase {
         getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
         getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
         getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
-        getBewonerDAO().insert(new Bewoner("vG Tinder", "10-4-1998", false, true));
-        getBewonerDAO().insert(new Bewoner("vG KVN", "20-11-1997", false, true));
+        getBewonerDAO().insert(new Bewoner("Etienne", "10-4-1998", false, true));
+        getBewonerDAO().insert(new Bewoner("Rowin", "20-11-1997", false, true));
 
         Log.d("Bewoners", "geinstert");
 
@@ -142,29 +142,29 @@ public abstract class MMDatabase extends RoomDatabase {
 
 
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG Tinder", 6));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "vG KVN", 3));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 6));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 3));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 25));
 
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 12));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG Tinder", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "vG KVN", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 0));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 24));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Thijs", 4));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Sven", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "vG KVN", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG Tinder", "Steven", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 4));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 1));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Thijs", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Sven", 3));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "vG Tinder", 2));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "vG KVN", "Steven", 4));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 3));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 2));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 4));
 
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 1));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 3));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG Tinder", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "vG KVN", 9));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 9));
 
         Log.d("Schoonmaakbier", "All relaties inserted. ");
 

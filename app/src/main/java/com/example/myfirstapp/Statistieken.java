@@ -29,8 +29,8 @@ public class Statistieken extends AppCompatActivity {
 
     private String thijs = "Thijs";
     private String sven = "Sven";
-    private String tinder = "vG Tinder";
-    private String kvn = "vG KVN";
+    private String etienne = "Etienne";
+    private String rowin = "Rowin";
     private String steven = "Steven";
 
     /*
@@ -45,8 +45,8 @@ public class Statistieken extends AppCompatActivity {
     // TODO: make a list
     Map<String, TextView> thijsgeven = new HashMap<String, TextView>();
     Map<String, TextView> svengeven = new HashMap<String, TextView>();
-    Map<String, TextView> tindergeven = new HashMap<String, TextView>();
-    Map<String, TextView> kvngeven = new HashMap<String, TextView>();
+    Map<String, TextView> etiennegeven = new HashMap<String, TextView>();
+    Map<String, TextView> rowingeven = new HashMap<String, TextView>();
     Map<String, TextView> stevengeven = new HashMap<String, TextView>();
     Map<String, Map<String,TextView>> sbgiving = new HashMap<String, Map<String, TextView>>();
 
@@ -74,8 +74,8 @@ public class Statistieken extends AppCompatActivity {
 
         schoonmaakbiertogive.put(thijs, new HashMap<String, Integer>());
         schoonmaakbiertogive.put(sven, new HashMap<String, Integer>());
-        schoonmaakbiertogive.put(tinder, new HashMap<String, Integer>());
-        schoonmaakbiertogive.put(kvn, new HashMap<String, Integer>());
+        schoonmaakbiertogive.put(etienne, new HashMap<String, Integer>());
+        schoonmaakbiertogive.put(rowin, new HashMap<String, Integer>());
         schoonmaakbiertogive.put(steven, new HashMap<String, Integer>());
 
 
@@ -101,41 +101,41 @@ public class Statistieken extends AppCompatActivity {
         // Fills the TextView maps and set all values to " "
         // Thijs geeft
         TextView thijssven = findViewById(R.id.thijssven);
-        TextView thijstinder = findViewById(R.id.thijstinder);
-        TextView thijskvn = findViewById(R.id.thijskvn);
+        TextView thijsetienne = findViewById(R.id.thijsetienne);
+        TextView thijsrowin = findViewById(R.id.thijsrowin);
         TextView thijslogee = findViewById(R.id.thijslogee);
         TextView thijstotaalkrijgen = findViewById(R.id.thijstotaalgeven);
         TextView thijstotaalgeven = findViewById(R.id.thijstotaalkrijgen);
 
         // Sven geeft
         TextView sventhijs = findViewById(R.id.sventhijs);
-        TextView sventinder = findViewById(R.id.sventinder);
-        TextView svenkvn = findViewById(R.id.svenkvn);
+        TextView svenetienne = findViewById(R.id.svenetienne);
+        TextView svenrowin = findViewById(R.id.svenrowin);
         TextView svenlogee = findViewById(R.id.svenlogee);
         TextView sventotaalkrijgen = findViewById(R.id.sventotaalgeven);
         TextView sventotaalgeven = findViewById(R.id.sventotaalkrijgen);
 
         // Tinder geeft
-        TextView tinderthijs = findViewById(R.id.tinderthijs);
-        TextView tindersven = findViewById(R.id.tindersven);
-        TextView tinderkvn = findViewById(R.id.tinderkvn);
-        TextView tinderlogee = findViewById(R.id.tinderlogee);
-        TextView tindertotaalkrijgen = findViewById(R.id.tindertotaalgeven);
-        TextView tindertotaalgeven = findViewById(R.id.tindertotaalkrijgen);
+        TextView etiennethijs = findViewById(R.id.etiennethijs);
+        TextView etiennesven = findViewById(R.id.etiennesven);
+        TextView etiennerowin = findViewById(R.id.etiennerowin);
+        TextView etiennelogee = findViewById(R.id.etiennelogee);
+        TextView etiennetotaalkrijgen = findViewById(R.id.etiennetotaalgeven);
+        TextView etiennetotaalgeven = findViewById(R.id.etiennetotaalkrijgen);
 
-        // kvn geeft
-        TextView kvnthijs = findViewById(R.id.kvnthijs);
-        TextView kvnsven = findViewById(R.id.kvnsven);
-        TextView kvntinder = findViewById(R.id.kvntinder);
-        TextView kvnlogee = findViewById(R.id.kvnlogee);
-        TextView kvntotaalkrijgen = findViewById(R.id.kvntotaalgeven);
-        TextView kvntotaalgeven = findViewById(R.id.kvntotaalkrijgen);
+        // rowin geeft
+        TextView rowinthijs = findViewById(R.id.rowinthijs);
+        TextView rowinsven = findViewById(R.id.rowinsven);
+        TextView rowinetienne = findViewById(R.id.rowinetienne);
+        TextView rowinlogee = findViewById(R.id.rowinlogee);
+        TextView rowintotaalkrijgen = findViewById(R.id.rowintotaalgeven);
+        TextView rowintotaalgeven = findViewById(R.id.rowintotaalkrijgen);
 
         // logee geeft
         TextView logeethijs = findViewById(R.id.logeethijs);
         TextView logeesven = findViewById(R.id.logeesven);
-        TextView logeetinder = findViewById(R.id.logeetinder);
-        TextView logeekvn = findViewById(R.id.logeekvn);
+        TextView logeeetienne = findViewById(R.id.logeeetienne);
+        TextView logeerowin = findViewById(R.id.logeerowin);
         TextView logeetotaalkrijgen = findViewById(R.id.logeetotaalgeven);
         TextView logeetotaalgeven = findViewById(R.id.logeetotaalkrijgen);
 
@@ -147,13 +147,13 @@ public class Statistieken extends AppCompatActivity {
         TextView biergestreeptsven = findViewById(R.id.biergestreeptsven);
         TextView sventotaal = findViewById(R.id.sventotaal);
 
-        TextView sboptinder = findViewById(R.id.sboptinder);
-        TextView biergestreepttinder = findViewById(R.id.biergestreepttinder);
-        TextView tindertotaal = findViewById(R.id.tindertotaal);
+        TextView sbopetienne = findViewById(R.id.sbopetienne);
+        TextView biergestreeptetienne = findViewById(R.id.biergestreeptetienne);
+        TextView etiennetotaal = findViewById(R.id.etiennetotaal);
 
-        TextView sbopkvn = findViewById(R.id.sbopkvn);
-        TextView biergestreeptkvn = findViewById(R.id.biergestreeptkvn);
-        TextView kvntotaal = findViewById(R.id.kvntotaal);
+        TextView sboprowin = findViewById(R.id.sboprowin);
+        TextView biergestreeptrowin = findViewById(R.id.biergestreeptrowin);
+        TextView rowintotaal = findViewById(R.id.rowintotaal);
 
         TextView sboplogee = findViewById(R.id.sboplogee);
         TextView biergestreeptlogee = findViewById(R.id.biergestreeptlogee);
@@ -161,64 +161,64 @@ public class Statistieken extends AppCompatActivity {
 
         totaaltegeven.put(thijs, thijstotaalgeven);
         totaaltegeven.put(sven, sventotaalgeven);
-        totaaltegeven.put(tinder, tindertotaalgeven);
-        totaaltegeven.put(kvn, kvntotaalgeven);
+        totaaltegeven.put(etienne, etiennetotaalgeven);
+        totaaltegeven.put(rowin, rowintotaalgeven);
         totaaltegeven.put(steven, logeetotaalgeven);
 
         totaaltekrijgen.put(thijs, thijstotaalkrijgen);
         totaaltekrijgen.put(sven, sventotaalkrijgen);
-        totaaltekrijgen.put(tinder, tindertotaalkrijgen);
-        totaaltekrijgen.put(kvn, kvntotaalkrijgen);
+        totaaltekrijgen.put(etienne, etiennetotaalkrijgen);
+        totaaltekrijgen.put(rowin, rowintotaalkrijgen);
         totaaltekrijgen.put(steven, logeetotaalkrijgen);
 
 
         thijsgeven.put(sven, thijssven);
-        thijsgeven.put(tinder, thijstinder);
-        thijsgeven.put(kvn, thijskvn);
+        thijsgeven.put(etienne, thijsetienne);
+        thijsgeven.put(rowin, thijsrowin);
         thijsgeven.put(steven, thijslogee);
 
         svengeven.put(thijs, sventhijs);
-        svengeven.put(tinder, sventinder);
-        svengeven.put(kvn, svenkvn);
+        svengeven.put(etienne, svenetienne);
+        svengeven.put(rowin, svenrowin);
         svengeven.put(steven, svenlogee);
 
-        tindergeven.put(thijs, tinderthijs);
-        tindergeven.put(sven, tindersven);
-        tindergeven.put(kvn,tinderkvn);
-        tindergeven.put(steven, tinderlogee);
+        etiennegeven.put(thijs, etiennethijs);
+        etiennegeven.put(sven, etiennesven);
+        etiennegeven.put(rowin,etiennerowin);
+        etiennegeven.put(steven, etiennelogee);
 
-        kvngeven.put(thijs, kvnthijs);
-        kvngeven.put(sven, kvnsven);
-        kvngeven.put(tinder, kvntinder);
-        kvngeven.put(steven, kvnlogee);
+        rowingeven.put(thijs, rowinthijs);
+        rowingeven.put(sven, rowinsven);
+        rowingeven.put(etienne, rowinetienne);
+        rowingeven.put(steven, rowinlogee);
 
         stevengeven.put(thijs, logeethijs);
         stevengeven.put(sven, logeesven);
-        stevengeven.put(tinder, logeetinder);
-        stevengeven.put(kvn, logeekvn);
+        stevengeven.put(etienne, logeeetienne);
+        stevengeven.put(rowin, logeerowin);
 
         sbonkey.put(thijs, sbopthijs);
         sbonkey.put(sven, sbopsven);
-        sbonkey.put(tinder, sboptinder);
-        sbonkey.put(kvn, sbopkvn);
+        sbonkey.put(etienne, sbopetienne);
+        sbonkey.put(rowin, sboprowin);
         sbonkey.put(steven, sboplogee);
 
         biergestreeptonkey.put(thijs, biergestreeptthijs);
         biergestreeptonkey.put(sven, biergestreeptsven);
-        biergestreeptonkey.put(tinder, biergestreepttinder);
-        biergestreeptonkey.put(kvn, biergestreeptkvn);
+        biergestreeptonkey.put(etienne, biergestreeptetienne);
+        biergestreeptonkey.put(rowin, biergestreeptrowin);
         biergestreeptonkey.put(steven, biergestreeptlogee);
 
         totaalonkey.put(thijs, thijstotaal);
         totaalonkey.put(sven, sventotaal);
-        totaalonkey.put(tinder, tindertotaal);
-        totaalonkey.put(kvn, kvntotaal);
+        totaalonkey.put(etienne, etiennetotaal);
+        totaalonkey.put(rowin, rowintotaal);
         totaalonkey.put(steven, logeetotaal);
 
         sbgiving.put(thijs, thijsgeven);
         sbgiving.put(sven, svengeven);
-        sbgiving.put(tinder, tindergeven);
-        sbgiving.put(kvn, kvngeven);
+        sbgiving.put(etienne, etiennegeven);
+        sbgiving.put(rowin, rowingeven);
         sbgiving.put(steven, stevengeven);
 
         initViews = true;
@@ -255,14 +255,14 @@ public class Statistieken extends AppCompatActivity {
 
         }
 
-        for(String key : tindergeven.keySet()) {
-            TextView textview = tindergeven.get(key);
+        for(String key : etiennegeven.keySet()) {
+            TextView textview = etiennegeven.get(key);
             textview.setText(text);
 
         }
 
-        for(String key : kvngeven.keySet()) {
-            TextView textview = kvngeven.get(key);
+        for(String key : rowingeven.keySet()) {
+            TextView textview = rowingeven.get(key);
             textview.setText(text);
 
         }

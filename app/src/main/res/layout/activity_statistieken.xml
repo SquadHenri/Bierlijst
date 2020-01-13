@@ -113,7 +113,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tinderthijs"
+                android:id="@+id/etiennethijs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -121,7 +121,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvnthijs"
+                android:id="@+id/rowinthijs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -173,7 +173,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tindersven"
+                android:id="@+id/etiennesven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -181,7 +181,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvnsven"
+                android:id="@+id/rowinsven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -218,7 +218,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/thijstinder"
+                android:id="@+id/thijsetienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -226,7 +226,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/sventinder"
+                android:id="@+id/svenetienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -241,7 +241,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvntinder"
+                android:id="@+id/rowinetienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -249,7 +249,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/logeetinder"
+                android:id="@+id/logeeetienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -257,7 +257,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tindertotaalkrijgen"
+                android:id="@+id/etiennetotaalkrijgen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -277,7 +277,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/thijskvn"
+                android:id="@+id/thijsrowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -285,7 +285,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/svenkvn"
+                android:id="@+id/svenrowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -293,7 +293,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tinderkvn"
+                android:id="@+id/etiennerowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -308,7 +308,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/logeekvn"
+                android:id="@+id/logeerowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -316,7 +316,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvntotaalkrijgen"
+                android:id="@+id/rowintotaalkrijgen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -353,7 +353,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tinderlogee"
+                android:id="@+id/etiennelogee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -361,7 +361,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvnlogee"
+                android:id="@+id/rowinlogee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -412,7 +412,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tindertotaalgeven"
+                android:id="@+id/etiennetotaalgeven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -420,7 +420,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvntotaalgeven"
+                android:id="@+id/rowintotaalgeven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -564,7 +564,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/sboptinder"
+                android:id="@+id/sbopetienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -572,7 +572,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/biergestreepttinder"
+                android:id="@+id/biergestreeptetienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -580,7 +580,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/tindertotaal"
+                android:id="@+id/etiennetotaal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -600,7 +600,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/sbopkvn"
+                android:id="@+id/sboprowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -608,7 +608,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/biergestreeptkvn"
+                android:id="@+id/biergestreeptrowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -616,7 +616,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/kvntotaal"
+                android:id="@+id/rowintotaal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"

@@ -72,8 +72,8 @@ public class EditBewoners extends AppCompatActivity {
         Map<String, Integer> sbBeerToAdd = new HashMap<>();
         sbBeerToAdd.put("Thijs", valueThijs);
         sbBeerToAdd.put("Sven", valueSven);
-        sbBeerToAdd.put("vG Tinder", valueEtienne);
-        sbBeerToAdd.put("vG KVN", valueRowin);
+        sbBeerToAdd.put("Etienne", valueEtienne);
+        sbBeerToAdd.put("Rowin", valueRowin);
         sbBeerToAdd.put("Steven", valueSteven);
 
         MMDatabase db = MMDatabase.getInstance(getApplicationContext());
