@@ -83,6 +83,8 @@ public class EditBewoners extends AppCompatActivity {
             db.getSchoonmaakBierDAO().addSchoonmaakbier(giver, value);
         }
 
+        db.SbDataToFile(sbBeerToAdd);
+
         Context context = getApplicationContext();
         CharSequence text = "Je hebt schoonmaakbier toegevoegd.";
         int duration = Toast.LENGTH_SHORT;

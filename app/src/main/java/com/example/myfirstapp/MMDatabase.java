@@ -1,7 +1,6 @@
 package com.example.myfirstapp;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
@@ -9,16 +8,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.google.gson.Gson;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +27,8 @@ public abstract class MMDatabase extends RoomDatabase {
     // The only instance
     private static MMDatabase Database;
 
-    private String filename = "BierGebruik.txt";
+    private String beer_data_filename = "BierGebruik.txt";
+    private String sb_data_filename = "sbData.txt";
     private String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/MM/DATA/";
 
     public static synchronized MMDatabase getInstance(Context context) {
@@ -46,7 +40,7 @@ public abstract class MMDatabase extends RoomDatabase {
             // .allowMainThreadQueries() is a dirty way to be able to get data from my db.
             // TODO: switch from allowMainThreadQueries to rxJava. even if its an assload of work with weird syntax
 
-            Database.populateDatabaseRandomData();
+            Database.populateDatabaseInitialData();
             Database.printDB();
         }
         return Database;
@@ -117,7 +111,7 @@ public abstract class MMDatabase extends RoomDatabase {
 
     }
 
-    protected synchronized void populateDatabaseRandomData() {
+    protected synchronized void populateDatabaseInitialData() {
 
         // Dirty way to check if this database already has data. I could not find a good way to do this
         List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
@@ -302,6 +296,41 @@ public abstract class MMDatabase extends RoomDatabase {
     }
 
 
+    // Write sb beer data to file
+    protected void SbDataToFile(Map<String, Integer> sbData) {
+        Log.d("Writing String to file", "WOOT");
+        try {
+            // Create directory
+            File dir = new File(path);
+            if(dir.mkdirs()){
+                Log.d("Directory creatededs:", "YEBABE");
+            }
+
+
+            File file = new File(path + sb_data_filename);
+            if (!file.exists()) {
+                if(file.createNewFile()){
+                    Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
+                }
+            }
+
+            FileOutputStream fileOutputStream = new FileOutputStream(file, true);
+            fileOutputStream.write(("Op " + getDateAndTime() + ", is er schoonmaakbier toegevoegd:\n").getBytes());
+
+            for (String key : sbData.keySet()) {
+                int sb = sbData.get(key);
+                fileOutputStream.write(("\t\t" + Integer.toString(sb) + " op: " + key + "\n").getBytes());
+            }
+
+            fileOutputStream.close();
+
+        } catch (IOException e) {
+            Log.e("IO", e.getMessage());
+        }
+
+    }
+    
+    
     // Write ordered beer data to file
     protected void beerDataToFile(Map<String, Integer> orders) {
         Log.d("Writing Data to file", "WOOT");
@@ -313,7 +342,7 @@ public abstract class MMDatabase extends RoomDatabase {
             }
 
 
-            File file = new File(path + filename);
+            File file = new File(path + beer_data_filename);
             if (!file.exists()) {
                 if(file.createNewFile()){
                     Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
@@ -347,7 +376,7 @@ public abstract class MMDatabase extends RoomDatabase {
             }
 
 
-            File file = new File(path + filename);
+            File file = new File(path + beer_data_filename);
             if (!file.exists()) {
                 if(file.createNewFile()){
                     Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
