@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context=".adminPage">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <TextView
+        android:id="@+id/adminTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Welkom op de Admin pagina!"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Als je geen MM'er bent, afblijven met je smerige klauwen"
+        app:layout_constraintEnd_toEndOf="@+id/adminTitle"
+        app:layout_constraintStart_toStartOf="@+id/adminTitle"
+        app:layout_constraintTop_toBottomOf="@+id/adminTitle" />
+
+    <Button
+        android:id="@+id/snapshotBtn"
+        android:layout_width="178dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
+        android:onClick="snapshotBtn"
+        android:text="Maak een snapshot!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/snapshotUItleg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hier mee sla je alle data op in een bestandje op de sd kaart. \nDit is handig voor als je een avond verwacht dat er met data gefuckt gaat worden. \nBij het verwijderen van het bier data wordt ook een snapshot gemaakt."
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/snapshotBtn"
+        app:layout_constraintTop_toBottomOf="@+id/snapshotBtn" />
+
+    <Button
+        android:id="@+id/resetStreepBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:onClick="verwijderDataBtn"
+        android:text="Verwijder gestreept bier"
+        app:layout_constraintStart_toStartOf="@+id/snapshotBtn"
+        app:layout_constraintTop_toBottomOf="@+id/snapshotUItleg" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hier verwijder je alle gestreepte data. \nDit zijn dingen die na elke HV weer naar nul gezet moeten worden.\nDeze knop maakt ook een snapshot van de huidige data. "
+        app:layout_constraintStart_toStartOf="@+id/resetStreepBtn"
+        app:layout_constraintTop_toBottomOf="@+id/resetStreepBtn" />
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

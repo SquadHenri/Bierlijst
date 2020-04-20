@@ -2,8 +2,10 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -91,7 +93,16 @@ public class Statistieken extends AppCompatActivity {
         updateText();
         Log.d("Text views set", "yessir");
 
-
+        TextView SecretAdminPage = findViewById(R.id.textView60);
+        SecretAdminPage.setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View v) {
+                Log.d("CLICKED", "REEEEEEE");
+                Intent intent = new Intent(v.getContext(), adminPage.class);
+                startActivity(intent);
+                return true;
+            }
+        });
 
     }
 

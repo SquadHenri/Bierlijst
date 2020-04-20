@@ -15,12 +15,13 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 // TODO: backup database
 
-@Database(entities =  {Bewoner.class, SchoonmaakBier.class},
-                        version = 1,
-                        exportSchema = false)
+@Database(entities = {Bewoner.class, SchoonmaakBier.class},
+        version = 1,
+        exportSchema = false)
 public abstract class MMDatabase extends RoomDatabase {
 
 
@@ -40,10 +41,14 @@ public abstract class MMDatabase extends RoomDatabase {
             // .allowMainThreadQueries() is a dirty way to be able to get data from my db.
             // TODO: switch from allowMainThreadQueries to rxJava. even if its an assload of work with weird syntax
 
-            Database.populateDatabaseInitialData();
+            //Database.populateDatabaseInitialData();
             Database.printDB();
         }
         return Database;
+    }
+
+    public static String getDateAndTime() {
+        return Calendar.getInstance().getTime().toString();
     }
 
     public abstract BewonerDAO getBewonerDAO();
@@ -141,30 +146,37 @@ public abstract class MMDatabase extends RoomDatabase {
         Log.d("SchoonmaakBier", "Inserting all relaties");
 
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 6));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 3));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 25));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 2));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 12));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 24));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 22));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 35));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 4));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 1));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 15));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 18));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 35));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 3));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 2));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 4));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 1));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 3));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 9));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 0));
+
+
+        getBewonerDAO().setGestreeptBier("Thijs", 0);
+        getBewonerDAO().setGestreeptBier("Sven", 0);
+        getBewonerDAO().setGestreeptBier("Etienne", 0);
+        getBewonerDAO().setGestreeptBier("Rowin", 0);
+        getBewonerDAO().setGestreeptBier("Steven", 0);
 
         Log.d("Schoonmaakbier", "All relaties inserted. ");
 
@@ -208,15 +220,14 @@ public abstract class MMDatabase extends RoomDatabase {
 
         for (String naam : sbBeerReceives.keySet()) {
             Log.d("RECEIVE AND OWE FOR", naam);
-            Log.d("receive", "ex:" + Integer.toString(sbBeerReceives.get(naam)) +
-                    "ac:" + Integer.toString(getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(naam)));
-            Log.d("owe", "ex:" + Integer.toString(sbBeerOwed.get(naam)) +
-                    "ac:" + Integer.toString(getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(naam)));
+            Log.d("receive", "ex:" + sbBeerReceives.get(naam) +
+                    "ac:" + getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(naam));
+            Log.d("owe", "ex:" + sbBeerOwed.get(naam) +
+                    "ac:" + getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(naam));
         }
         Log.d("-------------", "------------");
         Log.d("=================", "=============");
     }
-
 
     // Process requested beers function
     public synchronized void processBeer(Map<String, Integer> orders) {
@@ -234,6 +245,7 @@ public abstract class MMDatabase extends RoomDatabase {
                 continue;
             }
 
+            // do not write process beer because this happens below this line
             processBeer(key, beers, false);
         }
 
@@ -243,14 +255,14 @@ public abstract class MMDatabase extends RoomDatabase {
     }
 
     public synchronized void processBeer(String bewoner, int beersToBeAccounted, boolean writeToFile) {
-        if(writeToFile) {
+        if (writeToFile) {
             beerDataToFile(bewoner, beersToBeAccounted);
         }
 
         int beers = beersToBeAccounted;
 
         Log.d("0000000000000", "0000000");
-        Log.d("PROCESSING " + Integer.toString(beers), "beer for" + bewoner);
+        Log.d("PROCESSING " + beers, "beer for" + bewoner);
 
         getBewonerDAO().addGedronkenBier(beers, bewoner);
 
@@ -260,7 +272,7 @@ public abstract class MMDatabase extends RoomDatabase {
         for (SchoonmaakBier sb : sbList) {
             Log.d("beers left", Integer.toString(beers));
             if (sb.getBeer() < 0) {
-                Log.e(bewoner + Integer.toString(sb.getBeer()) + " from", sb.getToGive());
+                Log.e(bewoner + sb.getBeer() + " from", sb.getToGive());
                 continue;
             }
             if (sb.getBeer() == 0) {
@@ -272,17 +284,19 @@ public abstract class MMDatabase extends RoomDatabase {
 
             if (beers <= sb.getBeer()) {
                 // all beers can be substracted from sb beer
-                Log.d("Subbing rest " + Integer.toString(beers) + " sb from ", sb.getToGive());
+                Log.d("Subbing rest " + beers + " sb from ", sb.getToGive());
                 getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, sb.getToReceive(), sb.getToGive());
+                getBewonerDAO().addschoonmaakbierOpJou(beers, sb.getToGive());
                 Log.d("sb.getbeer()-beers", Integer.toString(sb.getBeer() - beers));
 
                 //there are no more beers left
                 return;
             } else if (beers > sb.getBeer()) {
                 //Some can be substracted here
-                Log.d("Some sb subbed", Integer.toString(sb.getBeer()) + " from " + sb.getToGive());
+                Log.d("Some sb subbed", sb.getBeer() + " from " + sb.getToGive());
 
                 getSchoonmaakBierDAO().setBeer(0, sb.getToReceive(), sb.getToGive());
+                getBewonerDAO().addschoonmaakbierOpJou(beers - sb.getBeer(), sb.getToGive());
                 Log.d("beers-sb.getBeer", Integer.toString(beers - sb.getBeer()));
                 beers -= sb.getBeer();
             }
@@ -295,21 +309,20 @@ public abstract class MMDatabase extends RoomDatabase {
 
     }
 
-
     // Write sb beer data to file
     protected void SbDataToFile(Map<String, Integer> sbData) {
         Log.d("Writing String to file", "WOOT");
         try {
             // Create directory
             File dir = new File(path);
-            if(dir.mkdirs()){
+            if (dir.mkdirs()) {
                 Log.d("Directory creatededs:", "YEBABE");
             }
 
 
             File file = new File(path + sb_data_filename);
             if (!file.exists()) {
-                if(file.createNewFile()){
+                if (file.createNewFile()) {
                     Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
                 }
             }
@@ -319,7 +332,7 @@ public abstract class MMDatabase extends RoomDatabase {
 
             for (String key : sbData.keySet()) {
                 int sb = sbData.get(key);
-                fileOutputStream.write(("\t\t" + Integer.toString(sb) + " op: " + key + "\n").getBytes());
+                fileOutputStream.write(("\t\t" + sb + " op: " + key + "\n").getBytes());
             }
 
             fileOutputStream.close();
@@ -329,22 +342,21 @@ public abstract class MMDatabase extends RoomDatabase {
         }
 
     }
-    
-    
+
     // Write ordered beer data to file
     protected void beerDataToFile(Map<String, Integer> orders) {
         Log.d("Writing Data to file", "WOOT");
         try {
             // Create directory
             File dir = new File(path);
-            if(dir.mkdirs()){
+            if (dir.mkdirs()) {
                 Log.d("Directory creatededs:", "YEBABE");
             }
 
 
             File file = new File(path + beer_data_filename);
             if (!file.exists()) {
-                if(file.createNewFile()){
+                if (file.createNewFile()) {
                     Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
                 }
             }
@@ -354,7 +366,7 @@ public abstract class MMDatabase extends RoomDatabase {
 
             for (String key : orders.keySet()) {
                 int beers = orders.get(key);
-                fileOutputStream.write(("\t\t" + Integer.toString(beers) + " door: " + key + "\n").getBytes());
+                fileOutputStream.write(("\t\t" + beers + " door: " + key + "\n").getBytes());
             }
 
             fileOutputStream.close();
@@ -371,14 +383,14 @@ public abstract class MMDatabase extends RoomDatabase {
         try {
             // Create directory
             File dir = new File(path);
-            if(dir.mkdirs()){
+            if (dir.mkdirs()) {
                 Log.d("Directory creatededs:", "YEBABE");
             }
 
 
             File file = new File(path + beer_data_filename);
             if (!file.exists()) {
-                if(file.createNewFile()){
+                if (file.createNewFile()) {
                     Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
                 }
             }
@@ -386,7 +398,7 @@ public abstract class MMDatabase extends RoomDatabase {
             FileOutputStream fileOutputStream = new FileOutputStream(file, true);
             fileOutputStream.write(("Op " + getDateAndTime() + ", werd er bier besteld door:\n").getBytes());
 
-            fileOutputStream.write(("\t\t" + Integer.toString(beer) + " door: " + bewoner + "\n").getBytes());
+            fileOutputStream.write(("\t\t" + beer + " door: " + bewoner + "\n").getBytes());
 
             fileOutputStream.close();
 
@@ -396,9 +408,87 @@ public abstract class MMDatabase extends RoomDatabase {
 
     }
 
+    protected void makeSnapshot(boolean OrderedBeerDataDeleted) {
+        try {
+            // Create directory
+            File dir = new File(path);
+            if (dir.mkdirs()) {
+                Log.d("Directory creatededs:", "YEBABE");
+            }
 
-    public static String getDateAndTime(){
-        return Calendar.getInstance().getTime().toString();
+            Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+
+            int currentyear = calendar.get(Calendar.YEAR);
+            int currentmonth = calendar.get(Calendar.MONTH) + 1;
+            int currentday = calendar.get(Calendar.DAY_OF_MONTH);
+
+            String filename = currentday + "-" + currentmonth + "-" + currentyear;
+            if (OrderedBeerDataDeleted) {
+                filename += "D";
+            }
+            File file = new File(path + filename + ".txt");
+            if (!file.exists()) {
+                if (file.createNewFile()) {
+                    Log.d("FILE SUCCESFULLY CREATE", "GODDOMN");
+                }
+            } else {
+                // File exists
+                file = new File(path + filename + "(1).txt");
+                //TODO: This limits it to only 2 snapshots per day. Except when the data is deleted
+                if (!file.exists()) {
+                    if (file.createNewFile()) {
+                        Log.d("Succesfully created", "second file");
+                    }
+                }
+            }
+
+            List<Bewoner> bewoners = getBewonerDAO().getAllBewoners();
+
+            FileOutputStream fileOutputStream = new FileOutputStream(file, true);
+            fileOutputStream.write(("Op " + getDateAndTime() + ", is deze snapshot gemaakt.\n").getBytes());
+            if(OrderedBeerDataDeleted){
+                fileOutputStream.write(("Hierbij is ook het gestreepte bier verwijderd.\n").getBytes());
+            }
+
+            // This loop writes Schoonmaakbier to file
+            for(Bewoner bewoner : bewoners){
+                // Schoonmaakbier:
+                fileOutputStream.write((bewoner.getNaam() + "Krijgt schoonmaakbier van:\n").getBytes());
+                List<SchoonmaakBier> sblist = getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(bewoner.getNaam());
+
+                for(SchoonmaakBier sb : sblist){
+                    fileOutputStream.write(("\t\tVan " + sb.getToGive() + ":" + Integer.toString(sb.getBeer()) +"\n").getBytes());
+                }
+            }
+
+            // Split up the for loops so there are sections in the file
+            for(Bewoner bewoner : bewoners){
+                fileOutputStream.write(("Hier de belangrijke gegevens per bewoner:\n").getBytes());
+                int GedronkenBier = getBewonerDAO().getGedronkenBier(bewoner.getNaam());
+                int GestreeptBier = getBewonerDAO().getGestreeptBier(bewoner.getNaam());
+                int SchoonmaakBierOpJoU = getBewonerDAO().getSchoonmaakBierOpJou(bewoner.getNaam());
+                int RaakGegooid = getBewonerDAO().getRaakGegooid(bewoner.getNaam());
+
+                fileOutputStream.write(("\t" + bewoner.getNaam() + ":\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Gedronken Bier = " + Integer.toString(GedronkenBier)+"\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Gestreept Bier = " + Integer.toString(GestreeptBier)+"\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Schoonmaakbier op jou gestreept = " + Integer.toString(SchoonmaakBierOpJoU)+"\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Raak gegooid = " + Integer.toString(RaakGegooid)+"\n").getBytes());
+            }
+
+            fileOutputStream.close();
+
+        } catch (IOException e) {
+            Log.e("IO", e.getMessage());
+        }
+    }
+
+    // Clears all beer data except for hits and sb beer
+    protected void clearOrderedBeer() {
+        Log.d("CLEAR ORDERED", "BEER");
+
+        getBewonerDAO().resetSchoonmaakbierOpBewoner();
+        getBewonerDAO().resetGestreeptBier();
     }
 
 }
