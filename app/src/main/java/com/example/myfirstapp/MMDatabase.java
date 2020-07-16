@@ -125,7 +125,7 @@ public abstract class MMDatabase extends RoomDatabase {
         }
 
 
-        Log.d("IK BENEEN NIEUWE THREAD", "Ik Ga nu de database vullen met start data");
+        Log.d("Intializing Database", "Initial data");
 
 
         // Insert bewoners
@@ -474,6 +474,22 @@ public abstract class MMDatabase extends RoomDatabase {
                 fileOutputStream.write(("\t\t" + "Gestreept Bier = " + Integer.toString(GestreeptBier)+"\n").getBytes());
                 fileOutputStream.write(("\t\t" + "Schoonmaakbier op jou gestreept = " + Integer.toString(SchoonmaakBierOpJoU)+"\n").getBytes());
                 fileOutputStream.write(("\t\t" + "Raak gegooid = " + Integer.toString(RaakGegooid)+"\n").getBytes());
+            }
+
+            // Another Split: now for beer throwing stats:
+            for(Bewoner bewoner : bewoners){
+                fileOutputStream.write(("Hier de bier-gooi gegevens per bewoner:\n").getBytes());
+
+                int gegooidHV = getBewonerDAO().getGegooidHV(bewoner.getNaam());
+                int raakgegooidHV = getBewonerDAO().getRaakGegooidHV(bewoner.getNaam());
+                int gegooid = getBewonerDAO().getGegooid(bewoner.getNaam());
+                int raakgegooid = getBewonerDAO().getRaakGegooid(bewoner.getNaam());
+
+                fileOutputStream.write(("\t" + bewoner.getNaam() + ":\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Gegooid deze HV = " + Integer.toString(gegooidHV)+"\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Raak gegooid deze HV = " + Integer.toString(raakgegooidHV)+"\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Gegooid all-time: = " + Integer.toString(gegooid)+"\n").getBytes());
+                fileOutputStream.write(("\t\t" + "Raak gegooid all-time = " + Integer.toString(raakgegooid)+"\n").getBytes());
             }
 
             fileOutputStream.close();

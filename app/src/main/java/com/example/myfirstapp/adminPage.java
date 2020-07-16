@@ -29,6 +29,7 @@ public class adminPage extends AppCompatActivity {
         MMDatabase db = MMDatabase.getInstance(this.getApplicationContext());
         db.makeSnapshot(true);
         db.clearOrderedBeer();
+        db.getBewonerDAO().resetGooienHV();
     }
 
 }

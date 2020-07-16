@@ -1,0 +1,35 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/LeukeStatiestieken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="startLeukeStatistieken"
+        android:text="Leuke Statistieken"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.435" />
+
+    <Button
+        android:id="@+id/Biergebruik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startStatistieken"
+        android:text="Bier Gebruik"
+        app:layout_constraintBottom_toBottomOf="@+id/LeukeStatiestieken"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/LeukeStatiestieken"
+        app:layout_constraintTop_toTopOf="@+id/LeukeStatiestieken" />
+</androidx.constraintlayout.widget.ConstraintLayout>

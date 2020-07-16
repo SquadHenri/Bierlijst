@@ -18,6 +18,9 @@ import io.reactivex.internal.operators.maybe.MaybeError;
 
 public class bierPopup extends AppCompatActivity {
     public int beerToThrow;
+
+    // The value that beerToThrow is initially set to
+    public int ThrownBeer;
     public int hits = 0;
     public int uitHetRaam = 0;
     public String Thrower;
@@ -34,6 +37,7 @@ public class bierPopup extends AppCompatActivity {
         Intent intent = getIntent();
         Thrower = intent.getStringExtra("thrower");
         beerToThrow = intent.getIntExtra("beer",0);
+        ThrownBeer = beerToThrow;
 
         if(beerToThrow == 0) {
             Log.e("Error", "bierPopup created with no beer");
@@ -47,9 +51,10 @@ public class bierPopup extends AppCompatActivity {
 
     }
 
+
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         Log.d("STOPPING", "WORKS!>");
         handleExtraBeers();
     }
@@ -99,11 +104,14 @@ public class bierPopup extends AppCompatActivity {
     }
 
     public void handleExtraBeers() {
+        MMDatabase db = MMDatabase.getInstance(getApplicationContext());
+
+        // add gegooid:
+        db.getBewonerDAO().UpdateRaakGegooidAndGegooid(Thrower, hits + uitHetRaam + ThrownBeer, hits);
 
         if(hits + uitHetRaam > 0) {
-            MMDatabase db = MMDatabase.getInstance(getApplicationContext());
 
-            db.getBewonerDAO().addRaakGegooid(hits + uitHetRaam, Thrower);
+            db.getBewonerDAO().addRaakGegooid(hits, Thrower);
             db.processBeer(Thrower, hits + uitHetRaam, true);
         }
         // Just to make sure it does not happen twice
@@ -148,9 +156,11 @@ public class bierPopup extends AppCompatActivity {
 
             public void onFinish() {
                 // Finish this activity
-                if(hits > 0 || uitHetRaam > 0) {
-                    handleExtraBeers();
-                }
+
+                // Finish should call handleExtraBeers by onDestroy()
+//                if(hits > 0 || uitHetRaam > 0) {
+//                    handleExtraBeers();
+//                }
                 finish();
             }
         };

@@ -70,6 +70,20 @@ public class Bewoner {
     @ColumnInfo(name = "raakGegooid")
     private int raakGegooid = 0;
 
+    // How many times someone threw beer
+    @NonNull
+    @ColumnInfo(name = "Gegooid")
+    private int gegooid;
+
+    @NonNull
+    @ColumnInfo(name = "raakGegooidHV")
+    private int raakGegooidHV = 0;
+
+    // How many times someone threw beer
+    @NonNull
+    @ColumnInfo(name = "GegooidHV")
+    private int gegooidHV;
+
     // PUBLIC CONSTRUCTOR
     public Bewoner(String naam, String geboortedatum, boolean isvG, boolean isHuidigeBewoner) {
         this.naam = naam;
@@ -167,4 +181,27 @@ public class Bewoner {
 
     public void setGedronkenBier(int gedronkenBier) { this.gedronkenBier = gedronkenBier; }
 
+    public int getGegooid() {
+        return gegooid;
+    }
+
+    public void setGegooid(int gegooid) {
+        this.gegooid = gegooid;
+    }
+
+    public int getGegooidHV() {
+        return gegooidHV;
+    }
+
+    public void setGegooidHV(int gegooidHV) {
+        this.gegooidHV = gegooidHV;
+    }
+
+    public int getRaakGegooidHV() {
+        return raakGegooidHV;
+    }
+
+    public void setRaakGegooidHV(int raakGegooidHV) {
+        this.raakGegooidHV = raakGegooidHV;
+    }
 }

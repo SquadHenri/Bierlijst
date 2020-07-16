@@ -14,11 +14,15 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LeukeStatistieken"></activity>
+        <activity
+            android:name=".StatistiekenKeuze"
+            android:label="@string/title_activity_statistieken_keuze"></activity>
         <activity
             android:name=".adminPage"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_admin_page"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".MainActivity"
             android:label="MorgenMisschien">
@@ -31,18 +35,18 @@
         <activity
             android:name=".bierPopup"
             android:parentActivityName=".Bierlijst"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Statistieken"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Bierlijst"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".EditBewoners"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startStatistieken(View view) {
-        Log.d("HEPL", "STARTSTATISTIEKEN CALLED!");
-        Intent intent = new Intent(this, Statistieken.class);
+        Log.d("HEPL", "START KEUZE STATISTIEKEN!");
+        Intent intent = new Intent(this, StatistiekenKeuze.class);
         startActivity(intent);
     }
 
