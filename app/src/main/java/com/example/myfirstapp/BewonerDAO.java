@@ -46,6 +46,7 @@ public abstract class BewonerDAO {
     @Query("SELECT gestreeptBier FROM bewoner WHERE naam == :naam")
     public abstract int getGestreeptBier(String naam);
 
+    //
     @Query("UPDATE bewoner SET gestreeptBier = :value WHERE naam == :naam")
     public abstract int setGestreeptBier(String naam, int value);
 

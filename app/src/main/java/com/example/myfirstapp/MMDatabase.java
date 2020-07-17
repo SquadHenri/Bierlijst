@@ -34,6 +34,7 @@ public abstract class MMDatabase extends RoomDatabase {
 
     public static synchronized MMDatabase getInstance(Context context) {
         if (Database == null) {
+            Log.d("Database is null.", "Building database:");
             // There is no database yet
             Database = Room.databaseBuilder(context.getApplicationContext(), MMDatabase.class, "db")
                     .allowMainThreadQueries()
@@ -41,7 +42,8 @@ public abstract class MMDatabase extends RoomDatabase {
             // .allowMainThreadQueries() is a dirty way to be able to get data from my db.
             // TODO: switch from allowMainThreadQueries to rxJava. even if its an assload of work with weird syntax
 
-            //Database.populateDatabaseInitialData();
+            Log.d("PopulateDatabase", "InitialData:");
+            Database.populateDatabase();
             Database.printDB();
         }
         return Database;
@@ -90,99 +92,99 @@ public abstract class MMDatabase extends RoomDatabase {
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
         getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 5));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 11));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 12));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 12));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 12));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 0));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 6));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 4));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 7));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 0));
-
-        Log.d("Schoonmaakbier", "All relaties inserted. ");
-
-        Log.d("Database", "Database populated");
-
-    }
-
-    protected synchronized void populateDatabaseInitialData() {
-
-        // Dirty way to check if this database already has data. I could not find a good way to do this
-        List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
-        if (!listBewoners.isEmpty()) {
-            return;
-        }
-
-
-        Log.d("Intializing Database", "Initial data");
-
-
-        // Insert bewoners
-
-        getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
-        getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
-        getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
-        getBewonerDAO().insert(new Bewoner("Etienne", "10-4-1998", false, true));
-        getBewonerDAO().insert(new Bewoner("Rowin", "20-11-1997", false, true));
-
-        Log.d("Bewoners", "geinstert");
-
-        List<Bewoner> list = getBewonerDAO().getAllBewoners();
-        Log.d("we hebben: ", "" + list.size() + " bewoners");
-
-        // Insert schoonmaakbier relaties
-
-        Log.d("SchoonmaakBier", "Inserting all relaties");
-
-
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 2));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
-
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 22));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 35));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
-
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 15));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 18));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 35));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
-
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 0));
-
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 0));
-
-
-        getBewonerDAO().setGestreeptBier("Thijs", 0);
-        getBewonerDAO().setGestreeptBier("Sven", 0);
-        getBewonerDAO().setGestreeptBier("Etienne", 0);
-        getBewonerDAO().setGestreeptBier("Rowin", 0);
-        getBewonerDAO().setGestreeptBier("Steven", 0);
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 5));
+        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 5));
 
         Log.d("Schoonmaakbier", "All relaties inserted. ");
 
         Log.d("Database", "Database populated");
 
     }
+
+//    protected synchronized void populateDatabaseInitialData() {
+//
+//        // Dirty way to check if this database already has data. I could not find a good way to do this
+//        List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
+//        if (!listBewoners.isEmpty()) {
+//            return;
+//        }
+//
+//
+//        Log.d("Intializing Database", "Initial data");
+//
+//
+//        // Insert bewoners
+//
+//        getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
+//        getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
+//        getBewonerDAO().insert(new Bewoner("Rowin", "20-11-1997", false, true));
+//        getBewonerDAO().insert(new Bewoner("Etienne", "10-4-1998", false, true));
+//        getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
+//
+//        Log.d("Bewoners", "geinstert");
+//
+//        List<Bewoner> list = getBewonerDAO().getAllBewoners();
+//        Log.d("we hebben: ", "" + list.size() + " bewoners");
+//
+//        // Insert schoonmaakbier relaties
+//
+//        Log.d("SchoonmaakBier", "Inserting all relaties");
+//
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 2));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 22));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 35));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 15));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 18));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 35));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 0));
+//
+//
+//        getBewonerDAO().setGestreeptBier("Thijs", 0);
+//        getBewonerDAO().setGestreeptBier("Sven", 0);
+//        getBewonerDAO().setGestreeptBier("Etienne", 0);
+//        getBewonerDAO().setGestreeptBier("Rowin", 0);
+//        getBewonerDAO().setGestreeptBier("Steven", 0);
+//
+//        Log.d("Schoonmaakbier", "All relaties inserted. ");
+//
+//        Log.d("Database", "Database populated");
+//
+//    }
 
     protected void printDB() {
         Log.d("=================", "=============");
