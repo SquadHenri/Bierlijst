@@ -144,12 +144,23 @@ public abstract class BewonerDAO {
 
     @Transaction
     public void UpdateRaakGegooidAndGegooid(String naam, int gegooid, int raakGegooid){
+        Log.d("UpdateRaakGegooid", "AndGegooid");
+        String gegooidTotaal = Integer.toString(gegooid);
+        String raakGegooidTotaal = Integer.toString(raakGegooid);
+        Log.d("Gegooid", gegooidTotaal);
+        Log.d("raakGegooid", raakGegooidTotaal);
         if(raakGegooid > 0){
             addGegooid(gegooid, naam);
             addRaakGegooid(raakGegooid, naam);
 
             addGegooidHV(gegooid, naam);
-            addRaakGegooidHV(gegooid, naam);
+            addRaakGegooidHV(raakGegooid, naam);
+
+            gegooidTotaal = Integer.toString(getGegooid(naam));
+            raakGegooidTotaal = Integer.toString(getRaakGegooid(naam));
+            Log.d("New Gegooid", gegooidTotaal);
+            Log.d("New raakGegooid", raakGegooidTotaal);
+
         } else {
             addGegooid(gegooid, naam);
             addGegooidHV(gegooid, naam);

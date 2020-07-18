@@ -73,16 +73,16 @@ public class Bewoner {
     // How many times someone threw beer
     @NonNull
     @ColumnInfo(name = "Gegooid")
-    private int gegooid;
+    private int gegooid = 0;
 
     @NonNull
     @ColumnInfo(name = "raakGegooidHV")
     private int raakGegooidHV = 0;
 
-    // How many times someone threw beer
+    // How many times someone threw beer this HV period
     @NonNull
     @ColumnInfo(name = "GegooidHV")
-    private int gegooidHV;
+    private int gegooidHV = 0;
 
     // PUBLIC CONSTRUCTOR
     public Bewoner(String naam, String geboortedatum, boolean isvG, boolean isHuidigeBewoner) {

@@ -17,270 +17,357 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/RaakGegooidHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Raak Gegooid deze HV  " />
+                android:text="Raak Gegooid deze HV    "
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/GegooidHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gegooid deze HV        " />
+                android:text="Gegooid deze HV        "
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/gegooid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All-time raak gegooid" />
+                android:text="All-time raak gegooid    "
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/raakGegooid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All-time gegooid" />
+                android:text="All-time gegooid"
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/LS_Thijs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thijs" />
+                android:text="Thijs"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/thijs_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/thijs_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/thijs_raak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/thijs_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/LS_Sven"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sven" />
+                android:text="Sven"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/sven_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/sven_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/sven_raak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/sven_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/LS_Rowin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rowin" />
+                android:text="Rowin"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/rowin_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/rowin_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/rowin_raak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/rowin_gooi"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/LS_Etienne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Etienne" />
+                android:text="Etienne"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/etienne_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/etienne_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/etienne_raak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/etienne_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/LS_vG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vG" />
+                android:text="vG"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/steven_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/steven_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/steven_raak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/steven_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:id="@+id/LS_Huis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Huis" />
+                android:text="Huis"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/huis_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/huis_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <Space
                 android:layout_width="10sp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/huis_raak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/huis_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

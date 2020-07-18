@@ -107,11 +107,10 @@ public class bierPopup extends AppCompatActivity {
         MMDatabase db = MMDatabase.getInstance(getApplicationContext());
 
         // add gegooid:
+
         db.getBewonerDAO().UpdateRaakGegooidAndGegooid(Thrower, hits + uitHetRaam + ThrownBeer, hits);
 
         if(hits + uitHetRaam > 0) {
-
-            db.getBewonerDAO().addRaakGegooid(hits, Thrower);
             db.processBeer(Thrower, hits + uitHetRaam, true);
         }
         // Just to make sure it does not happen twice

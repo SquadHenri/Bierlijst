@@ -2,7 +2,9 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.List;
@@ -26,6 +28,7 @@ public class LeukeStatistieken extends AppCompatActivity {
 
     // This is hardcoded to the max
     // But fixing this would require a rewrite of the whole program
+    @SuppressLint("SetTextI18n")
     public void updateGooiTable(){
         MMDatabase db = MMDatabase.getInstance(getApplicationContext());
 
@@ -37,8 +40,9 @@ public class LeukeStatistieken extends AppCompatActivity {
 
         thijs_raakHV.setText(Integer.toString(db.getBewonerDAO().getRaakGegooidHV(thijs)));
         thijs_raak.setText(Integer.toString(db.getBewonerDAO().getRaakGegooid(thijs)));
-        thijs_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooid(thijs)));
-        thijs_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(thijs)));
+
+        thijs_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(thijs)));
+        thijs_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooid(thijs)));
 
         // Sven
         TextView sven_raakHV = findViewById(R.id.sven_raakHV);
@@ -48,8 +52,9 @@ public class LeukeStatistieken extends AppCompatActivity {
 
         sven_raakHV.setText(Integer.toString(db.getBewonerDAO().getRaakGegooidHV(sven)));
         sven_raak.setText(Integer.toString(db.getBewonerDAO().getRaakGegooid(sven)));
-        sven_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooid(sven)));
-        sven_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(sven)));
+
+        sven_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(sven)));
+        sven_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooid(sven)));
 
         // Rowin
         TextView rowin_raakHV = findViewById(R.id.rowin_raakHV);
@@ -59,8 +64,9 @@ public class LeukeStatistieken extends AppCompatActivity {
 
         rowin_raakHV.setText(Integer.toString(db.getBewonerDAO().getRaakGegooidHV(rowin)));
         rowin_raak.setText(Integer.toString(db.getBewonerDAO().getRaakGegooid(rowin)));
-        rowin_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooid(rowin)));
-        rowin_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(rowin)));
+
+        rowin_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(rowin)));
+        rowin_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooid(rowin)));
 
         // Etienne
         TextView etienne_raakHV = findViewById(R.id.etienne_raakHV);
@@ -70,8 +76,9 @@ public class LeukeStatistieken extends AppCompatActivity {
 
         etienne_raakHV.setText(Integer.toString(db.getBewonerDAO().getRaakGegooidHV(etienne)));
         etienne_raak.setText(Integer.toString(db.getBewonerDAO().getRaakGegooid(etienne)));
-        etienne_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooid(etienne)));
-        etienne_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(etienne)));
+
+        etienne_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(etienne)));
+        etienne_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooid(etienne)));
 
         // Steven / vG
         TextView steven_raakHV = findViewById(R.id.steven_raakHV);
@@ -81,8 +88,9 @@ public class LeukeStatistieken extends AppCompatActivity {
 
         steven_raakHV.setText(Integer.toString(db.getBewonerDAO().getRaakGegooidHV(steven)));
         steven_raak.setText(Integer.toString(db.getBewonerDAO().getRaakGegooid(steven)));
-        steven_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooid(steven)));
-        steven_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(steven)));
+
+        steven_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooidHV(steven)));
+        steven_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooid(steven)));
 
         // Huis
         TextView huis_raakHV = findViewById(R.id.huis_raakHV);
@@ -92,8 +100,9 @@ public class LeukeStatistieken extends AppCompatActivity {
 
         huis_raakHV.setText(Integer.toString(db.getBewonerDAO().getRaakGegooidHV()));
         huis_raak.setText(Integer.toString(db.getBewonerDAO().getRaakGegooid()));
-        huis_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooid()));
-        huis_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooidHV()));
+
+        huis_gooiHV.setText(Integer.toString(db.getBewonerDAO().getGegooidHV()));
+        huis_gooi.setText(Integer.toString(db.getBewonerDAO().getGegooid()));
 
 
     }
