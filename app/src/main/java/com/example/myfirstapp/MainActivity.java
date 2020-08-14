@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TODO: possibly move this
-        // Init Database by fetching an instance and not doing anything
         Log.d("Database", "Fetching database to init it");
         MMDatabase.getInstance(getApplicationContext());
 

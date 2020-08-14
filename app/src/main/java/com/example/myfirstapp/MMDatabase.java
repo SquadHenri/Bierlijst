@@ -65,10 +65,6 @@ public abstract class MMDatabase extends RoomDatabase {
             return;
         }
 
-
-        Log.d("IK BENEEN NIEUWE THREAD", "Ik Ga nu de database vullen met start data");
-
-
         // Insert bewoners
 
         getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
@@ -118,76 +114,7 @@ public abstract class MMDatabase extends RoomDatabase {
 
     }
 
-//    protected synchronized void populateDatabaseInitialData() {
-//
-//        // Dirty way to check if this database already has data. I could not find a good way to do this
-//        List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
-//        if (!listBewoners.isEmpty()) {
-//            return;
-//        }
-//
-//
-//        Log.d("Intializing Database", "Initial data");
-//
-//
-//        // Insert bewoners
-//
-//        getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
-//        getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
-//        getBewonerDAO().insert(new Bewoner("Rowin", "20-11-1997", false, true));
-//        getBewonerDAO().insert(new Bewoner("Etienne", "10-4-1998", false, true));
-//        getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
-//
-//        Log.d("Bewoners", "geinstert");
-//
-//        List<Bewoner> list = getBewonerDAO().getAllBewoners();
-//        Log.d("we hebben: ", "" + list.size() + " bewoners");
-//
-//        // Insert schoonmaakbier relaties
-//
-//        Log.d("SchoonmaakBier", "Inserting all relaties");
-//
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 2));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 22));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 35));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 15));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 18));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 35));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 0));
-//
-//
-//        getBewonerDAO().setGestreeptBier("Thijs", 0);
-//        getBewonerDAO().setGestreeptBier("Sven", 0);
-//        getBewonerDAO().setGestreeptBier("Etienne", 0);
-//        getBewonerDAO().setGestreeptBier("Rowin", 0);
-//        getBewonerDAO().setGestreeptBier("Steven", 0);
-//
-//        Log.d("Schoonmaakbier", "All relaties inserted. ");
-//
-//        Log.d("Database", "Database populated");
-//
-//    }
-
     protected void printDB() {
-        Log.d("=================", "=============");
         Log.d("Printing database", "gl");
 
         List<Bewoner> bewoners = getBewonerDAO().getAllBewoners();
@@ -224,16 +151,15 @@ public abstract class MMDatabase extends RoomDatabase {
             Log.d("RECEIVE AND OWE FOR", naam);
             Log.d("receive", "ex:" + sbBeerReceives.get(naam) +
                     "ac:" + getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(naam));
+
             Log.d("owe", "ex:" + sbBeerOwed.get(naam) +
                     "ac:" + getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(naam));
+
         }
-        Log.d("-------------", "------------");
-        Log.d("=================", "=============");
     }
 
     // Process requested beers function
     public synchronized void processBeer(Map<String, Integer> orders) {
-        Log.d("5555555555555", "55555555555");
         Log.d("Processing beer for", "multiple people");
 
         Map<String, Integer> orders_out = new HashMap<String, Integer>(orders);
@@ -263,7 +189,6 @@ public abstract class MMDatabase extends RoomDatabase {
 
         int beers = beersToBeAccounted;
 
-        Log.d("0000000000000", "0000000");
         Log.d("PROCESSING " + beers, "beer for" + bewoner);
 
         getBewonerDAO().addGedronkenBier(beers, bewoner);

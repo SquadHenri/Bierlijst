@@ -42,7 +42,7 @@ public class Bierlijst extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bierlijst);
-        Log.e("HEPL", "BIERLIJST CREATEDDD!!");
+        Log.e("BierLijst:", "BIERLIJST CREATEDDD!!");
 
         EditText editTextRowin = findViewById(R.id.editTextRowin);
         editTextRowin.setText("0");
@@ -283,7 +283,6 @@ public class Bierlijst extends AppCompatActivity {
         MMDatabase.getInstance(getApplicationContext()).processBeer(orders);
         //TODO: make sure sb also keeps track of total beer
 
-
     }
 
     /*
@@ -313,7 +312,7 @@ public class Bierlijst extends AppCompatActivity {
 
     /*
     *                   ALL ADD BUTTONS
-    *                   // TODO: check if value is actually has a value
+    *
     * */
 
     public void addRowin(View view) {
@@ -452,109 +451,3 @@ public class Bierlijst extends AppCompatActivity {
     }
 }
 
-/*
-
-// Process requested bier
-    public synchronized void processBier(View view) {
-
-        EditText editTextRowin = findViewById(R.id.editTextRowin);
-        EditText editTextThijs = findViewById(R.id.editTextThijs);
-        EditText editTextsteven = findViewById(R.id.editTextsteven);
-        EditText editTextSven = findViewById(R.id.editTextSven);
-        EditText editTextEtienne = findViewById(R.id.editTextEtienne);
-
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-
-                // Get all orders that are more than 0
-                Map<String, Integer> orders = new HashMap<String, Integer>();
-
-
-                // TODO: possibly make this a bit more efficient. its also ugly as fuck
-                EditText editTextRowin = findViewById(R.id.editTextRowin);
-                EditText editTextThijs = findViewById(R.id.editTextThijs);
-                EditText editTextsteven = findViewById(R.id.editTextsteven);
-                EditText editTextSven = findViewById(R.id.editTextSven);
-                EditText editTextEtienne = findViewById(R.id.editTextEtienne);
-
-                orders.put("Rowin", Integer.valueOf(editTextRowin.getText().toString()));
-                orders.put("Thijs", Integer.valueOf(editTextThijs.getText().toString()));
-                orders.put("Steven", Integer.valueOf(editTextsteven.getText().toString()));
-                orders.put("Sven", Integer.valueOf(editTextSven.getText().toString()));
-                orders.put("Etienne", Integer.valueOf(editTextEtienne.getText().toString()));
-
-                MMDatabase db = MMDatabase.getInstance(getApplicationContext());
-
-                // db.exportToJSON("hello", getApplicationContext());
-
-                Log.d("orders:", "" + orders.keySet().size());
-
-                // For each person that want a beer, check where to deduct or add the beer to
-                // The key here is a string of the name of the person requesting, the value is the amount of beers requested
-                for (String key : orders.keySet()) {
-                    int beers = orders.get(key);
-
-                    if(beers == 0) {
-                        Log.d("no beers ordered by", key);
-                        Log.d("=======================", "=========");
-                        continue;
-                    }
-
-                    Log.d("processing beers for", key);
-                    Log.d("Beers requested", "" + beers);
-
-                    assert (beers > 0);
-
-                    // First check if this person still has to receive beer from other people
-
-                    // A list of all relations with other bewoners. So any beer the key should receive is in this list
-                    List<SchoonmaakBier> schoonmaakbier = db.getSchoonmaakBierDAO().getAllSchoonmaakBierBewonerReceives(key);
-
-                    for (SchoonmaakBier sb : schoonmaakbier) {
-                        Log.d("from " + sb.getToGive() + " to " + sb.getToReceive() + " beers", "" + sb.getBeer());
-                        if (sb.getBeer() == 0) {
-                            // The key gets no beer from this person
-                            continue;
-                        } else if (sb.getBeer() >= beers) {
-                            // All the requested beers can be substracted from this person
-                            db.getSchoonmaakBierDAO().setBeer(sb.getBeer() - beers, key, sb.getToGive());
-                            Log.d("beer set to " + (sb.getBeer() - beers),sb.getToGive() + " -> " + key);
-                            beers = 0;
-                        } else if (sb.getBeer() < beers) {
-                            // some can be substracted from this person
-                            beers = beers - sb.getBeer();
-                            Log.d("beers substracted: ", "" + sb.getBeer());
-
-                            db.getSchoonmaakBierDAO().setBeer(beers - sb.getBeer(), key, sb.getToGive());
-                        }
-
-                        Log.d("beers to be accounted", "" + beers);
-
-                        if (beers == 0) {
-                            break;
-                        }
-
-                    }
-                    if (beers == 0) {
-                        Log.d("beers are accounted as", "schoonmaakbier");
-                        Log.d("=======================", "=========");
-                        continue;
-                    } else {
-                        db.getBewonerDAO().addGestreeptBier(beers, key);
-                        Log.d(beers+ " beers added as streept", "to " + key);
-                        Log.d("=======================", "=========");
-                    }
-                    Log.d("gestreept bier voor " + key, "" + db.getBewonerDAO().getGestreeptBier(key));
-                }
-            }
-        });
-
-        editTextEtienne.setText("0");
-        editTextRowin.setText("0");
-        editTextSven.setText("0");
-        editTextThijs.setText("0");
-        editTextsteven.setText("0");
-
-    }
- */

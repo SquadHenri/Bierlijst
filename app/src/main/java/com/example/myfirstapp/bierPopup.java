@@ -154,12 +154,6 @@ public class bierPopup extends AppCompatActivity {
             }
 
             public void onFinish() {
-                // Finish this activity
-
-                // Finish should call handleExtraBeers by onDestroy()
-//                if(hits > 0 || uitHetRaam > 0) {
-//                    handleExtraBeers();
-//                }
                 finish();
             }
         };

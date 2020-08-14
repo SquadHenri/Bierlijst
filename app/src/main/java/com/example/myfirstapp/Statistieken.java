@@ -126,7 +126,7 @@ public class Statistieken extends AppCompatActivity {
         TextView sventotaalkrijgen = findViewById(R.id.sventotaalgeven);
         TextView sventotaalgeven = findViewById(R.id.sventotaalkrijgen);
 
-        // Tinder geeft
+        // Etienne geeft
         TextView etiennethijs = findViewById(R.id.etiennethijs);
         TextView etiennesven = findViewById(R.id.etiennesven);
         TextView etiennerowin = findViewById(R.id.etiennerowin);
@@ -305,13 +305,6 @@ public class Statistieken extends AppCompatActivity {
     }
 
     private void updateData(){
-        /*
-        *     // Thijs, Sven, Tinder, KVN, Steven
-    Map<String, Map<String, Integer>> schoonmaakbiertogive;
-    Map<String, Integer> gestreeptbier = new HashMap<String, Integer>();
-    Map<String, Integer> schoonmaakbiergestreept = new HashMap<String, Integer>();
-        * */
-
         MMDatabase db = MMDatabase.getInstance(this.getApplicationContext());
 
 
