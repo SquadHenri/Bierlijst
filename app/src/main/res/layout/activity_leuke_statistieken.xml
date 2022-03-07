@@ -8,12 +8,14 @@
     tools:context=".LeukeStatistieken">
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,11 +40,6 @@
                 android:textAlignment="center"
                 android:textSize="26sp"
                 android:textStyle="bold" />
-
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/gegooid"
@@ -69,7 +66,7 @@
             android:textAlignment="center">
 
             <TextView
-                android:id="@+id/LS_Thijs"
+                android:id="@+id/LS_B1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thijs"
@@ -77,7 +74,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/thijs_raakHV"
+                android:id="@+id/B1_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -85,20 +82,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/thijs_gooiHV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="26sp" />
-
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/thijs_raak"
+                android:id="@+id/B1_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -106,7 +90,15 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/thijs_gooi"
+                android:id="@+id/B1_raak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/B1_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -121,7 +113,7 @@
             android:textAlignment="center">
 
             <TextView
-                android:id="@+id/LS_Sven"
+                android:id="@+id/LS_B2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sven"
@@ -129,7 +121,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/sven_raakHV"
+                android:id="@+id/B2_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -137,20 +129,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/sven_gooiHV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="26sp" />
-
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/sven_raak"
+                android:id="@+id/B2_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -158,7 +137,15 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/sven_gooi"
+                android:id="@+id/B2_raak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/B2_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -172,7 +159,7 @@
             android:textAlignment="center">
 
             <TextView
-                android:id="@+id/LS_Rowin"
+                android:id="@+id/LS_B3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rowin"
@@ -180,7 +167,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/rowin_raakHV"
+                android:id="@+id/B3_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -188,20 +175,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/rowin_gooiHV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="26sp" />
-
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/rowin_raak"
+                android:id="@+id/B3_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -209,7 +183,15 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/rowin_gooi"
+                android:id="@+id/B3_raak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/B3_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="TextView"
@@ -223,7 +205,7 @@
             android:textAlignment="center">
 
             <TextView
-                android:id="@+id/LS_Etienne"
+                android:id="@+id/LS_B4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Etienne"
@@ -231,7 +213,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/etienne_raakHV"
+                android:id="@+id/B4_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -239,20 +221,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/etienne_gooiHV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="26sp" />
-
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/etienne_raak"
+                android:id="@+id/B4_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -260,7 +229,15 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/etienne_gooi"
+                android:id="@+id/B4_raak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/B4_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -274,7 +251,7 @@
             android:textAlignment="center">
 
             <TextView
-                android:id="@+id/LS_vG"
+                android:id="@+id/LS_B5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="vG"
@@ -282,7 +259,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/steven_raakHV"
+                android:id="@+id/B5_raakHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -290,20 +267,7 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/steven_gooiHV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textSize="26sp" />
-
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/steven_raak"
+                android:id="@+id/B5_gooiHV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -311,7 +275,15 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/steven_gooi"
+                android:id="@+id/B5_raak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/B5_gooi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -348,11 +320,6 @@
                 android:textAlignment="center"
                 android:textSize="26sp" />
 
-            <Space
-                android:layout_width="10sp"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
-
             <TextView
                 android:id="@+id/huis_raak"
                 android:layout_width="wrap_content"
@@ -370,4 +337,5 @@
                 android:textSize="26sp" />
         </TableRow>
     </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

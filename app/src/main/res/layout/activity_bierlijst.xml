@@ -20,45 +20,45 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/rowinsbkrijgen"
+        android:id="@+id/B4sbkrijgen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Rowin"
-        app:layout_constraintTop_toBottomOf="@+id/addRowin" />
+        app:layout_constraintEnd_toEndOf="@+id/IG_B4"
+        app:layout_constraintTop_toBottomOf="@+id/addB4" />
 
     <TextView
-        android:id="@+id/svensbgeven"
+        android:id="@+id/B2sbgeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/IG_Sven"
-        app:layout_constraintTop_toBottomOf="@+id/substractSven" />
+        app:layout_constraintStart_toStartOf="@+id/IG_B2"
+        app:layout_constraintTop_toBottomOf="@+id/substractB2" />
 
     <ImageButton
-        android:id="@+id/substractsteven"
+        android:id="@+id/substractB5"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="substractsteven"
-        app:layout_constraintStart_toStartOf="@+id/IG_steven"
-        app:layout_constraintTop_toBottomOf="@+id/IG_steven"
+        app:layout_constraintStart_toStartOf="@+id/IG_B5"
+        app:layout_constraintTop_toBottomOf="@+id/IG_B5"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
     <ImageButton
-        android:id="@+id/substractSven"
+        android:id="@+id/substractB2"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="substractSven"
-        app:layout_constraintEnd_toStartOf="@+id/editTextSven"
+        app:layout_constraintEnd_toStartOf="@+id/editTextB2"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/IG_Sven"
-        app:layout_constraintTop_toTopOf="@+id/editTextSven"
+        app:layout_constraintStart_toStartOf="@+id/IG_B2"
+        app:layout_constraintTop_toTopOf="@+id/editTextB2"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
     <ImageButton
-        android:id="@+id/IG_steven"
+        android:id="@+id/IG_B5"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="16dp"
@@ -66,129 +66,129 @@
         android:onClick="stevenBier"
         android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B2"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/IG_Sven"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSven"
+        app:layout_constraintStart_toStartOf="@+id/IG_B2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextB2"
         app:layout_constraintVertical_bias="0.208"
         app:srcCompat="@drawable/ic_vg" />
 
     <TextView
-        android:id="@+id/stevensbgeven"
+        android:id="@+id/B5sbgeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/IG_steven"
-        app:layout_constraintTop_toBottomOf="@+id/substractsteven" />
+        app:layout_constraintStart_toStartOf="@+id/IG_B5"
+        app:layout_constraintTop_toBottomOf="@+id/substractB5" />
 
     <TextView
-        android:id="@+id/etiennesbkrijgen"
+        android:id="@+id/B3sbkrijgen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
-        app:layout_constraintTop_toBottomOf="@+id/addEtienne" />
+        app:layout_constraintEnd_toEndOf="@+id/IG_B3"
+        app:layout_constraintTop_toBottomOf="@+id/addB3" />
 
     <TextView
-        android:id="@+id/stevensbkrijgen"
+        android:id="@+id/B5sbkrijgen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/IG_steven"
-        app:layout_constraintTop_toBottomOf="@+id/addsteven" />
+        app:layout_constraintEnd_toEndOf="@+id/IG_B5"
+        app:layout_constraintTop_toBottomOf="@+id/addB5" />
 
     <ImageButton
-        android:id="@+id/addThijs"
+        android:id="@+id/addB1"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="addThijs"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
-        app:layout_constraintTop_toTopOf="@+id/substractThijs"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B1"
+        app:layout_constraintTop_toTopOf="@+id/substractB1"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageButton
-        android:id="@+id/addSven"
+        android:id="@+id/addB2"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="addSven"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
-        app:layout_constraintStart_toEndOf="@+id/editTextSven"
-        app:layout_constraintTop_toTopOf="@+id/editTextSven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B2"
+        app:layout_constraintStart_toEndOf="@+id/editTextB2"
+        app:layout_constraintTop_toTopOf="@+id/editTextB2"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageButton
-        android:id="@+id/IG_Thijs"
+        android:id="@+id/IG_B1"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:longClickable="true"
         android:onClick="thijsBier"
         android:scaleType="center"
-        app:layout_constraintEnd_toStartOf="@+id/IG_Sven"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintEnd_toStartOf="@+id/IG_B2"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/IG_Sven"
+        app:layout_constraintTop_toTopOf="@+id/IG_B2"
         app:srcCompat="@drawable/ic_thijs" />
 
     <TextView
-        android:id="@+id/rowinsbgeven"
+        android:id="@+id/B4sbgeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/IG_Rowin"
-        app:layout_constraintTop_toBottomOf="@+id/substractRowin" />
+        app:layout_constraintStart_toStartOf="@+id/IG_B4"
+        app:layout_constraintTop_toBottomOf="@+id/substractB4" />
 
     <ImageButton
-        android:id="@+id/addRowin"
+        android:id="@+id/addB4"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="addRowin"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Rowin"
-        app:layout_constraintTop_toTopOf="@+id/editTextRowin"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B4"
+        app:layout_constraintTop_toTopOf="@+id/editTextB4"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <EditText
-        android:id="@+id/editTextEtienne"
+        android:id="@+id/editTextB3"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="numberSigned"
-        app:layout_constraintStart_toEndOf="@+id/substractEtienne"
-        app:layout_constraintTop_toTopOf="@+id/substractEtienne" />
+        app:layout_constraintStart_toEndOf="@+id/substractB3"
+        app:layout_constraintTop_toTopOf="@+id/substractB3" />
 
     <ImageButton
-        android:id="@+id/substractEtienne"
+        android:id="@+id/substractB3"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="substractEtienne"
-        app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Etienne"
+        app:layout_constraintStart_toStartOf="@+id/IG_B3"
+        app:layout_constraintTop_toBottomOf="@+id/IG_B3"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
     <TextView
-        android:id="@+id/etiennesbgeven"
+        android:id="@+id/B3sbgeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
-        app:layout_constraintTop_toBottomOf="@+id/substractEtienne" />
+        app:layout_constraintStart_toStartOf="@+id/IG_B3"
+        app:layout_constraintTop_toBottomOf="@+id/substractB3" />
 
     <ImageButton
-        android:id="@+id/addEtienne"
+        android:id="@+id/addB3"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="addEtienne"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
-        app:layout_constraintStart_toEndOf="@+id/editTextEtienne"
-        app:layout_constraintTop_toTopOf="@+id/substractEtienne"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B3"
+        app:layout_constraintStart_toEndOf="@+id/editTextB3"
+        app:layout_constraintTop_toTopOf="@+id/substractB3"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ImageButton
-        android:id="@+id/IG_Sven"
+        android:id="@+id/IG_B2"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="24dp"
@@ -201,111 +201,111 @@
         app:srcCompat="@drawable/ic_sven" />
 
     <EditText
-        android:id="@+id/editTextsteven"
+        android:id="@+id/editTextB5"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="numberSigned"
-        app:layout_constraintEnd_toStartOf="@+id/addsteven"
-        app:layout_constraintStart_toEndOf="@+id/substractsteven"
-        app:layout_constraintTop_toBottomOf="@+id/IG_steven" />
+        app:layout_constraintEnd_toStartOf="@+id/addB5"
+        app:layout_constraintStart_toEndOf="@+id/substractB5"
+        app:layout_constraintTop_toBottomOf="@+id/IG_B5" />
 
     <TextView
-        android:id="@+id/thijssbgeven"
+        android:id="@+id/B1sbgeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
-        app:layout_constraintTop_toBottomOf="@+id/substractThijs" />
+        app:layout_constraintStart_toStartOf="@+id/IG_B1"
+        app:layout_constraintTop_toBottomOf="@+id/substractB1" />
 
     <TextView
-        android:id="@+id/svensbkrijgen"
+        android:id="@+id/B2sbkrijgen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Sven"
-        app:layout_constraintTop_toBottomOf="@+id/addSven" />
+        app:layout_constraintEnd_toEndOf="@+id/IG_B2"
+        app:layout_constraintTop_toBottomOf="@+id/addB2" />
 
     <EditText
-        android:id="@+id/editTextSven"
+        android:id="@+id/editTextB2"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Sven" />
+        app:layout_constraintTop_toBottomOf="@+id/IG_B2" />
 
     <EditText
-        android:id="@+id/editTextThijs"
+        android:id="@+id/editTextB1"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="numberSigned"
-        app:layout_constraintEnd_toStartOf="@+id/addThijs"
-        app:layout_constraintStart_toEndOf="@+id/substractThijs"
-        app:layout_constraintTop_toTopOf="@+id/substractThijs"
+        app:layout_constraintEnd_toStartOf="@+id/addB1"
+        app:layout_constraintStart_toEndOf="@+id/substractB1"
+        app:layout_constraintTop_toTopOf="@+id/substractB1"
         tools:text="0" />
 
     <ImageButton
-        android:id="@+id/addsteven"
+        android:id="@+id/addB5"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="addsteven"
-        app:layout_constraintEnd_toEndOf="@+id/IG_steven"
-        app:layout_constraintTop_toBottomOf="@+id/IG_steven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B5"
+        app:layout_constraintTop_toBottomOf="@+id/IG_B5"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <EditText
-        android:id="@+id/editTextRowin"
+        android:id="@+id/editTextB4"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="numberSigned"
-        app:layout_constraintEnd_toStartOf="@+id/addRowin"
-        app:layout_constraintStart_toEndOf="@+id/substractRowin"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Rowin"
+        app:layout_constraintEnd_toStartOf="@+id/addB4"
+        app:layout_constraintStart_toEndOf="@+id/substractB4"
+        app:layout_constraintTop_toBottomOf="@+id/IG_B4"
         tools:text="50" />
 
     <ImageButton
-        android:id="@+id/IG_Rowin"
+        android:id="@+id/IG_B4"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:longClickable="true"
         android:onClick="rowinBier"
         android:scaleType="center"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
-        app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
-        app:layout_constraintTop_toTopOf="@+id/IG_steven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B1"
+        app:layout_constraintStart_toStartOf="@+id/IG_B1"
+        app:layout_constraintTop_toTopOf="@+id/IG_B5"
         app:srcCompat="@drawable/ic_rowin" />
 
     <TextView
-        android:id="@+id/thijssbkrijgen"
+        android:id="@+id/B1sbkrijgen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Thijs"
-        app:layout_constraintTop_toBottomOf="@+id/addThijs" />
+        app:layout_constraintEnd_toEndOf="@+id/IG_B1"
+        app:layout_constraintTop_toBottomOf="@+id/addB1" />
 
     <ImageButton
-        android:id="@+id/substractRowin"
+        android:id="@+id/substractB4"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="substractRowin"
-        app:layout_constraintStart_toStartOf="@+id/IG_Rowin"
-        app:layout_constraintTop_toTopOf="@+id/editTextRowin"
+        app:layout_constraintStart_toStartOf="@+id/IG_B4"
+        app:layout_constraintTop_toTopOf="@+id/editTextB4"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
     <ImageButton
-        android:id="@+id/substractThijs"
+        android:id="@+id/substractB1"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:onClick="substractThijs"
-        app:layout_constraintStart_toStartOf="@+id/IG_Thijs"
-        app:layout_constraintTop_toBottomOf="@+id/IG_Thijs"
+        app:layout_constraintStart_toStartOf="@+id/IG_B1"
+        app:layout_constraintTop_toBottomOf="@+id/IG_B1"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
 
     <ImageButton
@@ -313,9 +313,9 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/IG_Etienne"
-        app:layout_constraintStart_toStartOf="@+id/IG_Etienne"
-        app:layout_constraintTop_toTopOf="@+id/IG_steven"
+        app:layout_constraintEnd_toEndOf="@+id/IG_B3"
+        app:layout_constraintStart_toStartOf="@+id/IG_B3"
+        app:layout_constraintTop_toTopOf="@+id/IG_B5"
         app:srcCompat="@drawable/beer512" />
 
     <TextView
@@ -330,7 +330,7 @@
         app:layout_constraintTop_toBottomOf="@+id/IG_nonMM" />
 
     <ImageButton
-        android:id="@+id/IG_Etienne"
+        android:id="@+id/IG_B3"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="8dp"
@@ -338,8 +338,8 @@
         android:onClick="etienneBier"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/IG_Sven"
-        app:layout_constraintTop_toTopOf="@+id/IG_Sven"
+        app:layout_constraintStart_toEndOf="@+id/IG_B2"
+        app:layout_constraintTop_toTopOf="@+id/IG_B2"
         app:srcCompat="@drawable/ic_etienne" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

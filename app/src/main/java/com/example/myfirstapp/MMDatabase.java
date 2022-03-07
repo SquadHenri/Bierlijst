@@ -1,6 +1,7 @@
 package com.example.myfirstapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.util.Log;
 
@@ -32,7 +33,26 @@ public abstract class MMDatabase extends RoomDatabase {
     private String sb_data_filename = "sbData.txt";
     private String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/MM/DATA/";
 
+    public static final String bewonersVolgorde = "BewonersVolgorde";
+
     public static synchronized MMDatabase getInstance(Context context) {
+        SharedPreferences sharedPrefs = context.getSharedPreferences(bewonersVolgorde, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        if(!sharedPrefs.contains("initialized"))
+        {
+            // It has not been initialized yet
+            editor.putString("B1", "Etienne");
+            editor.putString("B2", "Steven");
+            editor.putString("B3", "Daniël");
+            editor.putString("B4", "Twan");
+            editor.putString("B5", "Roel");
+
+
+            editor.putBoolean("initialized", true);
+            editor.commit();
+        }
+
+
         if (Database == null) {
             Log.d("Database is null.", "Building database:");
             // There is no database yet
@@ -67,51 +87,115 @@ public abstract class MMDatabase extends RoomDatabase {
 
         // Insert bewoners
 
-        getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", true, true));
-        getBewonerDAO().insert(new Bewoner("Thijs", "21-12-1995", false, true));
-        getBewonerDAO().insert(new Bewoner("Sven", "22-02-1996", false, true));
-        getBewonerDAO().insert(new Bewoner("Etienne", "10-4-1998", false, true));
-        getBewonerDAO().insert(new Bewoner("Rowin", "20-11-1997", false, true));
+
+        getBewonerDAO().insert(new Bewoner("Etienne", "00-00-0000", false, true));
+        getBewonerDAO().insert(new Bewoner("Steven", "00-00-0000", false, true));
+        getBewonerDAO().insert(new Bewoner("Daniël", "00-00-0000", true, true));
+        getBewonerDAO().insert(new Bewoner("Twan", "00-00-0000", true, true));
+        getBewonerDAO().insert(new Bewoner("Roel", "00-00-0000", true, true));
+
+        getBewonerDAO().setvGNaam("Daniël", "vG Slap");
+        getBewonerDAO().setvGNaam("Twan", "vG Malibu");
+        getBewonerDAO().setvGNaam("Roel", "vG Badmuts");
+
 
         Log.d("Bewoners", "geinstert");
 
         List<Bewoner> list = getBewonerDAO().getAllBewoners();
         Log.d("we hebben: ", "" + list.size() + " bewoners");
 
+        // Insert Gooi statistieken
+        getBewonerDAO().setRaakGegooid(45, "Etienne");
+        getBewonerDAO().setGegooid(394, "Etienne");
+        getBewonerDAO().setRaakGegooid(54, "Steven");
+        getBewonerDAO().setGegooid(685, "Steven");
+
+        Log.d("Statistieken", "Gooi statiestieken geinstert.");
         // Insert schoonmaakbier relaties
 
         Log.d("SchoonmaakBier", "Inserting all relaties");
 
+        String et = "Etienne";
+        String st = "Steven";
+        String da = "Daniël";
+        String tw = "Twan";
+        String ro = "Roel";
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Sven", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Etienne", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Rowin", 0));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Thijs", "Steven", 0));
+        for(Bewoner bewoner : listBewoners)
+        {
+            for(Bewoner bewoner1 : listBewoners)
+            {
+                if(bewoner.getNaam().equals(bewoner1.getNaam()))
+                {
+                    continue;
+                }
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Thijs", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Etienne", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Rowin", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Sven", "Steven", 5));
+                getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, bewoner.getNaam(), bewoner1.getNaam(),0));
+                getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, bewoner1.getNaam(), bewoner.getNaam(), 0));
+            }
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Thijs", 11));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Sven", 12));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Rowin", 12));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 12));
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Thijs", 6));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Sven", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Etienne", 4));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Rowin", "Steven", 7));
+        }
 
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Thijs", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Sven", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 5));
-        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Rowin", 5));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Daniël", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Twan", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Roel", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 10));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Daniël", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Twan", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Roel", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Etienne", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Steven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Twan", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Roel", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Etienne", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Steven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Daniël", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Roel", 0));
+//
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Etienne", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Steven", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Daniël", 0));
+//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Twan", 0));
 
         Log.d("Schoonmaakbier", "All relaties inserted. ");
 
         Log.d("Database", "Database populated");
 
+    }
+
+    protected synchronized Bewoner addBewoner(String naam, boolean isVg)
+    {
+        // Create new Bewoner
+        Bewoner newBewoner = new Bewoner(naam, "00-00-0000", isVg, false);
+        getBewonerDAO().insert(newBewoner);
+
+        // Add schoonmaakbier relations
+        List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
+        for(Bewoner bewoner : listBewoners)
+        {
+            if(bewoner.equals(newBewoner))
+            {
+                continue;
+            }
+
+            getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, bewoner.getNaam(), newBewoner.getNaam(),0));
+            getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, newBewoner.getNaam(), bewoner.getNaam(), 0));
+
+        }
+
+        return newBewoner;
+    }
+
+    protected synchronized Bewoner addBewoner(String naam, boolean isVg, String vgNaam)
+    {
+        Bewoner newBewoner = addBewoner(naam, isVg);
+        getBewonerDAO().setvGNaam(naam, vgNaam);
+        return newBewoner;
     }
 
     protected void printDB() {

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_and_edit_bewoners">
+
+    <ImageButton
+        android:id="@+id/IB_vGNaam"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:onClick="changevGNaam"
+        app:layout_constraintBottom_toBottomOf="@+id/vGNieuweNaam"
+        app:layout_constraintStart_toEndOf="@+id/vGNieuweNaam"
+        app:layout_constraintTop_toTopOf="@+id/vGNieuweNaam"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <ImageButton
+        android:id="@+id/IB_vG"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:onClick="changevG"
+        app:layout_constraintBottom_toBottomOf="@+id/isVgStatus"
+        app:layout_constraintStart_toEndOf="@+id/isVgStatus"
+        app:layout_constraintTop_toTopOf="@+id/isVgStatus"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <ImageButton
+        android:id="@+id/IB_Waardes"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:onClick="changeBewonerValue"
+        app:layout_constraintBottom_toBottomOf="@+id/waarde_Keuze"
+        app:layout_constraintStart_toEndOf="@+id/waarde_Keuze"
+        app:layout_constraintTop_toTopOf="@+id/waarde_Keuze"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Hier kun je vG namen aanpassen. Er moet weer vG staan in de naam. Dus: &quot;vG Blabla&quot;(zonder haakjes, duh)"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_SB_Krijgt" />
+
+    <Spinner
+        android:id="@+id/spinner_SB_Geeft"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/SB_Waarde"
+        app:layout_constraintStart_toEndOf="@+id/spinner_SB_Krijgt"
+        app:layout_constraintTop_toTopOf="@+id/SB_Waarde" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Hier kan je handmatig schoonmaak bier veranderen. De linker krijgt het van de rechter. "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/isVgStatus" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Hier kun je iemand zijn vG status aanpassen"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_Voornaam_getallen" />
+
+    <TextView
+        android:id="@+id/b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Huisgenoot 4"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerB3"
+        app:layout_constraintTop_toBottomOf="@+id/b2" />
+
+    <Spinner
+        android:id="@+id/spinnerB3"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/b2"
+        app:layout_constraintStart_toEndOf="@+id/b2"
+        app:layout_constraintTop_toTopOf="@+id/b2" />
+
+    <Spinner
+        android:id="@+id/spinnerB5"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/b4"
+        app:layout_constraintStart_toEndOf="@+id/b4"
+        app:layout_constraintTop_toTopOf="@+id/b4" />
+
+    <Spinner
+        android:id="@+id/spinnerB4"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/b3"
+        app:layout_constraintStart_toEndOf="@+id/b3"
+        app:layout_constraintTop_toTopOf="@+id/b3" />
+
+    <TextView
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Huisgenoot 3"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerB2"
+        app:layout_constraintTop_toBottomOf="@+id/b" />
+
+    <TextView
+        android:id="@+id/b4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Huisgenoot 5"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/b3"
+        app:layout_constraintTop_toBottomOf="@+id/b3" />
+
+    <TextView
+        android:id="@+id/BewonersListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="Alle Bewoners en vGs in dit systeem"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVoornaam" />
+
+    <ListView
+        android:id="@+id/AllBewonersList"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:divider="@color/colorBlack"
+        android:dividerHeight="1dp"
+        app:layout_constraintEnd_toEndOf="@+id/BewonersListText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/BewonersListText"
+        app:layout_constraintTop_toBottomOf="@+id/BewonersListText" />
+
+    <EditText
+        android:id="@+id/editTextVoornaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="104dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Voornaam"
+        app:layout_constraintEnd_toStartOf="@+id/BewonersListText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextBijnaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="vG bijnaam (optioneel)"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextVoornaam"
+        app:layout_constraintStart_toEndOf="@+id/isVg"
+        app:layout_constraintTop_toTopOf="@+id/editTextVoornaam" />
+
+    <CheckBox
+        android:id="@+id/isVg"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:text="Is het een vG?"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextVoornaam"
+        app:layout_constraintStart_toEndOf="@+id/editTextVoornaam"
+        app:layout_constraintTop_toTopOf="@+id/editTextVoornaam"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="OnClickAddBewoner"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextVoornaam"
+        app:layout_constraintStart_toEndOf="@+id/editTextBijnaam"
+        app:layout_constraintTop_toTopOf="@+id/editTextVoornaam"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+    <Spinner
+        android:id="@+id/spinnerB1"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/B1"
+        app:layout_constraintStart_toEndOf="@+id/B1"
+        app:layout_constraintTop_toTopOf="@+id/B1" />
+
+    <Spinner
+        android:id="@+id/spinnerB2"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/b"
+        app:layout_constraintStart_toEndOf="@+id/b"
+        app:layout_constraintTop_toTopOf="@+id/b" />
+
+    <TextView
+        android:id="@+id/B1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:text="Nestor"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Vice-Nestor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerB1"
+        app:layout_constraintTop_toBottomOf="@+id/B1" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Volgorde van Huisgenoten"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/volgordeToepassen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:onClick="volgordeToepassenClicked"
+        android:text="Toepassen"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerB5"
+        app:layout_constraintTop_toBottomOf="@+id/b4" />
+
+    <Spinner
+        android:id="@+id/spinner_Voornaam_getallen"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/waarde_Keuze"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/waarde_Keuze"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinner_WaardeKeuze"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:entries="@array/aanpasbare_waardes"
+        app:layout_constraintBottom_toBottomOf="@+id/waarde_Keuze"
+        app:layout_constraintStart_toEndOf="@+id/spinner_Voornaam_getallen"
+        app:layout_constraintTop_toTopOf="@+id/waarde_Keuze"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:text="Hier kun je waardes aanpassen:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volgordeToepassen" />
+
+    <EditText
+        android:id="@+id/waarde_Keuze"
+        android:layout_width="197dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Getal"
+        app:layout_constraintStart_toEndOf="@+id/spinner_WaardeKeuze"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Spinner
+        android:id="@+id/vGVoornaam"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <CheckBox
+        android:id="@+id/isVgStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="@+id/vGVoornaam"
+        app:layout_constraintStart_toEndOf="@+id/vGVoornaam"
+        app:layout_constraintTop_toTopOf="@+id/vGVoornaam"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinner_SB_Krijgt"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/SB_Waarde"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/SB_Waarde" />
+
+    <EditText
+        android:id="@+id/SB_Waarde"
+        android:layout_width="163dp"
+        android:layout_height="31dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintStart_toEndOf="@+id/spinner_SB_Geeft"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Spinner
+        android:id="@+id/spinner_Voornaam_vG"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vGNieuweNaam"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/vGNieuweNaam"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/vGNieuweNaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toEndOf="@+id/spinner_Voornaam_vG"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <ImageButton
+        android:id="@+id/IB_SB"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:onClick="changeSB"
+        app:layout_constraintBottom_toBottomOf="@+id/SB_Waarde"
+        app:layout_constraintStart_toEndOf="@+id/SB_Waarde"
+        app:layout_constraintTop_toTopOf="@+id/SB_Waarde"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

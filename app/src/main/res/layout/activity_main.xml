@@ -13,7 +13,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:text="Welkom op MM"
+        android:text="Welkom op Huize Morgen Misschien"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,11 +30,12 @@
         android:onClick="startBierlijst"
         android:scaleType="fitCenter"
         android:src="@drawable/beer512"
-        android:tint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.237"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst" />
+        app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
+        app:tint="#000000"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/bierText"
@@ -52,13 +53,31 @@
         android:layout_height="200dp"
         android:backgroundTint="#00FFFFFF"
         android:onClick="startStatistieken"
-        android:scaleType="centerCrop"
-        android:tint="#00FFFFFF"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/bierlijstBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bierlijstBtn"
         app:layout_constraintTop_toTopOf="@+id/bierlijstBtn"
-        app:srcCompat="@drawable/ic_graph" />
+        app:srcCompat="@drawable/ic_graph"
+        app:tint="#00FFFFFF"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="TODO" />
+
+    <ImageButton
+        android:id="@+id/editBewoners"
+        android:layout_width="89dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#00FFFFFF"
+        android:longClickable="true"
+        android:onClick="startBewonersBewerken"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toEndOf="@+id/titleBierlijst"
+        app:layout_constraintTop_toBottomOf="@+id/editSBBtn"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/statistiekenText"
@@ -71,26 +90,38 @@
         app:layout_constraintTop_toBottomOf="@+id/statistiekenBtn" />
 
     <ImageButton
-        android:id="@+id/editBewonersBtn"
+        android:id="@+id/editSBBtn"
         android:layout_width="89dp"
         android:layout_height="76dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#00FFFFFF"
         android:longClickable="true"
+        android:onClick="startSchoonmaakbier"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toEndOf="@+id/titleBierlijst"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher" />
+        app:srcCompat="@drawable/ic_launcher"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/bewonersText"
+        android:id="@+id/SBText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="Bewoners"
+        android:text="Schoonmaak Bier"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/editBewonersBtn"
-        app:layout_constraintTop_toBottomOf="@+id/editBewonersBtn" />
+        app:layout_constraintEnd_toEndOf="@+id/editSBBtn"
+        app:layout_constraintStart_toStartOf="@+id/editSBBtn"
+        app:layout_constraintTop_toBottomOf="@+id/editSBBtn" />
+
+    <TextView
+        android:id="@+id/editBewonersText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bewoners"
+        app:layout_constraintEnd_toEndOf="@+id/editBewoners"
+        app:layout_constraintStart_toStartOf="@+id/editBewoners"
+        app:layout_constraintTop_toBottomOf="@+id/editBewoners" />
 </androidx.constraintlayout.widget.ConstraintLayout>

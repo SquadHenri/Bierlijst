@@ -9,4 +9,11 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="aanpasbare_waardes">
+        <item>gegooid all-time</item>
+        <item>gegooid deze HV</item>
+        <item>raak gegooid deze HV</item>
+        <item>raak gegooid all time</item>
+    </string-array>
 </resources>

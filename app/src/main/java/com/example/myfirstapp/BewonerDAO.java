@@ -25,6 +25,12 @@ public abstract class BewonerDAO {
     @Query("SELECT * FROM Bewoner WHERE isHuidigeBewoner=1")
     public abstract List<Bewoner> getAllHuidigeBewoners();
 
+    @Query("UPDATE Bewoner SET isHuidigeBewoner=1")
+    public abstract void resetHuidigeBewoners();
+
+    @Query("Update Bewoner SET isHuidigeBewoner=1 WHERE naam == :naam")
+    public abstract void setHuidigeBewoner(String naam);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public abstract void insert(Bewoner... bewoner);
 
@@ -92,9 +98,21 @@ public abstract class BewonerDAO {
     @Query("SELECT raakGegooidHV FROM bewoner where naam == :naam")
     public abstract int getRaakGegooidHV(String naam);
 
+    @Query("UPDATE Bewoner SET raakGegooidHV = :value WHERE naam == :naam")
+    public abstract void setRaakGegooidHV(int value, String naam);
+
+    @Query("UPDATE Bewoner SET raakGegooid = :value WHERE naam == :naam")
+    public abstract void setRaakGegooid(int value, String naam);
+
+    @Query("UPDATE Bewoner SET Gegooid = :value WHERE naam == :naam")
+    public abstract void setGegooid(int value, String naam);
+
+    @Query("UPDATE Bewoner SET raakGegooidHV = :value WHERE naam == :naam")
+    public abstract void setGegooidHV(int value, String naam);
+
     // RaakGegooid en RaakGegooidHV voor het huis
 
-    @Query("SELECT sum(raakGegooid) from Bewoner")
+    @Query("SELECT sum(raakGegooid) from Bewoner WHERE isHuidigeBewoner = 1")
     public abstract int getRaakGegooid();
 
     @Query("SELECT sum(raakGegooidHV) from Bewoner")
@@ -125,6 +143,20 @@ public abstract class BewonerDAO {
     @Query("SELECT sum(GegooidHV) from Bewoner")
     public abstract int getGegooidHV();
 
+    // vGNaam
+
+    @Query("UPDATE Bewoner SET vGNaam = :vGNaam WHERE naam == :naam")
+    public abstract void setvGNaam(String naam, String vGNaam);
+
+    @Query("Select vGNaam FROM Bewoner WHERE naam == :naam")
+    public abstract String getvGNaam(String naam);
+
+    // vG
+    @Query("SELECT vG FROM BEWONER WHERE naam == :naam")
+    public abstract boolean getIsvG(String naam);
+
+    @Query("Update Bewoner SET vG = :isVg WHERE naam == :naam")
+    public abstract void setIsvG(String naam, boolean isVg);
 
     // ADMIN
 

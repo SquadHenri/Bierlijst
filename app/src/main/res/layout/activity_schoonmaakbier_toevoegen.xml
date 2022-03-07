@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titleBierlijst">
 
         <ImageButton
-            android:id="@+id/substractSven"
+            android:id="@+id/substractB2"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:onClick="substractSBSven"
@@ -69,8 +69,8 @@
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="numberSigned"
-            app:layout_constraintStart_toEndOf="@+id/substractSven"
-            app:layout_constraintTop_toTopOf="@+id/substractSven" />
+            app:layout_constraintStart_toEndOf="@+id/substractB2"
+            app:layout_constraintTop_toTopOf="@+id/substractB2" />
 
         <ImageButton
             android:id="@+id/IG_SBEtienne"
@@ -126,7 +126,8 @@
             android:onClick="addSBRowin"
             app:layout_constraintEnd_toEndOf="@+id/IG_SBRowin"
             app:layout_constraintTop_toBottomOf="@+id/IG_SBRowin"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@android:drawable/ic_input_add"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <EditText
             android:id="@+id/editTextSBRowin"

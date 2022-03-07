@@ -19,6 +19,8 @@ public class Bewoner {
     @ColumnInfo(name = "naam")
     private String naam;
 
+    @ColumnInfo(name = "vGNaam")
+    protected String vGNaam = "vG";
 
     // Immutable
     // Save this as a string because DateTime is a bitch here
@@ -35,7 +37,7 @@ public class Bewoner {
     // Mutable, maybe unnecessary
     @NonNull
     @ColumnInfo(name = "isHuidigeBewoner")
-    private boolean isHuidigeBewoner;
+    private boolean isHuidigeBewoner = false;
 
     public void setNaam(@NonNull String naam) {
         this.naam = naam;
@@ -92,6 +94,7 @@ public class Bewoner {
         this.isHuidigeBewoner = isHuidigeBewoner;
         this.isCorfeut = false;
         this.isAdmin = false;
+        this.vGNaam = "vG"; // Default naam als er geen bijnaam is
     }
 
     // PUBLIC CONSTRUCTOR FOR ADMIN AND CORFEUT
@@ -203,5 +206,13 @@ public class Bewoner {
 
     public void setRaakGegooidHV(int raakGegooidHV) {
         this.raakGegooidHV = raakGegooidHV;
+    }
+
+    public String getvGNaam() {
+        return vGNaam;
+    }
+
+    public void setvGNaam(String vGNaam) {
+        this.vGNaam = vGNaam;
     }
 }

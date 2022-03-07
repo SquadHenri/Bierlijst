@@ -2,32 +2,21 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.lang.Math;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
@@ -44,27 +33,28 @@ public class Bierlijst extends AppCompatActivity {
         setContentView(R.layout.activity_bierlijst);
         Log.e("BierLijst:", "BIERLIJST CREATEDDD!!");
 
-        EditText editTextRowin = findViewById(R.id.editTextRowin);
-        editTextRowin.setText("0");
+        EditText eTB4 = findViewById(R.id.editTextB4);
+        eTB4.setText("0");
 
-        EditText editTextThijs = findViewById(R.id.editTextThijs);
-        editTextThijs.setText("0");
+        EditText eTB1 = findViewById(R.id.editTextB1);
+        eTB1.setText("0");
 
-        EditText editTextsteven = findViewById(R.id.editTextsteven);
-        editTextsteven.setText("0");
+        EditText eTB5 = findViewById(R.id.editTextB5);
+        eTB5.setText("0");
 
-        EditText editTextSven = findViewById(R.id.editTextSven);
-        editTextSven.setText("0");
+        EditText eTB2 = findViewById(R.id.editTextB2);
+        eTB2.setText("0");
 
-        EditText editTextEtienne = findViewById(R.id.editTextEtienne);
-        editTextEtienne.setText("0");
+        EditText eTB3 = findViewById(R.id.editTextB3);
+        eTB3.setText("0");
 
+        SharedPreferences sharedPrefs = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
 
         // update Schoonmaakbier values and set colour
         updateSBText();
 
-        ImageButton IB_steven = findViewById(R.id.IG_steven);
-        IB_steven.setOnLongClickListener(new View.OnLongClickListener(){
+        ImageButton IB_B5 = findViewById(R.id.IG_B5);
+        IB_B5.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v) {
 
@@ -72,7 +62,7 @@ public class Bierlijst extends AppCompatActivity {
 
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "Steven");
+                    intent.putExtra("thrower", sharedPrefs.getString("B5",""));
                     sendBeerToDB();
                     startActivity(intent);
 
@@ -82,8 +72,8 @@ public class Bierlijst extends AppCompatActivity {
             }
         });
 
-        ImageButton IB_Sven = findViewById(R.id.IG_Sven);
-        IB_Sven.setOnLongClickListener(new View.OnLongClickListener(){
+        ImageButton IB_B2 = findViewById(R.id.IG_B2);
+        IB_B2.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v) {
                 if(getTotalRequestedBeer() > 0) {
@@ -91,7 +81,7 @@ public class Bierlijst extends AppCompatActivity {
 
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "Sven");
+                    intent.putExtra("thrower", sharedPrefs.getString("B2",""));
                     sendBeerToDB();
                     startActivity(intent);
 
@@ -100,34 +90,15 @@ public class Bierlijst extends AppCompatActivity {
             }
         });
 
-        ImageButton IB_Thijs = findViewById(R.id.IG_Thijs);
-        IB_Thijs.setOnLongClickListener(new View.OnLongClickListener(){
-            @Override
-            public boolean onLongClick(View v) {
-                if(getTotalRequestedBeer() > 0) {
-
-
-                    Intent intent = new Intent(v.getContext(), bierPopup.class);
-                    intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "Thijs");
-                    sendBeerToDB();
-                    startActivity(intent);
-
-
-                }
-                return true;
-            }
-        });
-
-        ImageButton IB_Rowin = findViewById(R.id.IG_Rowin);
-        IB_Rowin.setOnLongClickListener(new View.OnLongClickListener(){
+        ImageButton IB_B1 = findViewById(R.id.IG_B1);
+        IB_B1.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v) {
                 if(getTotalRequestedBeer() > 0) {
 
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "Rowin");
+                    intent.putExtra("thrower", sharedPrefs.getString("B1",""));
                     sendBeerToDB();
                     startActivity(intent);
 
@@ -137,8 +108,26 @@ public class Bierlijst extends AppCompatActivity {
             }
         });
 
-        ImageButton IB_Etienne = findViewById(R.id.IG_Etienne);
-        IB_Etienne.setOnLongClickListener(new View.OnLongClickListener(){
+        ImageButton IB_B4 = findViewById(R.id.IG_B4);
+        IB_B4.setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View v) {
+                if(getTotalRequestedBeer() > 0) {
+
+                    Intent intent = new Intent(v.getContext(), bierPopup.class);
+                    intent.putExtra("beer", getTotalRequestedBeer());
+                    intent.putExtra("thrower", sharedPrefs.getString("B4",""));
+                    sendBeerToDB();
+                    startActivity(intent);
+
+
+                }
+                return true;
+            }
+        });
+
+        ImageButton IB_B3 = findViewById(R.id.IG_B3);
+        IB_B3.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v) {
 
@@ -146,7 +135,7 @@ public class Bierlijst extends AppCompatActivity {
 
                     Intent intent = new Intent(v.getContext(), bierPopup.class);
                     intent.putExtra("beer", getTotalRequestedBeer());
-                    intent.putExtra("thrower", "Etienne");
+                    intent.putExtra("thrower", sharedPrefs.getString("B3",""));
                     sendBeerToDB();
                     startActivity(intent);
                 }
@@ -155,6 +144,7 @@ public class Bierlijst extends AppCompatActivity {
 
             }
         });
+
 
         ImageButton IB_nonMM = findViewById(R.id.IG_nonMM);
         IB_nonMM.setOnLongClickListener(new View.OnLongClickListener(){
@@ -169,7 +159,7 @@ public class Bierlijst extends AppCompatActivity {
 
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-
+                    return true;
                 }
 
                 Context context = getApplicationContext();
@@ -181,6 +171,9 @@ public class Bierlijst extends AppCompatActivity {
                 return true;
             }
         });
+
+        // Set images
+
     }
 
     @Override
@@ -194,53 +187,56 @@ public class Bierlijst extends AppCompatActivity {
 
 
     // Gets new SB values and sets the proper colour
+    @SuppressLint("SetTextI18n")
     public void updateSBText() {
-        TextView thijsgive = findViewById(R.id.thijssbgeven);
-        TextView thijsreceive = findViewById(R.id.thijssbkrijgen);
+        TextView B1give = findViewById(R.id.B1sbgeven);
+        TextView B1receive = findViewById(R.id.B1sbkrijgen);
 
-        TextView svengive  = findViewById(R.id.svensbgeven);
-        TextView svenreceive = findViewById(R.id.svensbkrijgen);
+        TextView B2give = findViewById(R.id.B2sbgeven);
+        TextView B2receive = findViewById(R.id.B2sbkrijgen);
 
-        TextView etiennegive = findViewById(R.id.etiennesbgeven);
-        TextView etiennereceive = findViewById(R.id.etiennesbkrijgen);
+        TextView B3give = findViewById(R.id.B3sbgeven);
+        TextView B3receive = findViewById(R.id.B3sbkrijgen);
 
-        TextView rowingive = findViewById(R.id.rowinsbgeven);
-        TextView rowinreceive = findViewById(R.id.rowinsbkrijgen);
+        TextView B4give = findViewById(R.id.B4sbgeven);
+        TextView B4receive = findViewById(R.id.B4sbkrijgen);
 
-        TextView stevengive = findViewById(R.id.stevensbgeven);
-        TextView stevenreceive = findViewById(R.id.stevensbkrijgen);
+        TextView B5give = findViewById(R.id.B5sbgeven);
+        TextView B5receive = findViewById(R.id.B5sbkrijgen);
 
         MMDatabase db = MMDatabase.getInstance(this.getApplicationContext());
 
-        int thijsgiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Thijs");
-        int thijstextcolour = (0xff) << 24 | (min(thijsgiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * thijsgiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        thijsgive.setText(Integer.toString(thijsgiveamount));
-        thijsreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Thijs")));
-        thijsgive.setTextColor(thijstextcolour);
+        SharedPreferences sharedPrefs = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
 
-        int svengiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Sven");
-        int sventextcolour = (0xff) << 24 | (min(svengiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * svengiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        svengive.setText(Integer.toString(svengiveamount));
-        svenreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Sven")));
-        svengive.setTextColor(sventextcolour);
+        int B1giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B1",""));
+        int B1textcolour = (0xff) << 24 | (min(B1giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B1giveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        B1give.setText(Integer.toString(B1giveamount));
+        B1receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B1",""))));
+        B1give.setTextColor(B1textcolour);
 
-        int etiennegiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Etienne");
-        int etiennetextcolour = (0xff) << 24 | (min(etiennegiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * etiennegiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        etiennegive.setText(Integer.toString(etiennegiveamount));
-        etiennereceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Etienne")));
-        etiennegive.setTextColor(etiennetextcolour);
+        int B2giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B2",""));
+        int B2textcolour = (0xff) << 24 | (min(B2giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B2giveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        B2give.setText(Integer.toString(B2giveamount));
+        B2receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B2",""))));
+        B2give.setTextColor(B2textcolour);
 
-        int rowingiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Rowin");
-        int rowintextcolour = (0xff) << 24 | (min(rowingiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * rowingiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        rowingive.setText(Integer.toString(rowingiveamount));
-        rowinreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Rowin")));
-        rowingive.setTextColor(rowintextcolour);
+        int B3giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B3",""));
+        int B3textcolour = (0xff) << 24 | (min(B3giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B3giveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        B3give.setText(Integer.toString(B3giveamount));
+        B3receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B3",""))));
+        B3give.setTextColor(B3textcolour);
 
-        int stevengiveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum("Steven");
-        int steventextcolour = (0xff) << 24 | (min(stevengiveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * stevengiveamount, 0) & 0xff) << 8 | (0 & 0xff));
-        stevengive.setText(Integer.toString(stevengiveamount));
-        stevenreceive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum("Steven")));
-        stevengive.setTextColor(steventextcolour);
+        int B4giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B4",""));
+        int B4textcolour = (0xff) << 24 | (min(B4giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B4giveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        B4give.setText(Integer.toString(B4giveamount));
+        B4receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B4",""))));
+        B4give.setTextColor(B4textcolour);
+
+        int B5giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B5",""));
+        int B5textcolour = (0xff) << 24 | (min(B5giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B5giveamount, 0) & 0xff) << 8 | (0 & 0xff));
+        B5give.setText(Integer.toString(B5giveamount));
+        B5receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B5",""))));
+        B5give.setTextColor(B5textcolour);
 
         Log.d("AFTER SB TEXT", "UPDATE");
         db.printDB();
@@ -250,40 +246,40 @@ public class Bierlijst extends AppCompatActivity {
     // Process requested bier
     public void sendBeerToDB() {
 
-        EditText editTextRowin = findViewById(R.id.editTextRowin);
-        EditText editTextThijs = findViewById(R.id.editTextThijs);
-        EditText editTextsteven = findViewById(R.id.editTextsteven);
-        EditText editTextSven = findViewById(R.id.editTextSven);
-        EditText editTextEtienne = findViewById(R.id.editTextEtienne);
+        EditText eTB4 = findViewById(R.id.editTextB4);
+        EditText eTB1 = findViewById(R.id.editTextB1);
+        EditText eTB5 = findViewById(R.id.editTextB5);
+        EditText eTB2 = findViewById(R.id.editTextB2);
+        EditText eTB3 = findViewById(R.id.editTextB3);
 
-
-
+        SharedPreferences sharedPrefs = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
 
         // Get all orders that are more than 0
         Map<String, Integer> orders = new HashMap<String, Integer>();
 
-        orders.put("Rowin", Integer.valueOf(editTextRowin.getText().toString()));
-        orders.put("Thijs", Integer.valueOf(editTextThijs.getText().toString()));
-        orders.put("Steven", Integer.valueOf(editTextsteven.getText().toString()));
-        orders.put("Sven", Integer.valueOf(editTextSven.getText().toString()));
-        orders.put("Etienne", Integer.valueOf(editTextEtienne.getText().toString()));
+        orders.put(sharedPrefs.getString("B4",""), Integer.valueOf(eTB4.getText().toString()));
+        orders.put(sharedPrefs.getString("B1",""), Integer.valueOf(eTB1.getText().toString()));
+        orders.put(sharedPrefs.getString("B5",""), Integer.valueOf(eTB5.getText().toString()));
+        orders.put(sharedPrefs.getString("B2",""), Integer.valueOf(eTB2.getText().toString()));
+        orders.put(sharedPrefs.getString("B3",""), Integer.valueOf(eTB3.getText().toString()));
 
                 // db.exportToJSON("hello", getApplicationContext());
 
         Log.d("orders:", "" + orders.keySet().size());
 
 
-        editTextEtienne.setText("0");
-        editTextRowin.setText("0");
-        editTextSven.setText("0");
-        editTextThijs.setText("0");
-        editTextsteven.setText("0");
+        eTB3.setText("0");
+        eTB4.setText("0");
+        eTB2.setText("0");
+        eTB1.setText("0");
+        eTB5.setText("0");
 
 
         MMDatabase.getInstance(getApplicationContext()).processBeer(orders);
         //TODO: make sure sb also keeps track of total beer
 
     }
+
 
     /*
     *                   ALL IMAGES BUTTONS
@@ -316,8 +312,8 @@ public class Bierlijst extends AppCompatActivity {
     * */
 
     public void addRowin(View view) {
-        EditText editText = findViewById(R.id.editTextRowin);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB4);
+        int value = Integer.parseInt(editText.getText().toString());
 
 
         editText.setText("" + ++value);
@@ -326,8 +322,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void addThijs(View view) {
-        EditText editText = findViewById(R.id.editTextThijs);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB1);
+        int value = Integer.parseInt(editText.getText().toString());
 
         editText.setText("" + ++value);
 
@@ -335,8 +331,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void addsteven(View view) {
-        EditText editText = findViewById(R.id.editTextsteven);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB5);
+        int value = Integer.parseInt(editText.getText().toString());
 
         editText.setText("" + ++value);
 
@@ -344,8 +340,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void addSven(View view) {
-        EditText editText = findViewById(R.id.editTextSven);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB2);
+        int value = Integer.parseInt(editText.getText().toString());
 
         editText.setText("" + ++value);
 
@@ -353,8 +349,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void addEtienne(View view) {
-        EditText editText = findViewById(R.id.editTextEtienne);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB3);
+        int value = Integer.parseInt(editText.getText().toString());
 
         editText.setText("" + ++value);
 
@@ -366,8 +362,8 @@ public class Bierlijst extends AppCompatActivity {
     * */
 
     public void substractRowin(View view) {
-        EditText editText = findViewById(R.id.editTextRowin);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB4);
+        int value = Integer.parseInt(editText.getText().toString());
 
         if(value == 0) {
             return;
@@ -379,8 +375,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void substractThijs(View view) {
-        EditText editText = findViewById(R.id.editTextThijs);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB1);
+        int value = Integer.parseInt(editText.getText().toString());
 
         if(value == 0) {
             return;
@@ -392,8 +388,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void substractsteven(View view) {
-        EditText editText = findViewById(R.id.editTextsteven);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB5);
+        int value = Integer.parseInt(editText.getText().toString());
 
         if(value == 0) {
             return;
@@ -405,8 +401,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void substractSven(View view) {
-        EditText editText = findViewById(R.id.editTextSven);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB2);
+        int value = Integer.parseInt(editText.getText().toString());
 
         if(value == 0) {
             return;
@@ -418,8 +414,8 @@ public class Bierlijst extends AppCompatActivity {
     }
 
     public void substractEtienne(View view) {
-        EditText editText = findViewById(R.id.editTextEtienne);
-        int value = Integer.valueOf(editText.getText().toString());
+        EditText editText = findViewById(R.id.editTextB3);
+        int value = Integer.parseInt(editText.getText().toString());
 
         if(value == 0) {
             return;
@@ -432,20 +428,20 @@ public class Bierlijst extends AppCompatActivity {
 
 
     public int getTotalRequestedBeer(){
-        EditText editTextRowin = findViewById(R.id.editTextRowin);
-        int valueRo = Integer.valueOf(editTextRowin.getText().toString());
+        EditText editTextRowin = findViewById(R.id.editTextB4);
+        int valueRo = Integer.parseInt(editTextRowin.getText().toString());
 
-        EditText editTextThijs = findViewById(R.id.editTextThijs);
-        int valueTh = Integer.valueOf(editTextThijs.getText().toString());
+        EditText editTextThijs = findViewById(R.id.editTextB1);
+        int valueTh = Integer.parseInt(editTextThijs.getText().toString());
 
-        EditText editTextsteven = findViewById(R.id.editTextsteven);
-        int valueWi = Integer.valueOf(editTextsteven.getText().toString());
+        EditText editTextsteven = findViewById(R.id.editTextB5);
+        int valueWi = Integer.parseInt(editTextsteven.getText().toString());
 
-        EditText editTextSven = findViewById(R.id.editTextSven);
-        int valueSv = Integer.valueOf(editTextSven.getText().toString());
+        EditText editTextSven = findViewById(R.id.editTextB2);
+        int valueSv = Integer.parseInt(editTextSven.getText().toString());
 
-        EditText editTextEtienne = findViewById(R.id.editTextEtienne);
-        int valueEt = Integer.valueOf(editTextEtienne.getText().toString());
+        EditText editTextEtienne = findViewById(R.id.editTextB3);
+        int valueEt = Integer.parseInt(editTextEtienne.getText().toString());
 
         return valueRo + valueTh + valueWi + valueSv + valueEt;
     }

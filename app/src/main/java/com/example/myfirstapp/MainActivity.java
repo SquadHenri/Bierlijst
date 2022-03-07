@@ -2,13 +2,11 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,20 +18,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Database", "Fetching database to init it");
         MMDatabase.getInstance(getApplicationContext());
 
-
-        ImageButton editBewonersBtn = findViewById(R.id.editBewonersBtn);
-        editBewonersBtn.setOnLongClickListener(new View.OnLongClickListener(){
-
-            @Override
-            public boolean onLongClick(View v) {
-                Log.d("HEPL", "EDITBEWONERS CALLED!");
-                Intent intent = new Intent(v.getContext(), EditBewoners.class);
-                startActivity(intent);
-
-                return true;
-
-            }
-        });
     }
 
     // called by bierlijstBtn
@@ -46,6 +30,20 @@ public class MainActivity extends AppCompatActivity {
     public void startStatistieken(View view) {
         Log.d("HEPL", "START KEUZE STATISTIEKEN!");
         Intent intent = new Intent(this, StatistiekenKeuze.class);
+        startActivity(intent);
+    }
+
+    public void startSchoonmaakbier(View view)
+    {
+        Log.d("Info", "Schoonmaakbier started");
+        Intent intent = new Intent(this, EditBewoners.class);
+        startActivity(intent);
+    }
+
+    public void startBewonersBewerken(View view)
+    {
+        Log.d("Info", "Going to Bewoners Bewerken");
+        Intent intent = new Intent(this, add_and_edit_bewoners.class);
         startActivity(intent);
     }
 

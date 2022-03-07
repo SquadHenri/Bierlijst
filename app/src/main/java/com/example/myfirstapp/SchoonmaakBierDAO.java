@@ -44,10 +44,10 @@ public interface SchoonmaakBierDAO {
     @Query("SELECT SUM(bier) FROM SchoonmaakBier WHERE toGive == :giver")
     int getSchoonmaakBiertoGiveSum(String giver);
 
-    @Query("UPDATE SchoonmaakBier SET bier = bier + 1 WHERE toReceive != :giver AND toGive == :giver")
+    @Query("UPDATE SchoonmaakBier SET bier = bier + 1 WHERE toGive == :giver")
     void addSchoonmaakbier(String giver);
 
-    @Query("UPDATE SchoonmaakBier SET bier = bier + :value WHERE toReceive != :giver AND toGive == :giver")
+    @Query("UPDATE SchoonmaakBier SET bier = bier + :value WHERE toGive == :giver")
     void addSchoonmaakbier(String giver, int value);
 }
 

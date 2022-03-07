@@ -1,23 +1,16 @@
 package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 
 public class EditBewoners extends AppCompatActivity {
@@ -25,7 +18,7 @@ public class EditBewoners extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_bewoners);
+        setContentView(R.layout.activity_schoonmaakbier_toevoegen);
 
         EditText editTextRowin = findViewById(R.id.editTextSBRowin);
         editTextRowin.setText("0");
@@ -69,12 +62,15 @@ public class EditBewoners extends AppCompatActivity {
             return;
         }
 
+        SharedPreferences sharedPrefs = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
+
+
         Map<String, Integer> sbBeerToAdd = new HashMap<>();
-        sbBeerToAdd.put("Thijs", valueThijs);
-        sbBeerToAdd.put("Sven", valueSven);
-        sbBeerToAdd.put("Etienne", valueEtienne);
-        sbBeerToAdd.put("Rowin", valueRowin);
-        sbBeerToAdd.put("Steven", valueSteven);
+        sbBeerToAdd.put(sharedPrefs.getString("B1", ""), valueThijs);
+        sbBeerToAdd.put(sharedPrefs.getString("B2", ""), valueSven);
+        sbBeerToAdd.put(sharedPrefs.getString("B3", ""), valueEtienne);
+        sbBeerToAdd.put(sharedPrefs.getString("B4", ""), valueRowin);
+        sbBeerToAdd.put(sharedPrefs.getString("B5", ""), valueSteven);
 
         MMDatabase db = MMDatabase.getInstance(getApplicationContext());
         for(String giver : sbBeerToAdd.keySet()) {
