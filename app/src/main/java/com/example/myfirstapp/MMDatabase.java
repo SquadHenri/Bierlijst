@@ -48,8 +48,10 @@ public abstract class MMDatabase extends RoomDatabase {
             editor.putString("B5", "Roel");
 
 
+
+
             editor.putBoolean("initialized", true);
-            editor.commit();
+            editor.apply();
         }
 
 
@@ -78,11 +80,12 @@ public abstract class MMDatabase extends RoomDatabase {
     public abstract SchoonmaakBierDAO getSchoonmaakBierDAO();
 
     protected synchronized void populateDatabase() {
-
-        // Dirty way to check if this database already has data. I could not find a good way to do this
-        List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
-        if (!listBewoners.isEmpty()) {
-            return;
+        {// introduce scope so i dont mistakenly use this one
+            // Dirty way to check if this database already has data. I could not find a good way to do this
+            List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
+            if (!listBewoners.isEmpty()) {
+                return;
+            }
         }
 
         // Insert bewoners
@@ -121,14 +124,17 @@ public abstract class MMDatabase extends RoomDatabase {
         String tw = "Twan";
         String ro = "Roel";
 
-        for(Bewoner bewoner : listBewoners)
+        for(Bewoner bewoner : list)
         {
-            for(Bewoner bewoner1 : listBewoners)
+            Log.d("Adding Bewoner" + bewoner.getNaam(), "========================");
+            for(Bewoner bewoner1 : list)
             {
-                if(bewoner.getNaam().equals(bewoner1.getNaam()))
+
+                if(bewoner.equals(bewoner1))
                 {
                     continue;
                 }
+                Log.d("Adding " + bewoner.getNaam(), "With " + bewoner1.getNaam());
 
                 getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, bewoner.getNaam(), bewoner1.getNaam(),0));
                 getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, bewoner1.getNaam(), bewoner.getNaam(), 0));
@@ -137,30 +143,6 @@ public abstract class MMDatabase extends RoomDatabase {
 
         }
 
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Steven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Daniël", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Twan", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Etienne", "Roel", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Etienne", 10));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Daniël", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Twan", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Steven", "Roel", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Etienne", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Steven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Twan", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Daniël", "Roel", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Etienne", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Steven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Daniël", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Twan", "Roel", 0));
-//
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Etienne", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Steven", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Daniël", 0));
-//        getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, "Roel", "Twan", 0));
 
         Log.d("Schoonmaakbier", "All relaties inserted. ");
 
@@ -170,6 +152,7 @@ public abstract class MMDatabase extends RoomDatabase {
 
     protected synchronized Bewoner addBewoner(String naam, boolean isVg)
     {
+        Log.d("Adding Bewoner" + naam, "========================");
         // Create new Bewoner
         Bewoner newBewoner = new Bewoner(naam, "00-00-0000", isVg, false);
         getBewonerDAO().insert(newBewoner);
@@ -178,10 +161,12 @@ public abstract class MMDatabase extends RoomDatabase {
         List<Bewoner> listBewoners = getBewonerDAO().getAllBewoners();
         for(Bewoner bewoner : listBewoners)
         {
+            Log.d("Adding " + naam, "With " + bewoner.getNaam());
             if(bewoner.equals(newBewoner))
             {
                 continue;
             }
+            Log.d("Adding Bewoner", "========================");
 
             getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, bewoner.getNaam(), newBewoner.getNaam(),0));
             getSchoonmaakBierDAO().insert(new SchoonmaakBier(0, newBewoner.getNaam(), bewoner.getNaam(), 0));

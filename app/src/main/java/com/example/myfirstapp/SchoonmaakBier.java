@@ -92,5 +92,14 @@ public class SchoonmaakBier {
     private int beertotal;
 
 
-
+    @Override
+    public String toString() {
+        return "SchoonmaakBier{" +
+                "id=" + id +
+                ", toReceive='" + toReceive + '\'' +
+                ", toGive='" + toGive + '\'' +
+                ", beer=" + beer +
+                ", beertotal=" + beertotal +
+                '}';
+    }
 }

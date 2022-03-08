@@ -6,7 +6,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +20,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -181,10 +188,87 @@ public class Bierlijst extends AppCompatActivity {
         super.onResume();
 
         updateSBText();
+
+        updateImages();
     }
 
     //TODO: totaal to give and to receive is WRONG
 
+    private void updateImages(){
+        SharedPreferences sp = getSharedPreferences(MMDatabase.bewonersVolgorde,MODE_PRIVATE);
+
+        String[] Bs = {sp.getString("B1", ""),sp.getString("B2", ""),
+                sp.getString("B3", ""),sp.getString("B4", ""),sp.getString("B5", "")};
+
+        ImageButton[] Btns = {
+                (ImageButton) findViewById(R.id.IG_B1),
+                (ImageButton) findViewById(R.id.IG_B2),
+                (ImageButton) findViewById(R.id.IG_B3),
+                (ImageButton) findViewById(R.id.IG_B4),
+                (ImageButton) findViewById(R.id.IG_B5)
+        };
+
+        for(int i = 0; i < Bs.length; i++) {
+            Log.d("UPDATE IMAGE", "FOR " + Bs[i]);
+            // Try and get image and then set image
+            try {
+                    Log.d("URI For " + Bs[i], "Is present!");
+                    Uri uri = Uri.parse(sp.getString(Bs[i], ""));
+
+                    InputStream is;
+                    try{
+                        Log.e("SETTING", "BUTTON!");
+                        is = this.getContentResolver().openInputStream(uri);
+                        BitmapFactory.Options options=new BitmapFactory.Options();
+                        options.inSampleSize = 10;
+                        Bitmap preview_bitmap=BitmapFactory.decodeStream(is,null,options);
+
+                        Drawable icon = new BitmapDrawable(getResources(),preview_bitmap);
+                        Btns[i].setImageDrawable(icon);
+                    } catch(FileNotFoundException e){
+                        continue;
+                    }
+
+                } catch(NullPointerException e){
+                // there is no string to parse
+                continue;
+            }
+        }
+    }
+
+
+    private int calculateTotalToGive(String person){
+        int res = 0;
+        MMDatabase db = MMDatabase.getInstance(getApplicationContext());
+        SharedPreferences sp = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
+
+        String[] bewoners = {sp.getString("B1",""), sp.getString("B2",""), sp.getString("B3",""), sp.getString("B4",""), sp.getString("B5","")};
+        for(String bewoner : bewoners){
+            if(bewoner.equals(person)){
+                continue;
+            }
+
+            res += db.getSchoonmaakBierDAO().getSBBetweenBewoners(bewoner, person);
+        }
+
+        return res;
+    }
+
+    private int calculateTotalToReceive(String person){
+        int res = 0;
+        MMDatabase db = MMDatabase.getInstance(getApplicationContext());
+        SharedPreferences sp = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
+        String[] bewoners = {sp.getString("B1",""), sp.getString("B2",""), sp.getString("B3",""), sp.getString("B4",""), sp.getString("B5","")};
+        for(String bewoner : bewoners){
+            if(bewoner.equals(person)){
+                continue;
+            }
+
+            res += db.getSchoonmaakBierDAO().getSBBetweenBewoners(person, bewoner);
+        }
+
+        return res;
+    }
 
     // Gets new SB values and sets the proper colour
     @SuppressLint("SetTextI18n")
@@ -208,34 +292,34 @@ public class Bierlijst extends AppCompatActivity {
 
         SharedPreferences sharedPrefs = getSharedPreferences(MMDatabase.bewonersVolgorde, MODE_PRIVATE);
 
-        int B1giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B1",""));
+        int B1giveamount = calculateTotalToGive(sharedPrefs.getString("B1", ""));
         int B1textcolour = (0xff) << 24 | (min(B1giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B1giveamount, 0) & 0xff) << 8 | (0 & 0xff));
         B1give.setText(Integer.toString(B1giveamount));
-        B1receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B1",""))));
+        B1receive.setText(Integer.toString(calculateTotalToReceive(sharedPrefs.getString("B1",""))));
         B1give.setTextColor(B1textcolour);
 
-        int B2giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B2",""));
+        int B2giveamount = calculateTotalToGive(sharedPrefs.getString("B2", ""));
         int B2textcolour = (0xff) << 24 | (min(B2giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B2giveamount, 0) & 0xff) << 8 | (0 & 0xff));
         B2give.setText(Integer.toString(B2giveamount));
-        B2receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B2",""))));
+        B2receive.setText(Integer.toString(calculateTotalToReceive(sharedPrefs.getString("B2",""))));
         B2give.setTextColor(B2textcolour);
 
-        int B3giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B3",""));
+        int B3giveamount = calculateTotalToGive(sharedPrefs.getString("B3", ""));
         int B3textcolour = (0xff) << 24 | (min(B3giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B3giveamount, 0) & 0xff) << 8 | (0 & 0xff));
         B3give.setText(Integer.toString(B3giveamount));
-        B3receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B3",""))));
+        B3receive.setText(Integer.toString(calculateTotalToReceive(sharedPrefs.getString("B3",""))));
         B3give.setTextColor(B3textcolour);
 
-        int B4giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B4",""));
+        int B4giveamount = calculateTotalToGive(sharedPrefs.getString("B4", ""));
         int B4textcolour = (0xff) << 24 | (min(B4giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B4giveamount, 0) & 0xff) << 8 | (0 & 0xff));
         B4give.setText(Integer.toString(B4giveamount));
-        B4receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B4",""))));
+        B4receive.setText(Integer.toString(calculateTotalToReceive(sharedPrefs.getString("B4",""))));
         B4give.setTextColor(B4textcolour);
 
-        int B5giveamount = db.getSchoonmaakBierDAO().getSchoonmaakBiertoGiveSum(sharedPrefs.getString("B5",""));
+        int B5giveamount = calculateTotalToGive(sharedPrefs.getString("B5", ""));
         int B5textcolour = (0xff) << 24 | (min(B5giveamount*5,255) & 0xff) << 16 | ((max(255 - 5 * B5giveamount, 0) & 0xff) << 8 | (0 & 0xff));
         B5give.setText(Integer.toString(B5giveamount));
-        B5receive.setText(Integer.toString(db.getSchoonmaakBierDAO().getSchoonmaakBiertoReceiveSum(sharedPrefs.getString("B5",""))));
+        B5receive.setText(Integer.toString(calculateTotalToReceive(sharedPrefs.getString("B5",""))));
         B5give.setTextColor(B5textcolour);
 
         Log.d("AFTER SB TEXT", "UPDATE");

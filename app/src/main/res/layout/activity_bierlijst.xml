@@ -59,12 +59,12 @@
 
     <ImageButton
         android:id="@+id/IG_B5"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
         android:longClickable="true"
         android:onClick="stevenBier"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/IG_B2"
         app:layout_constraintHorizontal_bias="1.0"
@@ -121,11 +121,11 @@
 
     <ImageButton
         android:id="@+id/IG_B1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:longClickable="true"
         android:onClick="thijsBier"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/IG_B2"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -189,12 +189,12 @@
 
     <ImageButton
         android:id="@+id/IG_B2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="24dp"
         android:longClickable="true"
         android:onClick="svenBier"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBierlijst"
@@ -271,11 +271,11 @@
 
     <ImageButton
         android:id="@+id/IG_B4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:longClickable="true"
         android:onClick="rowinBier"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="@+id/IG_B1"
         app:layout_constraintStart_toStartOf="@+id/IG_B1"
         app:layout_constraintTop_toTopOf="@+id/IG_B5"
@@ -310,8 +310,8 @@
 
     <ImageButton
         android:id="@+id/IG_nonMM"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/IG_B3"
         app:layout_constraintStart_toStartOf="@+id/IG_B3"
@@ -331,12 +331,12 @@
 
     <ImageButton
         android:id="@+id/IG_B3"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="8dp"
         android:longClickable="true"
         android:onClick="etienneBier"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/IG_B2"
         app:layout_constraintTop_toTopOf="@+id/IG_B2"

@@ -215,4 +215,14 @@ public class Bewoner {
     public void setvGNaam(String vGNaam) {
         this.vGNaam = vGNaam;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bewoner bewoner = (Bewoner) o;
+        return naam.equals(bewoner.naam);
+    }
+
+
 }
