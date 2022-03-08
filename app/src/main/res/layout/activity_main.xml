@@ -52,16 +52,16 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:backgroundTint="#00FFFFFF"
+        android:contentDescription="TODO"
         android:onClick="startStatistieken"
-        android:scaleType="fitCenter"
+        android:scaleType="center"
+        app:tint="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/bierlijstBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bierlijstBtn"
         app:layout_constraintTop_toTopOf="@+id/bierlijstBtn"
         app:srcCompat="@drawable/ic_graph"
-        app:tint="#00FFFFFF"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="TODO" />
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/editBewoners"
@@ -95,16 +95,17 @@
         android:layout_height="76dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#00FFFFFF"
+        android:contentDescription="TODO"
         android:longClickable="true"
         android:onClick="startSchoonmaakbier"
-        android:scaleType="centerCrop"
+        android:scaleType="fitStart"
+        app:tint="#8F8F8F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toEndOf="@+id/titleBierlijst"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/nicepng_cleaning_icon_png_8333695"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/SBText"
@@ -124,4 +125,14 @@
         app:layout_constraintEnd_toEndOf="@+id/editBewoners"
         app:layout_constraintStart_toStartOf="@+id/editBewoners"
         app:layout_constraintTop_toBottomOf="@+id/editBewoners" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="452dp"
+        android:layout_height="396dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bierText"
+        app:srcCompat="@drawable/logomm_org" />
 </androidx.constraintlayout.widget.ConstraintLayout>
