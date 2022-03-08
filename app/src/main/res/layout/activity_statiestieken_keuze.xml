@@ -3,21 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/LeukeStatiestieken"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="67dp"
         android:layout_marginBottom="50dp"
         android:onClick="startLeukeStatistieken"
         android:text="Gooi Statistieken"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.435" />
@@ -26,10 +24,41 @@
         android:id="@+id/Biergebruik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginEnd="33dp"
         android:onClick="startStatistieken"
         android:text="Bier Gebruik"
         app:layout_constraintBottom_toBottomOf="@+id/LeukeStatiestieken"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/LeukeStatiestieken"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/LeukeStatiestieken" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="198dp"
+        android:layout_height="214dp"
+        app:layout_constraintBottom_toTopOf="@+id/LeukeStatiestieken"
+        app:layout_constraintEnd_toEndOf="@+id/LeukeStatiestieken"
+        app:layout_constraintStart_toStartOf="@+id/LeukeStatiestieken"
+        app:srcCompat="@drawable/bottle_cap" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="195dp"
+        android:layout_height="235dp"
+        app:layout_constraintBottom_toTopOf="@+id/Biergebruik"
+        app:layout_constraintEnd_toEndOf="@+id/Biergebruik"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/Biergebruik"
+        app:srcCompat="@drawable/beer_icon_night_party_freepik_544447" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="284dp"
+        android:layout_height="349dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LeukeStatiestieken"
+        app:srcCompat="@drawable/logomm_org_transparent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

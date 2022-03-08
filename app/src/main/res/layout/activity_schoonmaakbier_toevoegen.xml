@@ -11,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Hier Kan je schoonmaak bier toevoegen aan mensen"
+        android:text="Hier kan je schoonmaak bier toevoegen aan mensen"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"
@@ -33,7 +34,8 @@
             android:onClick="substractSBSven"
             app:layout_constraintStart_toStartOf="@+id/IG_SB_B2"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B2"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+            app:srcCompat="@android:drawable/button_onoff_indicator_on"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/addSBsteven"
@@ -41,34 +43,37 @@
             android:layout_height="40dp"
             android:onClick="addSBSteven"
             app:layout_constraintEnd_toEndOf="@+id/IG_SB_B5"
-            app:layout_constraintStart_toEndOf="@+id/editTextSBSteven"
-            app:layout_constraintTop_toBottomOf="@+id/IG_SB_B5"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:layout_constraintTop_toTopOf="@+id/editTextSBSteven"
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="#000000" />
 
         <EditText
             android:id="@+id/editTextSBEtienne"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="numberSigned"
+            app:layout_constraintEnd_toStartOf="@+id/addSBEtienne"
             app:layout_constraintStart_toEndOf="@+id/substractSBEtienne"
-            app:layout_constraintTop_toTopOf="@+id/substractSBEtienne" />
+            app:layout_constraintTop_toBottomOf="@+id/IG_SB_B3" />
 
         <EditText
             android:id="@+id/editTextSBSteven"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="numberSigned"
+            app:layout_constraintEnd_toStartOf="@+id/addSBsteven"
             app:layout_constraintStart_toEndOf="@+id/substractSBSteven"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B5" />
 
         <EditText
             android:id="@+id/editTextSBSven"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="numberSigned"
+            app:layout_constraintEnd_toStartOf="@+id/addSBSven"
             app:layout_constraintStart_toEndOf="@+id/substractB2"
             app:layout_constraintTop_toTopOf="@+id/substractB2" />
 
@@ -90,9 +95,9 @@
             android:layout_height="40dp"
             android:onClick="addSBSven"
             app:layout_constraintEnd_toEndOf="@+id/IG_SB_B2"
-            app:layout_constraintStart_toEndOf="@+id/editTextSBSven"
             app:layout_constraintTop_toTopOf="@+id/editTextSBSven"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/IG_SB_B2"
@@ -117,7 +122,8 @@
             android:onClick="substractSBSteven"
             app:layout_constraintStart_toStartOf="@+id/IG_SB_B5"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B5"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+            app:srcCompat="@android:drawable/button_onoff_indicator_on"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/addSBRowin"
@@ -127,18 +133,18 @@
             app:layout_constraintEnd_toEndOf="@+id/IG_SB_B4"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B4"
             app:srcCompat="@android:drawable/ic_input_add"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            app:tint="#000000" />
 
         <EditText
             android:id="@+id/editTextSBRowin"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="numberSigned"
             app:layout_constraintEnd_toStartOf="@+id/addSBRowin"
             app:layout_constraintStart_toEndOf="@+id/substractSBRowin"
-            app:layout_constraintTop_toTopOf="@+id/substractSBRowin"
-            tools:text="50" />
+            app:layout_constraintTop_toTopOf="@+id/substractSBRowin" />
 
         <ImageButton
             android:id="@+id/IG_SB_B1"
@@ -154,14 +160,13 @@
 
         <EditText
             android:id="@+id/editTextSBThijs"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="numberSigned"
             app:layout_constraintEnd_toStartOf="@+id/addSBThijs"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/substractSBThijs"
-            app:layout_constraintTop_toTopOf="@+id/substractSBThijs"
+            app:layout_constraintTop_toBottomOf="@+id/IG_SB_B1"
             tools:text="0" />
 
         <ImageButton
@@ -183,7 +188,8 @@
             android:onClick="substractSBRowin"
             app:layout_constraintStart_toStartOf="@+id/IG_SB_B4"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B4"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+            app:srcCompat="@android:drawable/button_onoff_indicator_on"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/substractSBThijs"
@@ -192,7 +198,8 @@
             android:onClick="substractSBThijs"
             app:layout_constraintStart_toStartOf="@+id/IG_SB_B1"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B1"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+            app:srcCompat="@android:drawable/button_onoff_indicator_on"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/IG_SB_B4"
@@ -215,27 +222,30 @@
             android:onClick="substractSBEtienne"
             app:layout_constraintStart_toStartOf="@+id/IG_SB_B3"
             app:layout_constraintTop_toBottomOf="@+id/IG_SB_B3"
-            app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+            app:srcCompat="@android:drawable/button_onoff_indicator_on"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/addSBEtienne"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:onClick="addSBEtienne"
-            app:layout_constraintStart_toEndOf="@+id/editTextSBEtienne"
+            app:layout_constraintEnd_toEndOf="@+id/IG_SB_B3"
             app:layout_constraintTop_toTopOf="@+id/editTextSBEtienne"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/processSB"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
             android:onClick="processSB"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/IG_SB_B5"
             app:layout_constraintTop_toTopOf="@+id/IG_SB_B4"
-            app:srcCompat="@drawable/beer512" />
+            app:srcCompat="@drawable/beer512"
+            app:tint="#000000" />
 
         <ImageButton
             android:id="@+id/addSBThijs"
@@ -244,7 +254,8 @@
             android:onClick="addSBThijs"
             app:layout_constraintEnd_toEndOf="@+id/IG_SB_B1"
             app:layout_constraintTop_toTopOf="@+id/substractSBThijs"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="#000000" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
